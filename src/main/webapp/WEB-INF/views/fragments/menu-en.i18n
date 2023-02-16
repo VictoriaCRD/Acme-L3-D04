@@ -19,7 +19,8 @@ master.menu.sign-out = Sign out
 
 master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link = 29510404R: Bermúdez Imaz, Pablo
-
+master.menu.anonymous.marpedrod3.favourite-link = Isabel's favourite link
+master.menu.anonymous.vicruidel1.favourite-link = Victoria's favourite link
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
