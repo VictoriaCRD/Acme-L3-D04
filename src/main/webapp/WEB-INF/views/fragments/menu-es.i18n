@@ -17,11 +17,9 @@ master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
 master.menu.anonymous = Anónimo
-master.menu.anonymous.marpedrod3.favourite-link = Enlace favorito Isabel 
-master.menu.anonymous.vicruidel1.favourite-link = Isabel's enlace favorito
-master.menu.anonymous.favourite-link = 29510404R: Bermúdez Imaz, Pablo
+master.menu.pabberima.favourite-link = 29510404R: Bermúdez Imaz, Pablo
 master.menu.alvparbor1.favourite-link = 44053812A:Paradas Borrego, Álvaro
-
+master.menu.marpedrod3.favourite-link = 53772352P:Pedraz Rodríguez, María Isabel
 
 # master.menu.administrator ###################################################
 

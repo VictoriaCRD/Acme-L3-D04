@@ -19,9 +19,9 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
-			<acme:menu-suboption code="53772352P:Pedraz Rodríguez, María Isabel" action= "http://www.cuquirecetasdemariel.wixsite.com/site"/>
-			<acme:menu-suboption code="47560682V:Ruiz Delgado, Victoria del Carmen"  action="https://www.wizardingworld.com/"/>
+			<acme:menu-suboption code="master.menu.pabberima.favourite-link" action="https://www.youtube.com/watch?v=dQw4w9WgXcQ"/>
+			<acme:menu-suboption code="master.menu.vicruidel1.favourite-link"  action="https://www.wizardingworld.com/"/>
+			<acme:menu-suboption code="master.menu.marpedrod3.favourite-link" action= "http://www.cuquirecetasdemariel.wixsite.com/site"/>
 			<acme:menu-suboption code="master.menu.alvparbor1.favourite-link" action="https://www.linkedin.com/in/alvaro-paradas-borrego-756661206/"/>
 		</acme:menu-option>
 
