@@ -16,11 +16,14 @@ master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
-
-master.menu.anonymous = Anónimo
+master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link = Enlace favorito
+<<<<<<< HEAD
 master.menu.anonymous.marpedrod3.favourite-link = Enlace favorito Isabel 
 
+=======
+master.menu.anonymous.vicruidel1.favourite-link = Isabel's enlace favorito
+>>>>>>> branch 'master' of https://github.com/VictoriaCRD/Acme-L3-23.1.0
 
 # master.menu.administrator ###################################################
 
