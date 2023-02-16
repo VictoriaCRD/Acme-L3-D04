@@ -20,8 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.marpedrod3.favourite-link" action="http://www.cuquirecetasdemariel.wixsite.com/site"/>
+			<acme:menu-suboption code="53772352P:Pedraz Rodríguez, María Isabel" action= "http://www.cuquirecetasdemariel.wixsite.com/site"/>
 			<acme:menu-suboption code="47560682V:Ruiz Delgado, Victoria del Carmen"  action="https://www.wizardingworld.com/"/>
 		</acme:menu-option>
 
