@@ -20,6 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.vicruidel1-favourite-link" action="https://www.wizardingworld.com/"/>
+			<acme:menu-suboption code="master.menu.alvparbor1.favourite-link" action="https://www.linkedin.com/in/alvaro-paradas-borrego-756661206/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
