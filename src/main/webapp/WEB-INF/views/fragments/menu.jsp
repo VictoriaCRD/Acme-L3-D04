@@ -19,7 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="https://www.wizardingworld.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.vicruidel1-favourite-link" action="https://www.wizardingworld.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
