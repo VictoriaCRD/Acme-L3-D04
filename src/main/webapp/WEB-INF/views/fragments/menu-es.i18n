@@ -16,9 +16,9 @@ master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
-
-master.menu.anonymous = 47560682V:Ruiz Delgado, Victoria del Carmen
+master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous.vicruidel1.favourite-link = Isabel's enlace favorito
 
 # master.menu.administrator ###################################################
 

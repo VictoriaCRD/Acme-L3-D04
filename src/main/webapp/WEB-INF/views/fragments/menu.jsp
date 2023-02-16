@@ -2,7 +2,7 @@
 - menu.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
--
+
 - In keeping with the traditional purpose of furthering education and research, it is
 - the policy of the copyright owner to permit non-commercial use and redistribution of
 - this software. It has been tested carefully, but it is not guaranteed for any particular
@@ -19,7 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.vicruidel1-favourite-link" action="https://www.wizardingworld.com/"/>
+			<acme:menu-suboption code="47560682V:Ruiz Delgado, Victoria del Carmen"  action="https://www.wizardingworld.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
