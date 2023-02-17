@@ -9,9 +9,8 @@
 # they accept any liabilities with respect to them.
 
 - Rafael Corchuelo (corchu@us.es)
-<<<<<<< HEAD
+
 - María Isabel Pedraz Rodríguez (marpedrod3@alum.us.es)
 - Victoria de Carmen Ruíz Delgado (vicruidel1@alum.us.es)
-=======
 - Álvaro Paradas Borrego (alvparbor1@alum.us.es)
->>>>>>> branch 'D01-alvparbor1' of https://github.com/VictoriaCRD/Acme-L3-23.1.0
+
