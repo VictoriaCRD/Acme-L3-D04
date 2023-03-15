@@ -1,34 +1,40 @@
 
-package acme.roles;
+package acme.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.framework.data.AbstractRole;
+import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Auditor extends AbstractRole {
+public class Audit extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
+	@Column(unique = true)
 	@NotBlank
-	@Length(max = 76)
-	protected String			firm;
-
-	@NotBlank
-	@Length(max = 26)
-	protected String			professionalID;
+	//@Pattern(regexp =)
+	protected String			code;
 
 	@NotBlank
 	@Length(max = 101)
-	protected String			certifications;
+	protected String			conclusion;
+
+	@NotBlank
+	@Length(max = 101)
+	protected String			strongPoint;
+
+	@NotBlank
+	@Length(max = 101)
+	protected String			weakPoint;
 
 	@URL
 	protected String			link;
