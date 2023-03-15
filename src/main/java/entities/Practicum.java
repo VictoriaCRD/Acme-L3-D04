@@ -19,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Practicum extends AbstractEntity {
+public class Practicum extends AbstractEntity { 
 
 	// Serialisation identifier -----------------------------------------------
 
