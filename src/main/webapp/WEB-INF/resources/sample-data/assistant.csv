@@ -1,6 +1,9 @@
-key,key:userAccount,,,,
-assistant1,user-account-assistant1-01,supervisor1,field1,This is a short resume,www.google.es
-assistant2,user-account-assistant2-01,supervisor2,field2,This is a short resume 2,null
-assistant4,user-account-assistant4-01,supervisor4,field4,This is a short resume 4,null
-assistant5,user-account-assistant5-01,supervisor5,field5,This is a short resume 5,null
-assistant3,user-account-assistant3-01,supervisor3,field3,This is a resume,www.twitter.com
+key,key:userAccount,supervisor,fields,resume,link
+assistant1,user-account-assistant1-01,Marie Salomea Skłodowska–Curie,physics; chemistry,Recueil des conférences-rapports de documentation sur la physique : L’Isotopie  et éléments isotopes,null
+assistant2,user-account-assistant2-01,Guillermo del Toro Gomez,Film director; producer; screenwriter; author,Pacific Rim; Crimson Peak; The Shape of Water; Nightmare Alley; Pinocchio; Hellboy; Pan's Labyrinth,https://en.wikipedia.org/wiki/Guillermo_del_Toro
+assistant3,user-account-assistant3-01,Amelia Mary Earhart,Aviator; author,Woman's world altitude record; First woman to fly the Atlantic Ocean; First woman fly Atlantic  solo,null
+assistant4,user-account-assistant4-01,Gabrielle Bonheur Chanel (Coco Chanel),Milliner; dressmaker; fashion designer,"Neiman Marcus Fashion Award, 1957",https://www.chanel.com/es/
+assistant5,user-account-assistant5-01,Carmen Eulalia Campoamor Rodríguez (known as Clara Campoamor),Milliner; dressmaker; fashion designer,Being the main driving force behind women's suffrage in Spain; Women and Parliament Prize awarded,null
+assistant6,user-account-assistant6-01,Annelies Marie Frank (known as Anna Frank),Diarist; writer,She was a girl who kept a diary in which she documented life in hiding under Nazi persecution,https://www.amazon.es/El-diario-Ana-Frank-CONTEMPORANEA/dp/8497593065
+assistant7,user-account-assistant7-01,Christophorus Columbus; Cristóbal Colón; Cristoforo Colombo; Chriss Corombo,Navigator; cartographer; admiral; viceroy; governor general of the West Indies.,"He made the so-called discovery of America on October 12 1492, when he reached the island  Guanahani",null
+assistant8,user-account-assistant8-01,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tortor.",mathematics; Physics; Chemistry; Earth science; Space science; Biochemistry; Microbiology; Statistic,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris magna ipsum, maximus eu suscipit ac.",null

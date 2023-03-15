@@ -3,3 +3,11 @@ user-account-anonymous-01,false,"UserIdentity{name: 'John', surname: 'Doe', emai
 user-account-administrator-01,true,"UserIdentity{name: 'Administrator', surname: 'Acme', email: 'administrator@acme.com'}",administrator,administrator
 user-account-assistant1-01,true,"UserIdentity{name: 'Assistant1', surname: 'Acme', email: 'assistant1@acme.com'}",assistant1,assistant1
 user-account-assistant2-01,true,"UserIdentity{name: 'Assistant2', surname: 'Acme', email: 'assistant2@acme.com'}",assistant2,assistant2
+user-account-assistant3-01,true,"UserIdentity{name: 'Assistant3', surname: 'Acme', email: 'assistant3@acme.com'}",assistant3,assistant3
+user-account-assistant4-01,true,"UserIdentity{name: 'Assistant4', surname: 'Acme', email: 'assistant4@acme.com'}",assistant4,assistant4
+user-account-assistant5-01,true,"UserIdentity{name: 'Assistant5', surname: 'Acme', email: 'assistant5@acme.com'}",assistant5,assistant5
+user-account-assistant6-01,true,"UserIdentity{name: 'Assistant6', surname: 'Acme', email: 'assistant6@acme.com'}",assistant6,assistant6
+user-account-assistant7-01,true,"UserIdentity{name: 'Assistant7', surname: 'Acme', email: 'assistant7@acme.com'}",assistant7,assistant7
+user-account-assistant8-01,true,"UserIdentity{name: 'Assistant8', surname: 'Acme', email: 'assistant8@acme.com'}",assistant8,assistant8
+user-account-assistant9-01,true,"UserIdentity{name: 'Assistant9', surname: 'Acme', email: 'assistant9@acme.com'}",assistant9,assistant9
+user-account-assistant10-01,true,"UserIdentity{name: 'Assistant10', surname: 'Acme', email: 'assistant10@acme.com'}",assistant10,assistant10

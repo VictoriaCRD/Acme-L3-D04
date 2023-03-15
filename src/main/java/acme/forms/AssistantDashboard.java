@@ -30,6 +30,10 @@ public class AssistantDashboard extends AbstractForm {
 
 	private Map<String, Integer>	totalTutorialsPerType;
 
+	private Map<String, Integer>	totalSessionsPerTutorial;
+
+	private Map<String, Integer>	totalTimePerTutorial;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
