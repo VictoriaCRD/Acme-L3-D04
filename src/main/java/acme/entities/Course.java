@@ -57,7 +57,7 @@ public class Course extends AbstractRole {
 	protected Double			price;
 
 	@NotBlank
-	protected SessionType		sessionType;
+	protected EnumType			sessionType;
 
 	@URL
 	protected String			link;
@@ -70,6 +70,6 @@ public class Course extends AbstractRole {
 	@Valid
 	@ManyToOne(optional = false)
 
-	protected Tutorialm			tutorial;
+	protected Tutorial			tutorial;
 
 }

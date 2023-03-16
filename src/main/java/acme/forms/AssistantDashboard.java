@@ -14,6 +14,8 @@ package acme.forms;
 
 import java.util.Map;
 
+import acme.datatypes.Stats;
+import acme.entities.EnumType;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,11 +30,11 @@ public class AssistantDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------------
 
-	private Map<String, Integer>	totalTutorialsPerType;
+	private Map<EnumType, Integer>	totalTutorialsPerType;
 
-	private Map<String, Integer>	totalSessionsPerTutorial;
+	private Stats					totalTimePerSession;
 
-	private Map<String, Integer>	totalTimePerTutorial;
+	private Stats					totalTimePerTutorial;
 
 	// Derived attributes -----------------------------------------------------
 

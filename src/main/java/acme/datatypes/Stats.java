@@ -12,14 +12,13 @@
 
 package acme.datatypes;
 
-import acme.entities.Tutorialm;
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Status extends AbstractRole {
+public class Stats extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -27,23 +26,10 @@ public class Status extends AbstractRole {
 
 	// Attributes -------------------------------------------------------------
 
-	Tutorialm					sum;
-	Tutorialm					average;
-	Tutorialm					desviation;
-	Tutorialm					minimum;
-	Tutorialm					maximum;
-
-
-	public Status(final Tutorialm sum, final Tutorialm average, final Tutorialm desviation, final Tutorialm minimum, final Tutorialm maximum) {
-		this.sum = sum;
-		this.average = average;
-		this.desviation = desviation;
-		this.minimum = minimum;
-		this.maximum = maximum;
-	}
-
-	public Status() {
-	}
+	Double						average;
+	Double						standardDesviation;
+	Double						minimum;
+	Double						maximum;
 
 	// Derived attributes -----------------------------------------------------
 

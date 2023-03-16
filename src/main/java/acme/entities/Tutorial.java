@@ -23,13 +23,14 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.framework.data.AbstractRole;
+import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Tutorialm extends AbstractRole {
+public class Tutorial extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -39,7 +40,7 @@ public class Tutorialm extends AbstractRole {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "“[A-Z]{1,3}[0-9][0-9]{3}")
+	@Pattern(regexp = "“[A-Z]{1,3}[0-9]{3}")
 	protected String			code;
 
 	@NotBlank
@@ -50,11 +51,12 @@ public class Tutorialm extends AbstractRole {
 	@Length(max = 100)
 	protected String			abstractm;
 
+	//Separados por ;
 	@NotBlank
 	@Length(max = 100)
 	protected String			goals;
 
-	protected Double			estimatedTime;
+	protected double			estimatedTime;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -65,5 +67,11 @@ public class Tutorialm extends AbstractRole {
 	@ManyToOne(optional = false)
 
 	protected Course			course;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+
+	protected Assistant			assistant;
 
 }

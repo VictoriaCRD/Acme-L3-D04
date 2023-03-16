@@ -1,7 +1,7 @@
 
 package acme.entities;
 
-public enum SessionType {
+public enum EnumType {
 
 	THEORY, HANDS_ON
 }

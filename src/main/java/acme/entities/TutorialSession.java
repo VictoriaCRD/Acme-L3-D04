@@ -32,7 +32,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Sessionsm extends AbstractEntity {
+public class TutorialSession extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -49,7 +49,7 @@ public class Sessionsm extends AbstractEntity {
 	protected String			abstractm;
 
 	@NotBlank
-	protected SessionType		sessionType;
+	protected EnumType			sessionType;
 
 	/*
 	 * Al menos un día de diferencia desde que
@@ -76,6 +76,6 @@ public class Sessionsm extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 
-	protected Tutorialm			tutorial;
+	protected Tutorial			tutorial;
 
 }
