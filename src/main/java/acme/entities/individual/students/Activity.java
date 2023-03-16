@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.Nature;
+import acme.entities.group.EnumType;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,16 +39,12 @@ public class Activity extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				finishDate;
-	//TODO Custom restriction=> initialDate must be < finishDate 
-	//& finishDate must be > iniialDate
-
-	//TODO Derived attribute=> Double timePeriod= finishDate-initialDate
 
 	@URL
 	protected String			link;
 
 	@NotNull
-	protected Nature			typeOfActivity;
+	protected EnumType			typeOfActivity;
 
 	@ManyToOne(optional = false)
 	@Valid

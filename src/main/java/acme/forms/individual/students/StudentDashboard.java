@@ -3,7 +3,9 @@ package acme.forms.individual.students;
 
 import java.util.Map;
 
-import acme.entities.individual.students.Enrolment;
+import com.google.common.math.Stats;
+
+import acme.entities.group.EnumType;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,14 +14,12 @@ import lombok.Setter;
 @Setter
 public class StudentDashboard extends AbstractForm {
 
-	protected static final long					serialVersionUID	= 1L;
+	protected static final long			serialVersionUID	= 1L;
 
-	protected Map<Enrolment, Integer>			totalNumberOfTheoricalActivitiesPerEnrolment;
+	protected Map<EnumType, Integer>	totalNumberOfActivities;
 
-	protected Map<Enrolment, Integer>			totalNumberOfHandsOnActivitiesPerEnrolment;
+	protected Stats						stadisticsOfTimePeriodFromActivies;
 
-	protected Map<Enrolment, StudentStadistics>	stadisticsOfTimePeriodFromActivies;
-
-	protected StudentStadistics					stadisticsOfWorkingTimeFromEnrolments;
+	protected Stats						stadisticsOfWorkingTimeFromEnrolmentstotalNumberOfHandsOnActivities;
 
 }

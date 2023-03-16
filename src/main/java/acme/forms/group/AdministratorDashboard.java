@@ -19,7 +19,6 @@ public class AdministratorDashboard extends AbstractForm {
 
 	//Strings represent every role: Assistant, Auditor, Consumer, Lecturer, Provider, Student
 	Map<String, Integer>		numberOfPrincipalsByRol;
-
 	Double						peepsWithEmailAndLinkRatio;
 	Double						criticalBulletinsRatio;
 	Double						nonCriticalBulletinsRatio;
