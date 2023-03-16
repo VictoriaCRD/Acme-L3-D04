@@ -14,6 +14,8 @@
 package acme.datatypes;
 
 import acme.framework.data.AbstractRole;
+import acme.framework.data.AbstractDatatype;
+
 import lombok.Getter;
 import lombok.Setter;
 

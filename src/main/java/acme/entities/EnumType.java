@@ -1,7 +1,5 @@
-
 package acme.entities;
 
 public enum EnumType {
-
-	THEORY, HANDS_ON
+	THEORY, HAND_ON
 }

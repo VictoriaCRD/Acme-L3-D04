@@ -23,4 +23,8 @@ import lombok.Setter;
 @Setter
 public class Course extends AbstractEntity {
 
+	protected static final long	serialVersionUID	= 1L;
+
+	protected EnumType			courseType;
+
 }
