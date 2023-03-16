@@ -7,8 +7,10 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
@@ -38,6 +40,16 @@ public class Course extends AbstractEntity {
 	@NotBlank
 	@Length(max = 100)
 	protected String			abstractCourse;
+	
+	@NotBlank
+	@PositiveOrZero
+	protected Double			price;
+	
+	@NotNull
+	protected Course			typeOfCourse;
+	
+	@URL
+	protected String			link;
 
 	
 
@@ -45,5 +57,10 @@ public class Course extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 	
+	
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Lecturer			lecturer;
 
 }
