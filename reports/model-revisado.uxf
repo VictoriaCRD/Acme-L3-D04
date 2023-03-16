@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>441</x>
+      <x>672</x>
       <y>7</y>
       <w>413</w>
       <h>112</h>
@@ -27,7 +27,7 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1001</x>
+      <x>1232</x>
       <y>63</y>
       <w>294</w>
       <h>98</h>
@@ -47,7 +47,7 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>791</x>
+      <x>1022</x>
       <y>532</y>
       <w>406</w>
       <h>84</h>
@@ -63,7 +63,7 @@ bg=green</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1057</x>
+      <x>1288</x>
       <y>462</y>
       <w>154</w>
       <h>56</h>
@@ -78,7 +78,7 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1001</x>
+      <x>1232</x>
       <y>483</y>
       <w>70</w>
       <h>63</h>
@@ -89,7 +89,7 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>910</x>
+      <x>1141</x>
       <y>672</y>
       <w>203</w>
       <h>56</h>
@@ -104,7 +104,7 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>973</x>
+      <x>1204</x>
       <y>609</y>
       <w>21</w>
       <h>77</h>
@@ -115,7 +115,7 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>231</x>
       <y>35</y>
       <w>329</w>
       <h>91</h>
@@ -135,7 +135,7 @@ bg=green</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>854</x>
+      <x>1085</x>
       <y>231</y>
       <w>147</w>
       <h>84</h>
@@ -144,14 +144,14 @@ bg=green</panel_attributes>
 startDate debe haber mínimo
 un día de diferencia, y, 
 el endDate debe ser como mucho
-1 semana después de moment
+1 semana desùés del moment
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>917</x>
+      <x>1148</x>
       <y>308</y>
       <w>112</w>
       <h>91</h>
@@ -162,7 +162,7 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>861</x>
+      <x>1092</x>
       <y>0</y>
       <w>168</w>
       <h>63</h>
@@ -176,7 +176,7 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>847</x>
+      <x>1078</x>
       <y>14</y>
       <w>28</w>
       <h>28</h>
@@ -185,9 +185,37 @@ bg=blue</panel_attributes>
     <additional_attributes>10.0;20.0;20.0;20.0</additional_attributes>
   </element>
   <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>679</x>
+      <y>518</y>
+      <w>84</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=*
+pertenece a ^</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>490</y>
+      <w>133</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=*
+está creado por &gt;</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>231</x>
       <y>147</y>
       <w>329</w>
       <h>105</h>
@@ -207,7 +235,7 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1015</x>
+      <x>1246</x>
       <y>196</y>
       <w>301</w>
       <h>91</h>
@@ -226,7 +254,7 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1015</x>
+      <x>1246</x>
       <y>322</y>
       <w>301</w>
       <h>112</h>
@@ -247,7 +275,7 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>413</x>
+      <x>644</x>
       <y>196</y>
       <w>413</w>
       <h>105</h>
@@ -259,7 +287,7 @@ Banner
 + startDate: Date {NotNull, Temporal(TIMESTAMP)}
 + endDate: Date {NotNull, Temporal(TIMESTAMP)}
 + picture: String {NotBlank, URL}
-+ slogan: String {NotBlank, Length(1,75)}
++ slogan: String {NotBlank, Length(1,76)}
 + target: String {NotBlank,URL}
 
 
@@ -270,7 +298,7 @@ bg=green</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>525</x>
+      <x>756</x>
       <y>378</y>
       <w>147</w>
       <h>84</h>
@@ -286,7 +314,7 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>427</x>
+      <x>658</x>
       <y>294</y>
       <w>112</w>
       <h>133</h>
@@ -297,10 +325,10 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>231</x>
       <y>273</y>
       <w>329</w>
-      <h>84</h>
+      <h>105</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 Stats
