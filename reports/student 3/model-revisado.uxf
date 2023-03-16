@@ -4,13 +4,13 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>112</y>
+      <x>296</x>
+      <y>40</y>
       <w>424</w>
       <h>128</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-Sessionm
+Tutorial
 --
 + title: String {NotBlank, Length(1,75)}
 + abstract: String {NotBlank, Length(1,100)}
@@ -28,8 +28,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>800</x>
-      <y>400</y>
+      <x>776</x>
+      <y>328</y>
       <w>464</w>
       <h>72</h>
     </coordinates>
@@ -44,8 +44,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>928</x>
-      <y>528</y>
+      <x>904</x>
+      <y>456</y>
       <w>232</w>
       <h>64</h>
     </coordinates>
@@ -59,8 +59,8 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1000</x>
-      <y>464</y>
+      <x>976</x>
+      <y>392</y>
       <w>32</w>
       <h>80</h>
     </coordinates>
@@ -70,13 +70,13 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>96</x>
-      <y>376</y>
+      <x>72</x>
+      <y>304</y>
       <w>200</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enum&gt;&gt;
-SessionType
+EnumType
 --
 THEORY, HANDS_ON
 
@@ -86,8 +86,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>736</x>
-      <y>168</y>
+      <x>712</x>
+      <y>96</y>
       <w>248</w>
       <h>112</h>
     </coordinates>
@@ -100,8 +100,8 @@ Additional Support</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>24</x>
-      <y>256</y>
+      <x>0</x>
+      <y>184</y>
       <w>280</w>
       <h>80</h>
     </coordinates>
@@ -118,13 +118,13 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>968</x>
-      <y>192</y>
+      <x>944</x>
+      <y>120</y>
       <w>344</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-Tutorial
+TutorialSession
 --
 + code: String {NotNull, Pattern("[A-Z]{1,3}[0-9][0-9]{3}”, Unique}
 + title: String {NotNull, Length (1,100)}
@@ -137,8 +137,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>904</x>
-      <y>72</y>
+      <x>880</x>
+      <y>0</y>
       <w>272</w>
       <h>104</h>
     </coordinates>
@@ -157,8 +157,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>64</x>
-      <y>112</y>
+      <x>40</x>
+      <y>40</y>
       <w>200</w>
       <h>96</h>
     </coordinates>
@@ -176,8 +176,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>376</x>
-      <y>336</y>
+      <x>352</x>
+      <y>264</y>
       <w>360</w>
       <h>128</h>
     </coordinates>
@@ -188,7 +188,7 @@ Course
 + title: {NotBlank, Lenght(1,75)}
 + abstract: String {NotBlank, Length(1,100)}
 + price: Double {NotBlank, PositiveOrZero}
-+ sessionType: Enum&lt;SessionType&gt; {NotBlank}
++ sessionType: EnumType {NotBlank}
 + info: String {URL}
 
 
@@ -200,8 +200,8 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>552</x>
-      <y>280</y>
+      <x>528</x>
+      <y>208</y>
       <w>432</w>
       <h>80</h>
     </coordinates>
@@ -215,8 +215,8 @@ Means
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>360</x>
-      <y>248</y>
+      <x>336</x>
+      <y>176</y>
       <w>232</w>
       <h>64</h>
     </coordinates>
@@ -231,8 +231,8 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
-      <y>232</y>
+      <x>560</x>
+      <y>160</y>
       <w>56</w>
       <h>72</h>
     </coordinates>
@@ -242,8 +242,8 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1160</x>
-      <y>96</y>
+      <x>1136</x>
+      <y>24</y>
       <w>136</w>
       <h>112</h>
     </coordinates>
