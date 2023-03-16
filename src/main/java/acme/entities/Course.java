@@ -39,14 +39,14 @@ public class Course extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 100)
-	protected String			abstractCourse;
+	protected String			abstracttm;
 	
 	@NotBlank
 	@PositiveOrZero
 	protected Double			price;
 	
 	@NotNull
-	protected Course			typeOfCourse;
+	protected EnumType			enumType;
 	
 	@URL
 	protected String			link;

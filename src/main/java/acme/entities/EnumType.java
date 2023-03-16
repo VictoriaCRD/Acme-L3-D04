@@ -1,6 +1,6 @@
-package acme.datatypes;
+package acme.entities;
 
-public enum Course {
+public enum EnumType {
 	THEORY, HANDS_ON;
 
 }
