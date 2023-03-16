@@ -11,7 +11,7 @@ public class Dashboard extends AbstractForm {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	Double						totalNumberOfJAuditPerCourse;
+	Double						totalNumberOfAuditPerCourse;
 	Double						averageNumberOfRecordPerAudit;
 	Double						deviationNumberOfRecordPerAudit;
 	Double						minNumberOfRecordPerAudit;
