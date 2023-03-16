@@ -1,8 +1,9 @@
 
-package acme.forms.group;
+package acme.forms;
 
 import java.util.Map;
 
+import acme.datatypes.Stats;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,14 +25,8 @@ public class AdministratorDashboard extends AbstractForm {
 	Double						nonCriticalBulletinsRatio;
 
 	//Strings represent currencies: EUR, USD, GBP
-	Map<String, Double>			averageBudgetOffersByCurrency;
-	Map<String, Double>			minimunBudgetOffersByCurrency;
-	Map<String, Double>			maximunBudgetOffersByCurrency;
-	Map<String, Double>			offersBudgetDeviationByCurrency;
 
-	Double						averageNumberOfNotesOverLastTenWeeks;
-	Double						minimunNumberOfNotesOverLastTenWeeks;
-	Double						maximunNumberOfNotesOverLastTenWeeks;
-	Double						NumberOfNotesDeviationOverLastTenWeeks;
+	protected Stats				stadisticsOfCurrency;
+	protected Stats				stadisticsOfNotesOverLastTenWeeks;
 
 }

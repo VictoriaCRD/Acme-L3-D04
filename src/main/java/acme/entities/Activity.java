@@ -1,5 +1,5 @@
 
-package acme.entities.individual.students;
+package acme.entities;
 
 import java.util.Date;
 
@@ -14,7 +14,6 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.group.EnumType;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;

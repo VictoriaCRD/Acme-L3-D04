@@ -1,11 +1,10 @@
 
-package acme.forms.individual.students;
+package acme.forms;
 
 import java.util.Map;
 
-import com.google.common.math.Stats;
-
-import acme.entities.group.EnumType;
+import acme.datatypes.Stats;
+import acme.entities.EnumType;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
