@@ -39,5 +39,4 @@ public class Audit extends AbstractEntity {
 
 	@URL
 	protected String			link;
-
 }
