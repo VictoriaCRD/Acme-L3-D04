@@ -48,4 +48,9 @@ public class AuditRecord extends AbstractEntity {
 	@ManyToOne
 	protected Audit				audit;
 
+	@NotNull
+	@Valid
+	@ManyToOne
+	protected Course			course;
+
 }

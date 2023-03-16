@@ -37,6 +37,8 @@ public class Audit extends AbstractEntity {
 	@Length(max = 101)
 	protected String			weakPoint;
 
+	protected Mark				mark;
+
 	@URL
 	protected String			link;
 }

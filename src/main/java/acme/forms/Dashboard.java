@@ -1,6 +1,11 @@
 
 package acme.forms;
 
+import java.util.Map;
+
+import javax.persistence.EnumType;
+
+import acme.datatypes.Stats;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,14 +16,8 @@ public class Dashboard extends AbstractForm {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	Double						totalNumberOfAuditPerCourse;
-	Double						averageNumberOfRecordPerAudit;
-	Double						deviationNumberOfRecordPerAudit;
-	Double						minNumberOfRecordPerAudit;
-	Double						maxNumberOfRecordPerAudit;
-	Double						averageLengthOfPeriodPerRecord;
-	Double						deviationLengthOfPeriodPerRecord;
-	Double						minLenghtOfPeriodRecord;
-	Double						maxLenghtOfPeriodRecord;
+	Map<EnumType, Integer>		totalNumberOfAuditPerCourseType;
+	Stats						NumberOfRecordPerAudit;
+	Stats						LengthOfPeriodPerRecord;
 
 }

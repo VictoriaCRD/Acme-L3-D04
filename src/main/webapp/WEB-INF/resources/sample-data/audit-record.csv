@@ -1,3 +1,3 @@
-key,subject,start-date,end-date,link,assesment,key:audit
-audit-record-01,subject1,2020/09/01 11:00,2020/09/01 13:00,https://www.google.com/,assesment1,audit-01
-audit-record-02,subject2,2020/09/01 10:00,2020/09/01 11:03,,assesment2,audit-02
+key,subject,start-date,end-date,link,assesment,key:audit,key:course
+audit-record-01,subject1,2020/09/01 11:00,2020/09/01 13:00,https://www.google.com/,assesment1,audit-01,course-01
+audit-record-02,subject2,2020/09/01 10:00,2020/09/01 11:03,,assesment2,audit-02,course-02
