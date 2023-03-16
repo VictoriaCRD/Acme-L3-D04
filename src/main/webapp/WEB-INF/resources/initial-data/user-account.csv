@@ -13,3 +13,5 @@ user-account-assistant7-01,true,"UserIdentity{name: 'Assistant7', surname: 'Acme
 user-account-assistant8-01,true,"UserIdentity{name: 'Assistant8', surname: 'Acme', email: 'assistant8@acme.com'}",assistant8,assistant8
 user-account-student-01,true,"UserIdentity{name: 'Victoria', surname: 'Ruiz', email: 'student01@gmail.com'}",student1,student1
 user-account-student-02,true,"UserIdentity{name: 'María', surname: 'Lopez', email: 'student02@gmail.com'}",student2,student2
+user-acount-company-01,true,"UserIdentity{name: 'Seat', surname: 'Leon', email: 'seat@hotmail.com}",company1,company1
+user-acount-company-02,true,"UserIdentity{name: 'Audi', surname: 'España', email: 'audi@hotmail.com'}",company2,company2
