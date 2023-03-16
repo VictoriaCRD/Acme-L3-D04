@@ -1,4 +1,3 @@
-
 package acme.roles;
 
 import javax.persistence.Entity;
