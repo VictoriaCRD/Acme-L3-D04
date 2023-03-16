@@ -1,4 +1,3 @@
-
 /*
  * Consumer.java
  *
@@ -11,26 +10,45 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.datatypes;
+package acme.roles;
+
+import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
 
 import acme.framework.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-public class Stats extends AbstractRole {
+public class Assistant extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-  
-	Double						average;
-	Double						standardDesviation;
-	Double						minimum;
-	Double						maximum;
+
+	@NotBlank
+	@Length(max = 75)
+	protected String			supervisor;
+
+	//Separados por ;
+	@NotBlank
+	@Length(max = 100)
+	protected String			fields;
+
+	//Separado por ; 
+	@NotBlank
+	@Length(max = 100)
+	protected String			resume;
+
+	@URL
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 

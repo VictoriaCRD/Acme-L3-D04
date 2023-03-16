@@ -3,6 +3,5 @@ package acme.entities;
 
 public enum EnumType {
 
-	THEORETICAL, HANDS_ON;
-
+	THEORY, HANDS_ON
 }
