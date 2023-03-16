@@ -1,3 +1,4 @@
+
 /*
  * Consumer.java
  *
@@ -25,7 +26,7 @@ public class Stats extends AbstractRole {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-
+  
 	Double						average;
 	Double						standardDesviation;
 	Double						minimum;
