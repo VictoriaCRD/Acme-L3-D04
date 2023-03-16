@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>296</x>
+      <y>40</y>
+      <w>424</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Tutorial
+--
++ title: String {NotBlank, Length(1,75)}
++ abstract: String {NotBlank, Length(1,100)}
++ sessionType: SessionType {NotNull}
++ startDate: Date {NotNull, Temporal(TIMESTAMP)}
++ endDate: Date {NotNull, Temporal(TIMESTAMP)}
++ info: String {URL}
+
+
+
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>776</x>
+      <y>328</y>
+      <w>464</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+SystemConfiguration
+--
++ systemCurrency: String {NotBlank}
++ acceptedCurrencies: String {NotBlank, Pattern (^[A-Z]{3})}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>904</x>
+      <y>456</y>
+      <w>232</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>DefaultValues..
+systemCurrency="EUR"
+acceptedCurrencies="EUR,USD,GBP"
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>976</x>
+      <y>392</y>
+      <w>32</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>20.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>72</x>
+      <y>304</y>
+      <w>200</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+EnumType
+--
+THEORY, HANDS_ON
+
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>712</x>
+      <y>96</y>
+      <w>248</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=*
+m2=1
+Additional Support</panel_attributes>
+    <additional_attributes>10.0;10.0;290.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>184</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+AssistantDashboard
+--
++ totalTutorialsPerType: Map&lt;SessionType, Integer&gt;
++ totalTimePerSession: Stats
++ totalTimePerTutorial: Stats
+  
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>944</x>
+      <y>120</y>
+      <w>344</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+TutorialSession
+--
++ code: String {NotNull, Pattern("[A-Z]{1,3}[0-9][0-9]{3}”, Unique}
++ title: String {NotNull, Length (1,100)}
++ goals: String {NotNull, Length(1,100)}
++ abstract: String {NotNull, Length (1,100)}
++ estimatedTime: Double
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>0</y>
+      <w>272</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Assistant
+--
++ supervisor: String {NotBlank, Length(1,75)}
++ expertise: String {NotBlank, Length(1,100)}
++ resume: String {NotBlank, Length(1,100)}
++ link: String {URL}
+
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>40</y>
+      <w>200</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;DataType&gt;&gt;
+Stats
+--
++ average: Double
++ minimum: Double
++ maximum: Double
++ standardDeviation: Double
+  
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>352</x>
+      <y>264</y>
+      <w>360</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Course
+--
++ code: String {NotBlank, Unique, Pattdern(“[A-Z]{1,3}[0-9][0-9]{3}")}
++ title: {NotBlank, Lenght(1,75)}
++ abstract: String {NotBlank, Length(1,100)}
++ price: Double {NotBlank, PositiveOrZero}
++ sessionType: EnumType {NotBlank}
++ info: String {URL}
+
+
+
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>208</y>
+      <w>432</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=*
+m2=1 
+Means
+</panel_attributes>
+    <additional_attributes>520.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>336</x>
+      <y>176</y>
+      <w>232</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Al menos un día de diferencia desde que 
+se solicite al startDate y 
+desde a 1 hora a máximo 5 horas
+hasta el endDate desde el startDate
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>160</y>
+      <w>56</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>50.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1136</x>
+      <y>24</y>
+      <w>136</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=*
+m2=1
+Opera</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;120.0</additional_attributes>
+  </element>
+</diagram>

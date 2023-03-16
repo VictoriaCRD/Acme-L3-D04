@@ -1,18 +1,19 @@
-package entities;
+package acme.entities;
 
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +21,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Session extends AbstractEntity { 
+public class Offer extends AbstractEntity { 
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -28,31 +29,34 @@ public class Session extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+    @Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	protected Date				initialMoment;
+
 	@NotBlank
-	@Length(max = 75)
-	protected String			title;
+	@Length(max=75)
+	protected String			heading;
 
-	@NotNull
-	@Length
-	protected String			abstractedness;
+    @NotBlank
+	@Length(max=100)
+	protected String			summary;
 
-	@Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Date				startDate;
+	protected Date				availabilityInit;
 
-	@Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected Date				endDate;
+	protected Date				availabilityEnd;
+
+	@Valid
+	protected Money			price;
 
 	@URL
-	protected String			info;
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
-	@NotNull
-	@Valid
-	@ManyToOne
-	protected Practicum			practicum;
 }

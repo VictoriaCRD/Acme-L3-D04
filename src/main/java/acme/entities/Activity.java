@@ -1,4 +1,5 @@
-package entities;
+
+package acme.entities;
 
 import java.util.Date;
 
@@ -17,42 +18,36 @@ import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class Session extends AbstractEntity { 
-
-	// Serialisation identifier -----------------------------------------------
+@Entity
+public class Activity extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
-
-	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Length(max = 75)
 	protected String			title;
 
-	@NotNull
-	@Length
-	protected String			abstractedness;
+	@NotBlank
+	@Length(max = 100)
+	protected String			textAbstract;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
-	protected Date				startDate;
+	protected Date				initialDate;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotNull
-	protected Date				endDate;
+	protected Date				finishDate;
 
 	@URL
-	protected String			info;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
+	protected String			link;
 
 	@NotNull
+	protected EnumType			typeOfActivity;
+
+	@ManyToOne(optional = false)
 	@Valid
-	@ManyToOne
-	protected Practicum			practicum;
+	@NotNull
+	protected Enrolment			enrolment;
+
 }

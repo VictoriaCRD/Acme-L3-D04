@@ -1,3 +1,17 @@
 key,enabled,identity,password,username
 user-account-anonymous-01,false,"UserIdentity{name: 'John', surname: 'Doe', email: 'john.doe@acme.com'}",HIDDEN-PASSWORD,anonymous
 user-account-administrator-01,true,"UserIdentity{name: 'Administrator', surname: 'Acme', email: 'administrator@acme.com'}",administrator,administrator
+user-account-administrator-02,true,"UserIdentity{name: 'Administrator2', surname: 'Acme', email: 'administrator3@acme.com'}",administrator,administrator2
+user-account-administrator-03,true,"UserIdentity{name: 'Administrator2', surname: 'Acme', email: 'administrator3@acme.com'}",administrator,administrator3
+user-account-assistant1-01,true,"UserIdentity{name: 'Assistant1', surname: 'Acme', email: 'assistant1@acme.com'}",assistant1,assistant1
+user-account-assistant2-01,true,"UserIdentity{name: 'Assistant2', surname: 'Acme', email: 'assistant2@acme.com'}",assistant2,assistant2
+user-account-assistant3-01,true,"UserIdentity{name: 'Assistant3', surname: 'Acme', email: 'assistant3@acme.com'}",assistant3,assistant3
+user-account-assistant4-01,true,"UserIdentity{name: 'Assistant4', surname: 'Acme', email: 'assistant4@acme.com'}",assistant4,assistant4
+user-account-assistant5-01,true,"UserIdentity{name: 'Assistant5', surname: 'Acme', email: 'assistant5@acme.com'}",assistant5,assistant5
+user-account-assistant6-01,true,"UserIdentity{name: 'Assistant6', surname: 'Acme', email: 'assistant6@acme.com'}",assistant6,assistant6
+user-account-assistant7-01,true,"UserIdentity{name: 'Assistant7', surname: 'Acme', email: 'assistant7@acme.com'}",assistant7,assistant7
+user-account-assistant8-01,true,"UserIdentity{name: 'Assistant8', surname: 'Acme', email: 'assistant8@acme.com'}",assistant8,assistant8
+user-account-student-01,true,"UserIdentity{name: 'Victoria', surname: 'Ruiz', email: 'student01@gmail.com'}",student1,student1
+user-account-student-02,true,"UserIdentity{name: 'María', surname: 'Lopez', email: 'student02@gmail.com'}",student2,student2
+user-acount-company-01,true,"UserIdentity{name: 'Seat', surname: 'Leon', email: 'seat@hotmail.com}",company1,company1
+user-acount-company-02,true,"UserIdentity{name: 'Audi', surname: 'España', email: 'audi@hotmail.com'}",company2,company2

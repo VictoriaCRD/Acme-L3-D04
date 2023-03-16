@@ -1,4 +1,16 @@
-package entities;
+/*
+ * Consumer.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
+
+package acme.entities;
 
 import java.util.Date;
 
@@ -20,7 +32,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Session extends AbstractEntity { 
+public class TutorialSession extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -32,20 +44,29 @@ public class Session extends AbstractEntity {
 	@Length(max = 75)
 	protected String			title;
 
-	@NotNull
-	@Length
-	protected String			abstractedness;
+	@NotBlank
+	@Length(max = 100)
+	protected String			abstractm;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@NotBlank
+	protected EnumType			sessionType;
+
+	/*
+	 * Al menos un día de diferencia desde que
+	 * se solicite al startDate y desde a 1 hora a máximo 5 horas
+	 * hasta el endDate desde el startDate
+	 */
+
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				startDate;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				endDate;
 
 	@URL
-	protected String			info;
+	protected String			link;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -53,6 +74,8 @@ public class Session extends AbstractEntity {
 
 	@NotNull
 	@Valid
-	@ManyToOne
-	protected Practicum			practicum;
+	@ManyToOne(optional = false)
+
+	protected Tutorial			tutorial;
+
 }
