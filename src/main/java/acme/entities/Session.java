@@ -1,4 +1,4 @@
-package entities;
+package acme.entities;
 
 import java.util.Date;
 
