@@ -1,11 +1,11 @@
 key,key:tutorial,title,resume,type,start_date,finish_date,link
-tutorial_session-01,tutorial-01,Example Session,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,
+tutorial_session-01,tutorial-01,Example Session,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
 tutorial_session-02,tutorial-02,Example Session,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,https://www.us.es/
-tutorial_session-03,tutorial-03,1,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30, null
-tutorial_session-04,tutorial-04,Example Session,1,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30, null
-tutorial_session-05,tutorial-05,this is a sample text of 75 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjf,This is an example session,HANDS_ON,2023/03/30 16:00,2023/03/30 17:50,
-tutorial_session-06,tutorial-05,Example Session,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,
-tutorial_session-07,tutorial-07,هذا نموذج نص,This is an example session,THEORETICAL,2023/06/01 12:30, 2023/06/01 13:15,
-tutorial_session-08,tutorial-08,Example Session,هذا نموذج نص,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,
-tutorial_session-09,tutorial-09,<script>alert("I'm hacking you!")</script><h1></h1>,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,
-tutorial_session-10,tutorial-10,Example Session,<script>alert("I'm hacking you!")</script><h1></h1>,THEORETICAL,2023/06/01 12:30, 2023/06/01 13:15,
+tutorial_session-03,tutorial-03,1,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorial_session-04,tutorial-04,Example Session,1,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorial_session-05,tutorial-05,this is a sample text of 75 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjf,This is an example session,HANDS_ON,2023/03/30 16:00,2023/03/30 17:50,null
+tutorial_session-06,tutorial-05,Example Session,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorial_session-07,tutorial-07,no mais,This is an example session,THEORETICAL,2023/06/01 12:30,2023/06/01 13:15,null
+tutorial_session-08,tutorial-08,Example Session,jelou,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorial_session-09,tutorial-09,Im hacking you,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorial_session-10,tutorial-10,Example Session,Im hacking you,THEORETICAL,2023/06/01 12:30,2023/06/01 13:15,
