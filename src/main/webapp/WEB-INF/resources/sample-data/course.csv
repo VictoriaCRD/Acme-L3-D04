@@ -1,3 +1,6 @@
-key
-course-01
-course-02
+key,key:lecturer,code,title,abstraction,retailPrice,link
+course-01,lecturer-01,IKZ438,This is a sample text for restrictions of 75 characters. This is a sample .,This is a sample text for restrictions of 100 characters. This is a sample text for restrictions of.,"USD 12.00",
+course-02,lecturer-02,IDT876,T., азъглагольазъглагольазъглаголь,"GBP 167,123.00",http://www.gete.us.es
+course-03,lecturer-03,IXQ806,This is a sample title., азъглагольазъглагольазъглаголь,"EUR 87.00",http://www.archon.us.es
+course-04,lecturer-03,QWT193,азъглагольазъглагольазъглаголь, азъглагольазъглагольазъглаголь,"GBP 543.00",
+course-05,lecturer-02,JGK346,<script>alert("I'm hacking you!")</script>,<h1></h1>güÇ}][{}-.)(%&&/·$(!),"USD 968.00",

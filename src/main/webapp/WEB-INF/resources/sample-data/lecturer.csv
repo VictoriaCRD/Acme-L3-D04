@@ -1,0 +1,5 @@
+key,key:userAccount,alma-mater,resume,qualifications,link
+lecturer-01,user-account-lecturer-01,Universidad de Sevilla,Rector,Doctorado en ciencias Informaticas,http://www.us.es
+lecturer-02,user-account-lecturer-02,Universidad de Granada,Doctor,Doctorado en filologia inglesa,http://www.ugr.es
+lecturer-03,user-account-lecturer-03,This is a sample text for restrictions of 75 characters. This is a sample .,This is a sample text for restrictions of 100 characters. This is a sample text for restrictions of.,This is a sample text for restrictions of 100 characters. This is a sample text for restrictions of.,http://www.ugr.es
+lecturer-04,user-account-lecturer-04,^á,^!,азъглаголь,

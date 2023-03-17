@@ -44,10 +44,13 @@ public class Activity extends AbstractEntity {
 
 	@NotNull
 	protected EnumType			typeOfActivity;
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 	@ManyToOne(optional = false)
-	@Valid
 	@NotNull
+	@Valid
 	protected Enrolment			enrolment;
 
 }
