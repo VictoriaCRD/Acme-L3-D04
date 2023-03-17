@@ -48,7 +48,7 @@ public class TutorialSession extends AbstractEntity {
 	@Length(max = 100)
 	protected String			abstractm;
 
-	@NotBlank
+	@NotNull
 	protected EnumType			sessionType;
 
 	/*

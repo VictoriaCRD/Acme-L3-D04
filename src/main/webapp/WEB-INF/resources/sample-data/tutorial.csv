@@ -1,4 +1,4 @@
-key,key:course,key:assistant,code,title,summary,goals
+key,key:course,key:assistant,code,title,abstractm,goals
 tutorial-01,course-01,assistant-01,ABC696,Tutorial 1,My first tutorial,Know what is a tutorial
 tutorial-02,course-01,assistant-01,ABC796,1,My first tutorial,Know what is a tutorial
 tutorial-03,course-01,assistant-01,ABC896,Tutorial 1,1,Know what is a tutorial

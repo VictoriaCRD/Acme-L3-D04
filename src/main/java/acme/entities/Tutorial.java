@@ -22,7 +22,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.framework.data.AbstractRole;
+import acme.framework.data.AbstractEntity;
 import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,7 +30,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Tutorial extends AbstractRole {
+public class Tutorial extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 

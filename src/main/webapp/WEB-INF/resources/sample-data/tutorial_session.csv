@@ -1,4 +1,4 @@
-key,key:tutorial,title,resume,type,start_date,finish_date,link
+key,key:tutorial,title,abstractm,sessionType,startDate,endDate,link
 tutorial_session-01,tutorial-01,Example Session,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
 tutorial_session-02,tutorial-02,Example Session,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,https://www.us.es/
 tutorial_session-03,tutorial-03,1,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
