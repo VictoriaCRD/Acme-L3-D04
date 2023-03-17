@@ -9,6 +9,6 @@ tutorial-07,course-01,assistant-10,ABC806,Tutorial 1,My first tutorial,this is a
 tutorial-08,course-02,assistant-01,NOM579,Dies ist ein Beispieltext,My first tutorial,Know what is a tutorial
 tutorial-09,course-01,assistant-14,ABJ696,Tutorial 1,Dies ist ein Beispieltext,Know what is a tutorial
 tutorial-10,course-01,assistant-01,ADC696,Tutorial 1,My first tutorial,Dies ist ein Beispieltext
-tutorial-11,course-02,assistant-04,FOG978,<script>alert("I'm hacking you!")</script>,My first tutorial,Know what is a tutorial
-tutorial-12,course-01,assistant-01,ABC296,Tutorial 1,<script>alert("I'm hacking you!")</script>,Know what is a tutorial
-tutorial-13,course-01,assistant-02,ADF696,Tutorial 1,My first tutorial,<script>alert("I'm hacking you!")</script>
+tutorial-11,course-02,assistant-04,FOG978,alert,My first tutorial,Know what is a tutorial
+tutorial-12,course-01,assistant-01,ABC296,Tutorial 1,Im hacking you,Know what is a tutorial
+tutorial-13,course-01,assistant-02,ADF696,Tutorial 1,My first tutorial,jelou
