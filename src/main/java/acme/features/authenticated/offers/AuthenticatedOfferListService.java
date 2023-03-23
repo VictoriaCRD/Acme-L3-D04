@@ -26,12 +26,12 @@ import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedAnnouncementListService extends AbstractService<Authenticated, Offer> {
+public class AuthenticatedOfferListService extends AbstractService<Authenticated, Offer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedAnnouncementRepository repository;
+	protected AuthenticatedOfferRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 

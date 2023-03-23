@@ -30,7 +30,7 @@ public class AuthenticatedOfferService extends AbstractService<Authenticated, Of
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedAnnouncementRepository repository;
+	protected AuthenticatedOfferRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 

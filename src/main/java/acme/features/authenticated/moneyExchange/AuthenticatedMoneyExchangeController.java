@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementController.java
+ * AdministratorDashboardController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,35 +10,31 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.offers;
+package acme.features.authenticated.moneyExchange;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.Offer;
+import acme.forms.MoneyExchange;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-public class AuthenticatedAnnouncementController extends AbstractController<Authenticated, Offer> {
+public class AuthenticatedMoneyExchangeController extends AbstractController<Authenticated, MoneyExchange> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedAnnouncementListService	listService;
-
-	@Autowired
-	protected AuthenticatedOfferService				showService;
+	protected AuthenticatedMoneyExchangePerformService exchangeService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("list", this.listService);
-		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("perform", this.exchangeService);
 	}
 
 }

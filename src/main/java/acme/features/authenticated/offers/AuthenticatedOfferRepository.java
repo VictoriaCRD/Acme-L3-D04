@@ -22,7 +22,7 @@ import acme.entities.Offer;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedAnnouncementRepository extends AbstractRepository {
+public interface AuthenticatedOfferRepository extends AbstractRepository {
 
 	@Query("select o from Offer o where o.id = :id")
 	Offer findOneOfferById(int id);
