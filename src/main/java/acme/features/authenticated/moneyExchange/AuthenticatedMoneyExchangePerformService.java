@@ -17,7 +17,6 @@ import java.util.Date;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import acme.components.ExchangeRate;
 import acme.forms.MoneyExchange;
 import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.datatypes.Money;
@@ -65,10 +64,10 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 	public void perform(final MoneyExchange object) {
 		assert object != null;
 
-		Money			source, target;
-		String			targetCurrency;
-		Date			date;
-		MoneyExchange	exchange;
+		Money source, target;
+		String targetCurrency;
+		Date date;
+		MoneyExchange exchange;
 
 		source = super.getRequest().getData("source", Money.class);
 		targetCurrency = super.getRequest().getData("targetCurrency", String.class);
@@ -102,12 +101,12 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 		assert source != null;
 		assert !StringHelper.isBlank(targetCurrency);
 
-		MoneyExchange	result;
-		RestTemplate	api;
-		ExchangeRate	record;
-		String			sourceCurrency;
-		Double			sourceAmount, targetAmount, rate;
-		Money			target;
+		MoneyExchange result;
+		RestTemplate api;
+		String sourceCurrency;
+		Double sourceAmount;
+		final Double targetAmount, rate;
+		Money target;
 
 		try {
 			api = new RestTemplate();
@@ -115,25 +114,14 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 			sourceCurrency = source.getCurrency();
 			sourceAmount = source.getAmount();
 
-			record = api.getForObject( //
-				"https://api.exchangerate.host/latest?base={0}&symbols={1}", //
-				ExchangeRate.class, //
-				sourceCurrency, //
-				targetCurrency //
-			);
-
-			assert record != null;
-			rate = record.getRates().get(targetCurrency);
-			targetAmount = rate * sourceAmount;
-
 			target = new Money();
-			target.setAmount(targetAmount);
+
 			target.setCurrency(targetCurrency);
 
 			result = new MoneyExchange();
 			result.setSource(source);
 			result.setTargetCurrency(targetCurrency);
-			result.setDate(record.getDate());
+
 			result.setTarget(target);
 		} catch (final Throwable oops) {
 			result = null;

@@ -8,12 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.offer.form.label.heading = Título:
-authenticated.offer.form.label.summary = Resumen:
-authenticated.offer.form.label.price = Precio:
-authenticated.offer.form.label.link = Más información: (Opcional)
-
-authenticated.offer.list.label.initialMoment = Momento
-authenticated.offer.list.label.summary = Resumen
-authenticated.offer.list.label.heading = Título
-authenticated.offer.list.label.price = Precio
+authenticated.offer.list.label.heading=Titulo
+authenticated.offer.list.label.price=Precio
+authenticated.offer.form.label.heading=Titulo
+authenticated.offer.form.label.price=Precio
+authenticated.offer.form.label.instantiationMoment=Momento Inicial
+authenticated.offer.form.label.abstract$=Cuerpo
+authenticated.offer.form.label.startDay=Primer Dia
+authenticated.offer.form.label.lastDay=Ultimo Dia
+authenticated.offer.form.label.link=Link

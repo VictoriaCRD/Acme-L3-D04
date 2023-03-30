@@ -16,8 +16,11 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="administrator.offer.form.label.heading" path="heading"/>	
-	<acme:input-textbox code="administrator.offer.form.label.summary" path="summary"/>
-	<acme:input-textarea code="administrator.offer.form.label.price" path="price"/>
-	<acme:input-url code="administrator.offer.form.label.link" path="link"/>
+	<acme:input-textbox code="authenticated.offer.form.label.heading" path="heading"/>	
+	<acme:input-moment code="authenticated.offer.form.label.instantiationMoment" path="instantiationMoment"/>
+	<acme:input-textarea code="authenticated.offer.form.label.abstract$" path="abstract$"/>
+	<acme:input-moment code="authenticated.offer.form.label.startDay" path="startDay"/>
+	<acme:input-moment code="authenticated.offer.form.label.lastDay" path="lastDay"/>
+	<acme:input-money code="authenticated.offer.form.label.price" path="price"/>
+	<acme:input-url code="authenticated.offer.form.label.link" path="link"/>
 </acme:form>

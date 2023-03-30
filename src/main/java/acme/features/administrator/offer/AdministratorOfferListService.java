@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.offers;
+package acme.features.administrator.offer;
 
 import java.util.Collection;
 
@@ -7,15 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Offer;
-import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedOfferListService extends AbstractService<Authenticated, Offer> {
+public class AdministratorOfferListService extends AbstractService<Administrator, Offer> {
 
 	@Autowired
-	protected AuthenticatedOfferRepository repository;
+	protected AdministratorOfferRepository repository;
 
 
 	@Override

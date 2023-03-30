@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementShowService.java
+ * AdministratorCompanyCreateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,71 +10,73 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.offers;
-
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
+package acme.features.administrator.offer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Offer;
-import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.Administrator;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AuthenticatedOfferService extends AbstractService<Authenticated, Offer> {
+public class AdministratorOfferCreateService extends AbstractService<Administrator, Offer> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedOfferRepository repository;
+	protected AdministratorOfferRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		Offer offer;
-		Date deadline;
-
-		id = super.getRequest().getData("id", int.class);
-		offer = this.repository.findOneOfferById(id);
-		deadline = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
-		status = MomentHelper.isAfter(offer.getInitialMoment(), deadline);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Offer object;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneOfferById(id);
+		object = new Offer();
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
+	public void bind(final Offer object) {
+		assert object != null;
+
+		super.bind(object, "heading", "instantiationMoment", "abstract$", "startDay", "lastDay", "price", "link");
+	}
+
+	@Override
+	public void validate(final Offer object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Offer object) {
+		assert object != null;
+
+		this.repository.save(object);
+	}
+
+	@Override
 	public void unbind(final Offer object) {
 		assert object != null;
+
 		Tuple tuple;
-		tuple = super.unbind(object, "initialMoment", "heading", "summary", "availabilityInit", "price", "link");
+
+		tuple = super.unbind(object, "heading", "instantiationMoment", "abstract$", "startDay", "lastDay", "price", "link");
+
 		super.getResponse().setData(tuple);
 	}
 

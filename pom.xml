@@ -21,9 +21,10 @@
 	<name>Acme L3</name>
 	<description>This is an Acme project for the students of Design &amp; Testing.</description>
 
+
 	<groupId>Acme</groupId>	
 	<artifactId>Acme-L3-23.3.0</artifactId>
-	<version>23.3.0</version>
+	<version>23.2.0</version>
 	<packaging>war</packaging>
 
 	<parent>
