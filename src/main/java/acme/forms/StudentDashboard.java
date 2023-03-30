@@ -3,8 +3,8 @@ package acme.forms;
 
 import java.util.Map;
 
+import acme.datatypes.EnumType;
 import acme.datatypes.Stats;
-import acme.entities.EnumType;
 import acme.framework.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
