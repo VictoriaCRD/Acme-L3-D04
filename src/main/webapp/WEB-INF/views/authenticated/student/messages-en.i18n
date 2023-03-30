@@ -1,4 +1,4 @@
-# messages-es.i18n
+# messages-en.i18n
 #
 # Copyright (C) 2012-2023 Rafael Corchuelo.
 #
@@ -8,8 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.consumer.form.label.compañía = Compañía
-authenticated.consumer.form.label.sector = Sector
+authenticated.student.form.label.statement = Statement: 
+authenticated.student.form.label.strongFeatures = Strong Features:
+authenticated.student.form.label.weakFeatures = Weak Features: 
+authenticated.student.form.label.optionalLink = Optional Link:  
 
-authenticated.consumer.form.button.create = Registrar
-authenticated.consumer.form.button.update = Actualizar
+authenticated.student.form.button.create = Register
+authenticated.student.form.button.update = Update
+

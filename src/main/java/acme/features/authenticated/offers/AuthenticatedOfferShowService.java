@@ -50,7 +50,7 @@ public class AuthenticatedOfferShowService extends AbstractService<Authenticated
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "heading", "instantiationMoment", "abstract$", "startDay", "lastDay", "price", "link");
+		tuple = super.unbind(object, "heading", "initialMoment", "summary", "availabilityInit", "availabilityEnd", "price", "link");
 
 		super.getResponse().setData(tuple);
 	}
