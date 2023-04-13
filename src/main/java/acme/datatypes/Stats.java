@@ -14,8 +14,6 @@
 package acme.datatypes;
 
 import acme.framework.data.AbstractRole;
-import acme.framework.data.AbstractDatatype;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,7 +26,7 @@ public class Stats extends AbstractRole {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-  
+
 	Double						average;
 	Double						standardDesviation;
 	Double						minimum;

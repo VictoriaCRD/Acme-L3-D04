@@ -24,24 +24,26 @@ import lombok.Setter;
 @Setter
 public class Banner extends AbstractEntity {
 
+	private static final long	serialVersionUID	= 1L;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
-	protected Date		moment;
+	protected Date				moment;
 
 	@NotBlank
 	@Length(max = 76)
-	protected String	slogan;
+	protected String			slogan;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
 	@NotNull
-	protected Date		period;
+	protected Date				period;
 
 	@URL
 	@Transient
-	protected String	picture;
+	protected String			picture;
 
 	@URL
-	protected String	link;
+	protected String			link;
 }

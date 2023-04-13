@@ -1,6 +1,6 @@
 key,key:lecturer,code,title,abstraction,retailPrice,link
-course-01,lecturer-03,IXK906,This is a sample title.,This is a sample,USD 87.00,http://www.archon.us.es
-course-02,lecturer-03,KJI789,This is a sample title.,This is a sample,EUR 98.00,http://www.archon.us.es
-course-03,lecturer-03,IZC806,This is not a sample title.,This is a sample,GBP 87.00,http://www.us.es
+course-01,lecturer-03,IXK906,Curso sobre medicina forense.,This is a sample,USD 87.00,http://www.archon.us.es
+course-02,lecturer-03,KJI789,Curso sobre desarrollo personal.,This is a sample,EUR 98.00,http://www.archon.us.es
+course-03,lecturer-03,IZC806,Curso sobre mejoras de habilidades de comunicación.,This is a sample,GBP 87.00,http://www.us.es
 course-04,lecturer-03,QWT193,This is another sample,This is a sample,EUR 543.00,https://helou.com
 course-05,lecturer-02,JGK346,Im hacking you,abs,EUR 968.00,https://yo.com
