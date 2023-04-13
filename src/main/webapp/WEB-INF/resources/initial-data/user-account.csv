@@ -7,7 +7,7 @@ user-account-lecturer-01,true,"UserIdentity{name: 'Manuel', surname: 'Garcia Per
 user-account-lecturer-02,true,"UserIdentity{name: 'Lecturer', surname: '2', email: 'lecturer2@acme.com'}",lecturer2,lecturer2
 user-account-lecturer-03,true,"UserIdentity{name: 'Lecturer3', surname: '3', email: 'lecturer3@acme.com'}",lecturer3,lecturer3
 user-account-lecturer-04,true,"UserIdentity{name: 'Lecturer4', surname: '4', email: 'lecturer4@acme.com'}",lecturer4,lecturer4
-user-account-lecturer-05,true,"UserIdentity{name: 'азъглаголь', surname: '^á^á^á', email: '^áазъглаголь^á@acme.com'}",This is a sample text for restrictions of 60 characters :).,This is a sample text for restrictions of 60 characters :).
+user-account-lecturer-05,true,"UserIdentity{name: 'lecturer', surname: 'Respect', email: 'lecturer5@acme.com'}",This is a sample text for restrictions of 60 characters :).,This is a sample text for restrictions of 60 characters :).
 user-account-lecturer-06,false,"UserIdentity{name: 'José Manuel', surname: 'De Burgos', email: 'JoseManuel@acme.com'}",lecturer6,lecturer6
 user-account-auditor-01,true,"UserIdentity{name: 'Auditor', surname: '1', email: 'auditor1@acme.com'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'Auditor', surname: '2', email: 'auditor2@acme.com'}",auditor2,auditor2
@@ -21,9 +21,9 @@ user-account-auditor-09,true,"UserIdentity{name: 'Auditor', surname: '9', email:
 user-account-auditor-10,true,"UserIdentity{name: 'Auditor', surname: '10', email: 'auditor10@acme.com'}",This is a sample text for restrictions of 60 characters :)..,auditor10
 user-account-auditor-11,true,"UserIdentity{name: 'Auditor', surname: '11', email: 'auditor11@acme.com'}",auditor11,This is a sample text for restrictions of 60 characters :)..
 user-account-auditor-12,true,"UserIdentity{name: 'Auditor', surname: '12', email: 'auditor12@acme.com'}",auditor12,11111
-user-account-auditor-13,true,"UserIdentity{name: 'Auditor', surname: '13', email: '^áазъглаголь^á@acme.com'}",auditor13,auditor13
+user-account-auditor-13,true,"UserIdentity{name: 'Auditor', surname: '13', email: 'Auditor@acme.com'}",auditor13,auditor13
 user-account-auditor-14,false,"UserIdentity{name: 'Auditor', surname: '14', email: 'auditor14@acme.com'}",auditor14,auditor14
-user-account-auditor-15,true,"UserIdentity{name: 'азъглаголь', surname: '^á^á^á', email: 'auditor15@acme.com'}",auditor15,auditor15
+user-account-auditor-15,true,"UserIdentity{name: 'musi', surname: 'Respect', email: 'auditor15@acme.com'}",auditor15,auditor15
 user-account-assistant-01,true,"UserIdentity{name: 'Assistant', surname: '1', email: 'assistant1@acme.com'}",assistant1,assistant1
 user-account-assistant-02,true,"UserIdentity{name: 'Assistant', surname: '2', email: 'assistant2@acme.com'}",assistant2,assistant2
 user-account-assistant-03,true,"UserIdentity{name: 'Assistant', surname: '3', email: 'assistant3@acme.com'}",assistant3,assistant3

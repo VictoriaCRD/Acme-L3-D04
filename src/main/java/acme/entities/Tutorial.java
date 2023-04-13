@@ -22,7 +22,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
-import acme.framework.data.AbstractRole;
+import acme.framework.data.AbstractEntity;
 import acme.roles.Assistant;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,7 +30,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Tutorial extends AbstractRole {
+public class Tutorial extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -40,7 +40,7 @@ public class Tutorial extends AbstractRole {
 
 	@NotBlank
 	@Column(unique = true)
-	@Pattern(regexp = "“[A-Z]{1,3}[0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
 	protected String			code;
 
 	@NotBlank
