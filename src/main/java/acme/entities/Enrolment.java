@@ -40,7 +40,12 @@ public class Enrolment extends AbstractEntity {
 	@Valid
 	protected Student			student;
 
+	protected boolean			draftMode;
+
 	// Derived attributes -----------------------------------------------------
+	@NotNull
+	//	in hours, computed from the corresponding activities. Propiedad que será derivada
+	protected Double			workTime;
 
 	// Relationships ----------------------------------------------------------
 

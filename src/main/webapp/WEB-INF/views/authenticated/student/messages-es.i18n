@@ -11,7 +11,7 @@
 authenticated.student.form.label.statement = Comunicado: 
 authenticated.student.form.label.strongFeatures = Aspectos Fuertes:
 authenticated.student.form.label.weakFeatures = Aspectos Debiles: 
-authenticated.student.form.label.optionalLink = Link Opcional: 
+authenticated.student.form.label.link = Link Opcional: 
 
 authenticated.student.form.button.create = Registrar
 authenticated.student.form.button.update = Actualizar

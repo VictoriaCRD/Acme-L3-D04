@@ -9,8 +9,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -30,10 +29,10 @@ public class Note extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Temporal(TemporalType.DATE)
-	@Past
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
 	@NotNull
-	protected Date				instantiationMoment;
+	protected Date				moment;
 
 	@NotBlank
 	@Length(max = 75)
@@ -41,7 +40,7 @@ public class Note extends AbstractEntity {
 
 	@NotBlank
 	@Length(max = 75)
-	@Pattern(regexp = "^\\S(.|\\s)*[-](.|\\s)*\\S(.|\\s)*[,](.|\\s)*\\S(.|\\s)*$")
+	// El autor debe ser computado de la siguiente manera:“〈username〉 - 〈surname, name〉”
 	protected String			author;
 
 	@NotBlank
@@ -52,10 +51,9 @@ public class Note extends AbstractEntity {
 	protected String			email;
 
 	@URL
-	protected String			link;
+	protected String			furtherInformation;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
 }

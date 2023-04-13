@@ -43,6 +43,8 @@ public class Lecture extends AbstractEntity {
 	@NotNull
 	protected EnumType			type;
 
+	protected boolean			draftMode;
+
 	@URL
 	protected String			link;
 
