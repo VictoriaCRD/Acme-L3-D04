@@ -17,7 +17,6 @@
 
 <acme:list>
 	<acme:list-column code="assistant.session.list.label.title" path="title" width="25%"/>
-	<acme:list-column code="assistant.session.list.label.sessionType" path="tutorialSession" width="25%"/>
 	<acme:list-column code="assistant.session.list.label.startDate" path="startDate" width="25%"/>
 	<acme:list-column code="assistant.session.list.label.endDate" path="endDate" width="25%"/>
 </acme:list>

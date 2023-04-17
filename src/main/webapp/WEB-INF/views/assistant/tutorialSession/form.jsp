@@ -21,6 +21,9 @@
 	<acme:input-select code="assistant.session.form.label.sessionType" path="sessionType" choices="${types}"/>
 	<acme:input-moment code="assistant.session.form.label.startDate" path="startDate" />
 	<acme:input-moment code="assistant.session.form.label.endDate" path="endDate"/>
+	<jstl:if test="${_command == 'show'}">
+		<acme:input-double code="assistant.session.form.label.period" path="period" readonly="true"/>
+	</jstl:if>
 		<acme:input-textbox code="assistant.session.form.label.link" path="link"/>
 	
 	
@@ -30,7 +33,7 @@
 			<acme:submit code="assistant.session.form.button.delete" action="/assistant/tutorialSession/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistant.session.form.button.create" action="/assistant/tutorialSession/create?masterId=${masterId}"/>
+			<acme:submit code="assistant.session.form.button.create" action="/assistant/tutorialSession/create?masterId=${masterlId}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

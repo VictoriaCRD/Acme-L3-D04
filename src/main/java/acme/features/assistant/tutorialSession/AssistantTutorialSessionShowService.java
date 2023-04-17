@@ -45,9 +45,7 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 		tutorial = tutorialSession == null ? null : tutorialSession.getTutorial();
 		assistant = tutorial == null ? null : tutorial.getAssistant();
 		status = tutorialSession != null && //
-			tutorial != null && //
-			super.getRequest().getPrincipal().hasRole(assistant) && //
-			tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+			tutorial != null && super.getRequest().getPrincipal().hasRole(assistant) && tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -71,7 +69,7 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 		SelectChoices choices;
 		Tutorial tutorial;
 		boolean notPublished;
-		Double period;
+		final Double period;
 
 		tutorial = object.getTutorial();
 		notPublished = tutorial.getNotPublished();

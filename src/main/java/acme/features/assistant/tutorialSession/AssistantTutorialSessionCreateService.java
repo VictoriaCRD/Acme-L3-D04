@@ -104,7 +104,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 
 		choices = SelectChoices.from(EnumType.class, object.getSessionType());
 
-		tuple = super.unbind(object, "title", "abstraction", "sessionType", "startDate", "endDate", "link");
+		tuple = super.unbind(object, "title", "abstractm", "sessionType", "startDate", "endDate", "link");
 		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
 		tuple.put("types", choices);
 		tuple.put("notPublished", object.getTutorial().getNotPublished());

@@ -59,10 +59,10 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 	@Override
 	public void load() {
 		Collection<TutorialSession> objects;
-		int tutorialId;
+		int masterId;
 
-		tutorialId = super.getRequest().getData("masterId", int.class);
-		objects = this.repository.findManyTutorialSessionsByTutorialId(tutorialId);
+		masterId = super.getRequest().getData("masterId", int.class);
+		objects = this.repository.findManyTutorialSessionsByTutorialId(masterId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -73,7 +73,7 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstractm", "sessionType", "startDate", "endDate", "link");
+		tuple = super.unbind(object, "title", "abstractm", "sessionType", "startDate", "endDate");
 
 		super.getResponse().setData(tuple);
 	}

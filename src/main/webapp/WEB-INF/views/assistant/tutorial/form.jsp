@@ -21,9 +21,7 @@
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.abstractm" path="abstractm"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
-	<jstl:if test="${_command == 'show'}">
-		<acme:input-double code="assistant.tutorial.form.label.totalTime" path="totalTime" readonly="true"/>
-	</jstl:if>
+	
 	<acme:hidden-data path="id"/>
 	<acme:hidden-data path="notPublished"/>
 
