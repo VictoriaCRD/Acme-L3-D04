@@ -60,7 +60,7 @@ public class AssistantTutorialListService extends AbstractService<Assistant, Tut
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "course.title", "notPublished");
+		tuple = super.unbind(object, "code", "title", "abstractm", "goals", "notPublished", "estimatedTime");
 
 		super.getResponse().setData(tuple);
 	}

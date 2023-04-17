@@ -1,25 +1,24 @@
 
-package acme.features.assistant.tutorial;
-
-import java.util.Collection;
+package folder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Course;
+import acme.entities.EnumType;
 import acme.entities.Tutorial;
+import acme.entities.TutorialSession;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialShowService extends AbstractService<Assistant, Tutorial> {
+public class AssistantTutorialSessionShowService1 extends AbstractService<Assistant, TutorialSession> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialRepository repository;
+	protected AssistantTutorialSessionRepository1 repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -37,13 +36,16 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 	public void authorise() {
 		boolean status;
 		int masterId;
-		Tutorial tutorial;
+		TutorialSession tutorialSession;
+		final Tutorial tutorial;
 		Assistant assistant;
 
 		masterId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
+		tutorialSession = this.repository.findOneTutorialSessionById(masterId);
+		tutorial = tutorialSession == null ? null : tutorialSession.getTutorial();
 		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && //
+		status = tutorialSession != null && //
+			tutorial != null && //
 			super.getRequest().getPrincipal().hasRole(assistant) && //
 			tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
@@ -52,28 +54,37 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 
 	@Override
 	public void load() {
-		Tutorial object;
+		TutorialSession object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTutorialById(id);
+		object = this.repository.findOneTutorialSessionById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void unbind(final Tutorial object) {
+	public void unbind(final TutorialSession object) {
 		assert object != null;
 
 		Tuple tuple;
 		SelectChoices choices;
-		final Collection<Course> courses = this.repository.findAllCourses();
+		Tutorial tutorial;
+		boolean notPublished;
+		Double period;
 
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		tutorial = object.getTutorial();
+		notPublished = tutorial.getNotPublished();
+		choices = SelectChoices.from(EnumType.class, object.getSessionType());
+		period = object.getDurationInHours();
 
-		tuple = super.unbind(object, "code", "title", "abstractm", "goals", "notPublished", "estimatedTime");
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
+		tuple = super.unbind(object, "title", "abstractm", "sessionType", "startDate", "endDate", "link");
+		tuple.put("period", period);
+		tuple.put("masterId", tutorial.getId());
+		tuple.put("types", choices);
+		tuple.put("notPublished", notPublished);
+		tuple.put("tutorial", tutorial);
+
 		super.getResponse().setData(tuple);
 	}
 

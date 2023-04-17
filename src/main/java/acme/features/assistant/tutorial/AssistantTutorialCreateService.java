@@ -43,6 +43,9 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		object = new Tutorial();
 		object.setAssistant(assistant);
 		object.setNotPublished(true);
+		object.setCode("");
+		object.setTitle("");
+		object.setAbstractm("");
 
 		super.getBuffer().setData(object);
 	}
@@ -91,7 +94,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "abstractm", "goals", "notPublished");
+		tuple = super.unbind(object, "code", "title", "abstractm", "goals", "notPublished", "estimatedTime");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

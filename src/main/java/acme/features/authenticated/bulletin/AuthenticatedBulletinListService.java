@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementListService.java
+ * AuthenticatedBulletinListService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -13,7 +13,6 @@
 package acme.features.authenticated.bulletin;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +24,8 @@ import acme.framework.services.AbstractService;
 
 @Service
 public class AuthenticatedBulletinListService extends AbstractService<Authenticated, Bulletin> {
+
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AuthenticatedBulletinRepository repository;
@@ -45,15 +46,21 @@ public class AuthenticatedBulletinListService extends AbstractService<Authentica
 	@Override
 	public void load() {
 		Collection<Bulletin> objects;
-		final Date date = new Date();
-		objects = this.repository.findAllBulletins(date);
+
+		objects = this.repository.findManyBulletins();
+
 		super.getBuffer().setData(objects);
+
 	}
 
 	@Override
 	public void unbind(final Bulletin object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "title", "message");
+
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "moment", "critical", "message");
+
 		super.getResponse().setData(tuple);
 	}
 

@@ -12,6 +12,7 @@ assistant.tutorial.list.label.code = Código
 assistant.tutorial.list.label.title = Título
 assistant.tutorial.list.label.course.title = Título del curso
 assistant.tutorial.list.label.notPublished = Sin publicar
+assistant.tutorial.list.label.estimatedTime = Tiempo estimado
 
 assistant.tutorial.list.button.create = Crear
 
@@ -20,6 +21,7 @@ assistant.tutorial.form.label.course = Curso:
 assistant.tutorial.form.label.title = Título:
 assistant.tutorial.form.label.abstractm = Resumen:
 assistant.tutorial.form.label.goals = Objetivos:
+assistant.tutorial.form.label.estimatedTime = Tiempo Estimado (En Horas)
 		
 assistant.tutorial.form.button.sessions = Sesiones del tutorial
 assistant.tutorial.form.button.update = Actualizar
@@ -28,3 +30,6 @@ assistant.tutorial.form.button.publish = Publicar
 assistant.tutorial.form.button.create = Crear
 
 assistant.tutorial.form.error.duplicated = Este código no está libre
+assistant.tutorial.form.error.sessions = A tutorial must have at least one session
+
+assistant.tutorial.form.label.totalTime = Tiempo total

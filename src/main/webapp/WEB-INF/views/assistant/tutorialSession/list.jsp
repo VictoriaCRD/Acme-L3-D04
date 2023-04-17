@@ -16,11 +16,13 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.bulletin.list.label.title" path="title" width="40%"/>
-	<acme:list-column code="authenticated.bulletin.list.label.moment" path="moment" width="20%"/>
-	<acme:list-column code="authenticated.bulletin.list.label.message" path="message" width="20%"/>
-	<acme:list-column code="authenticated.bulletin.list.label.critical" path="critical" width="20%"/>
-	
+	<acme:list-column code="assistant.session.list.label.title" path="title" width="25%"/>
+	<acme:list-column code="assistant.session.list.label.sessionType" path="tutorialSession" width="25%"/>
+	<acme:list-column code="assistant.session.list.label.startDate" path="startDate" width="25%"/>
+	<acme:list-column code="assistant.session.list.label.endDate" path="endDate" width="25%"/>
 </acme:list>
+
+
+<acme:button test="${showCreate}" code="assistant.session.list.button.create" action="/assistant/tutorialSession/create?masterId=${masterId}"/>
 
 

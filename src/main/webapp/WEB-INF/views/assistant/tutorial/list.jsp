@@ -17,9 +17,10 @@
 
 <acme:list>
 	<acme:list-column code="assistant.tutorial.list.label.code" path="code" width="5%"/>
-	<acme:list-column code="assistant.tutorial.list.label.title" path="title" width="10%"/>
+	<acme:list-column code="assistant.tutorial.list.label.title" path="title" width="5%"/>
 	<acme:list-column code="assistant.tutorial.list.label.course.title" path="course.title" width="80%"/>	
 	<acme:list-column code="assistant.tutorial.list.label.notPublished" path="notPublished" width="5%"/>	
+	<acme:list-column code="assistant.tutorial.list.label.estimatedTime" path="estimatedTime" width="5%"/>
 </acme:list>
 
 

@@ -16,11 +16,14 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.bulletin.list.label.title" path="title" width="40%"/>
-	<acme:list-column code="authenticated.bulletin.list.label.moment" path="moment" width="20%"/>
-	<acme:list-column code="authenticated.bulletin.list.label.message" path="message" width="20%"/>
-	<acme:list-column code="authenticated.bulletin.list.label.critical" path="critical" width="20%"/>
+	<acme:list-column code="authenticated.tutorial.list.label.code" path="code" width="5%"/>
+	<acme:list-column code="authenticated.tutorial.list.label.title" path="title" width="10%"/>
+	<acme:list-column code="authenticated.tutorial.list.label.course.title" path="course.title" width="80%"/>	
 	
-</acme:list>
+	
+</acme:list>	
+
+
+
 
 

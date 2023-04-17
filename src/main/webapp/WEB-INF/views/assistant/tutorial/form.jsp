@@ -21,11 +21,18 @@
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.abstractm" path="abstractm"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
+	<jstl:if test="${_command == 'show'}">
+		<acme:input-double code="assistant.tutorial.form.label.totalTime" path="totalTime" readonly="true"/>
+	</jstl:if>
 	<acme:hidden-data path="id"/>
 	<acme:hidden-data path="notPublished"/>
 
-	<jstl:choose>	 
-<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && notPublished == true}">			
+	<jstl:choose>	
+	<jstl:when test="${_command == 'show' && notPublished == false}">
+			<acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorialSession/list?masterId=${id}"/>			
+		</jstl:when> 
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && notPublished == true}">	
+			<acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorialSession/list?masterId=${id}"/>		
 			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
 			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
 			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>

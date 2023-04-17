@@ -1,14 +1,14 @@
-key,key:course,key:assistant,code,title,abstractm,goals,notPublished
-tutorial-01,course-01,assistant1,AA234,Tutorial 1,My first tutorial,Know what is a tutorial,true
-tutorial-02,course-03,assistant1,ABC796,1,My first tutorial,Know what is a tutorial,true
-tutorial-03,course-04,assistant1,ABC896,Tutorial 1,1,Know what is a tutorial,false
-tutorial-04,course-05,assistant2,ABC596,Tutorial 1,My first tutorial,1,true
-tutorial-05,course-01,assistant3,DIG234,this is a sample text of 75 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjf,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,true
-tutorial-06,course-01,assistant6,ABC366,Tutorial 1,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,Know what is a tutorial,false
-tutorial-07,course-01,assistant4,ABC806,Tutorial 1,My first tutorial,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,true
-tutorial-08,course-02,assistant1,AAA000,Dies ist ein Beispieltext,My first tutorial,Know what is a tutorial,false
-tutorial-09,course-01,assistant4,ABJ696,Tutorial 1,Dies ist ein Beispieltext,Know what is a tutorial,false
-tutorial-10,course-01,assistant1,ADC696,Tutorial 1,My first tutorial,Dies ist ein Beispieltext,false
-tutorial-11,course-02,assistant4,FOG978,alert,My first tutorial,Know what is a tutorial,true
-tutorial-12,course-01,assistant3,ABC296,Tutorial 1,Im hacking you,Know what is a tutorial,false
-tutorial-13,course-01,assistant2,ADF696,Tutorial 1,My first tutorial,jelou,false
+key,key:course,key:assistant,code,title,abstractm,goals,estimatedTime,notPublished
+tutorial-01,course-01,assistant1,AA234,Tutorial 1,My first tutorial,Know what is a tutorial,2.0,true
+tutorial-02,course-03,assistant1,ABC796,1,My first tutorial,Know what is a tutorial,30.0,true
+tutorial-03,course-04,assistant1,ABC896,Tutorial 1,1,Know what is a tutorial,20.4,false
+tutorial-04,course-05,assistant2,ABC596,Tutorial 1,My first tutorial,1,33.3,true
+tutorial-05,course-01,assistant3,DIG234,this is a sample text of 75 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjf,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,23.89,true
+tutorial-06,course-01,assistant6,ABC366,Tutorial 1,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,Know what is a tutorial,34.34,false
+tutorial-07,course-01,assistant4,ABC806,Tutorial 1,My first tutorial,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,23.1,true
+tutorial-08,course-02,assistant1,AAA000,Dies ist ein Beispieltext,My first tutorial,Know what is a tutorial,890.233,false
+tutorial-09,course-01,assistant4,ABJ696,Tutorial 1,Dies ist ein Beispieltext,Know what is a tutorial,890.34,false
+tutorial-10,course-01,assistant1,ADC696,Tutorial 1,My first tutorial,Dies ist ein Beispieltext,30.0,false
+tutorial-11,course-02,assistant4,FOG978,alert,My first tutorial,Know what is a tutorial,3.0,true
+tutorial-12,course-01,assistant3,ABC296,Tutorial 1,Im hacking you,Know what is a tutorial,8.0,false
+tutorial-13,course-01,assistant2,ADF696,Tutorial 1,My first tutorial,jelou,3.0,false

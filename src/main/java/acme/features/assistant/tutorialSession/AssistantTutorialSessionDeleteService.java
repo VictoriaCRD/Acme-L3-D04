@@ -1,12 +1,10 @@
 
-package acme.features.assistant.tutorial;
-
-import java.util.Collection;
+package acme.features.assistant.tutorialSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Course;
+import acme.entities.EnumType;
 import acme.entities.Tutorial;
 import acme.entities.TutorialSession;
 import acme.framework.components.jsp.SelectChoices;
@@ -15,12 +13,12 @@ import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantTutorialDeleteService extends AbstractService<Assistant, Tutorial> {
+public class AssistantTutorialSessionDeleteService extends AbstractService<Assistant, TutorialSession> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AssistantTutorialRepository repository;
+	protected AssistantTutorialSessionRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -38,13 +36,17 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 	public void authorise() {
 		boolean status;
 		int masterId;
+		TutorialSession tutorialSession;
 		Tutorial tutorial;
 		Assistant assistant;
 
 		masterId = super.getRequest().getData("id", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
+		tutorialSession = this.repository.findOneTutorialSessionById(masterId);
+		tutorial = tutorialSession == null ? null : tutorialSession.getTutorial();
 		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && tutorial.getNotPublished() && //
+		status = tutorialSession != null && //
+			tutorial != null && //
+			tutorial.getNotPublished() && //
 			super.getRequest().getPrincipal().hasRole(assistant) && //
 			tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
@@ -53,59 +55,50 @@ public class AssistantTutorialDeleteService extends AbstractService<Assistant, T
 
 	@Override
 	public void load() {
-		Tutorial object;
+		TutorialSession object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneTutorialById(id);
+		object = this.repository.findOneTutorialSessionById(id);
 
 		super.getBuffer().setData(object);
 	}
 
 	@Override
-	public void bind(final Tutorial object) {
+	public void bind(final TutorialSession object) {
 		assert object != null;
 
-		int courseId;
-		Course course;
+		super.bind(object, "title", "abstractm", "sessionType", "startDate", "endDate", "link");
 
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
-
-		super.bind(object, "code", "title", "abstractm", "goals", "notPublished", "estimatedTime");
-		object.setCourse(course);
 	}
 
 	@Override
-	public void validate(final Tutorial object) {
+	public void validate(final TutorialSession object) {
 		assert object != null;
 	}
 
 	@Override
-	public void perform(final Tutorial object) {
+	public void perform(final TutorialSession object) {
 		assert object != null;
 
-		Collection<TutorialSession> sessions;
-
-		sessions = this.repository.findManySessionsByTutorialId(object.getId());
-		this.repository.deleteAll(sessions);
 		this.repository.delete(object);
 	}
 
 	@Override
-	public void unbind(final Tutorial object) {
+	public void unbind(final TutorialSession object) {
 		assert object != null;
 
-		Collection<Course> courses;
-		SelectChoices choices;
 		Tuple tuple;
+		SelectChoices choices;
+		Tutorial tutorial;
 
-		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
+		choices = SelectChoices.from(EnumType.class, object.getSessionType());
+		tutorial = object.getTutorial();
 
-		tuple = super.unbind(object, "code", "title", "abstractm", "goals", "notPublished", "estimatedTime");
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
+		tuple = super.unbind(object, "title", "abstractm", "sessionType", "startDate", "endDate", "link");
+		tuple.put("types", choices);
+		tuple.put("notPublished", tutorial.getNotPublished());
+		tuple.put("masterId", tutorial.getId());
 
 		super.getResponse().setData(tuple);
 	}

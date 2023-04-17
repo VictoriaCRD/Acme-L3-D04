@@ -1,7 +1,16 @@
+/*
+ * AuthenticatedBulletinShowService.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.authenticated.bulletin;
-
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +23,8 @@ import acme.framework.services.AbstractService;
 @Service
 public class AuthenticatedBulletinShowService extends AbstractService<Authenticated, Bulletin> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
 	protected AuthenticatedBulletinRepository repository;
 
@@ -23,31 +34,45 @@ public class AuthenticatedBulletinShowService extends AbstractService<Authentica
 	@Override
 	public void check() {
 		boolean status;
+
 		status = super.getRequest().hasData("id", int.class);
+
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		Bulletin object;
-		final int id = super.getRequest().getData("id", int.class);
-		object = this.repository.findBulletinById(id);
-		final Date date = new Date();
-		super.getResponse().setAuthorised(date.compareTo(object.getMoment()) > 0);
-	}
+		boolean status;
+		int masterId;
+		Bulletin bulletin;
 
+		masterId = super.getRequest().getData("id", int.class);
+		bulletin = this.repository.findOneBulletinById(masterId);
+		status = bulletin != null && super.getRequest().getPrincipal().isAuthenticated();
+
+		super.getResponse().setAuthorised(status);
+
+	}
 	@Override
 	public void load() {
 		Bulletin object;
-		final int id = super.getRequest().getData("id", int.class);
-		object = this.repository.findBulletinById(id);
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneBulletinById(id);
+
 		super.getBuffer().setData(object);
+
 	}
 
 	@Override
 	public void unbind(final Bulletin object) {
 		assert object != null;
-		final Tuple tuple = super.unbind(object, "moment", "title", "message", "critical", "link");
+
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "moment", "message", "critical", "link");
+
 		super.getResponse().setData(tuple);
 	}
 

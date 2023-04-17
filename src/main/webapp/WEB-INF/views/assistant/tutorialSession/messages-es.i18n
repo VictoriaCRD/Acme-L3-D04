@@ -1,0 +1,33 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+assistant.session.list.label.title = Título
+assistant.session.list.label.type = Tipo
+assistant.session.list.label.startDate = Fecha de inicio
+assistant.session.list.label.finishDate = Fecha de finalización
+
+assistant.session.list.button.create = Crear
+
+assistant.session.form.label.title = Título:
+assistant.session.form.label.abstraction = Resumen:
+assistant.session.form.label.type = Tipo:
+assistant.session.form.label.startDate = Fecha de inicio:
+assistant.session.form.label.finishDate = Fecha de fin:
+assistant.session.form.label.link = Link (opcional):
+assistant.session.form.label.period = Periodo de tiempo en horas:
+		
+assistant.session.form.button.update = Actualizar
+assistant.session.form.button.delete = Borrar
+assistant.session.form.button.create = Crear
+
+assistant.session.form.error.duplicated = Este código no está libre
+assistant.session.form.error.finishDate = La fecha de finalización debe ser después de la fecha de inicio
+assistant.session.form.error.startDate = El periodo debe empezar al menos un día por delante
+assistant.session.form.error.period = El periodo debe tener una duración de una a cinco horas

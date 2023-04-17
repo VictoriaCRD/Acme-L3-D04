@@ -25,7 +25,13 @@
 			<acme:menu-suboption code="master.menu.alvparbor1.favourite-link" action="https://www.linkedin.com/in/alvaro-paradas-borrego-756661206/"/>
 			<acme:menu-suboption code="master.menu.marzoiras.favourite-link" action="https://pasteleriarisco.com/"/>
 		</acme:menu-option>
-
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.tutorials" action="/authenticated/tutorial/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.bulletins" action="/authenticated/bulletin/list"/>
+		</acme:menu-option>
+		
+		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -44,11 +50,10 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
-			<acme:menu-suboption code="master.menu.assistant.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.assistant.tutorials.mine" action="/assistant/tutorial/list-mine"/>
+		
 		</acme:menu-option>
-		
-		
+				
 	</acme:menu-left>
 
 	<acme:menu-right>
