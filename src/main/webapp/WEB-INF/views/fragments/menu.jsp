@@ -48,6 +48,10 @@
 			<acme:menu-suboption code="master.menu.assistant.tutorials.mine" action="/assistant/tutorial/list-mine"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
+				<acme:menu-suboption code="master.menu.student.list-courses" action="/student/course/list"/>
+		</acme:menu-option>
+		
 		
 	</acme:menu-left>
 
@@ -65,7 +69,8 @@
 			<acme:menu-suboption code="master.menu.user-account.assistant" action="/authenticated/assistant/update" access="hasRole('Assistant')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-student" action="/authenticated/student/create" access="!hasRole('Student')"/>
 			<acme:menu-suboption code="master.menu.user-account.student" action="/authenticated/student/update" access="hasRole('Student')"/>
-			
+		 
+		    
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
