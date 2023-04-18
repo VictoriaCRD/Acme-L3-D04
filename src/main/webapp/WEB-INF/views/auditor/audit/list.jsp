@@ -8,3 +8,5 @@
 	<acme:list-column code="auditor.audit.list.label.conclusion" path="conclusion"/>
 
 </acme:list>
+
+    <acme:button code="auditor.audit.list.button.create" action="/auditor/audit/create"/>

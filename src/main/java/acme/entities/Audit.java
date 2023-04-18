@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -41,9 +42,11 @@ public class Audit extends AbstractEntity {
 
 	protected Mark				mark;
 
-	//@NotBlank
+	protected Boolean			notPublished;
+
+	@NotNull
 	@Valid
-	@ManyToOne//(optional = false)
+	@ManyToOne(optional = false)
 	protected Auditor			auditor;
 
 }

@@ -1,6 +1,8 @@
 
 package acme.features.auditor.audit;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +20,7 @@ public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 
 	}
 
@@ -32,13 +31,13 @@ public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void load() {
-		Audit object;
-		int id;
+		Collection<Audit> objects;
+		final int id;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneAuditById(id);
+		id = super.getRequest().getPrincipal().getActiveRoleId();
+		objects = this.repository.findManyAuditsByAuditor(id);
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
@@ -46,7 +45,7 @@ public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
 		assert object != null;
 
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "lini");
+		tuple = super.unbind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "auditor");
 
 		super.getResponse().setData(tuple);
 	}

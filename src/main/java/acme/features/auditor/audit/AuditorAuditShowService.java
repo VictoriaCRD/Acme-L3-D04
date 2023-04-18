@@ -46,8 +46,7 @@ public class AuditorAuditShowService extends AbstractService<Auditor, Audit> {
 		assert object != null;
 
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "lini");
-
+		tuple = super.unbind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "notPublished");
 		super.getResponse().setData(tuple);
 	}
 
