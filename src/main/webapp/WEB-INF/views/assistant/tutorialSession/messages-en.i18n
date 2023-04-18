@@ -10,26 +10,26 @@
 
 
 
-assistant.session.list.label.title = Title
-assistant.session.list.label.type = Type
-assistant.session.list.label.startDate = Start date
-assistant.session.list.label.finishDate = Finish date
+assistant.tutorialSession.list.label.title = Title
+assistant.tutorialSession.list.label.type = Type
+assistant.tutorialSession.list.label.startDate = Start date
+assistant.tutorialSession.list.label.finishDate = Finish date
 
-assistant.session.list.button.create = Create
+assistant.tutorialSession.list.button.create = Create
 
-assistant.session.form.label.title = Title:
-assistant.session.form.label.abstraction = Abstract: 
-assistant.session.form.label.type = Type:
-assistant.session.form.label.startDate = Start date:
-assistant.session.form.label.finishDate = Finish date:
-assistant.session.form.label.link = Link (optional):
-assistant.session.form.label.period = Time period in hours:
+assistant.tutorialSession.form.label.title = Title:
+assistant.tutorialSession.form.label.abstraction = Abstract: 
+assistant.tutorialSession.form.label.type = Type:
+assistant.tutorialSession.form.label.startDate = Start date:
+assistant.tutorialSession.form.label.finishDate = Finish date:
+assistant.tutorialSession.form.label.link = Link (optional):
+assistant.tutorialSession.form.label.period = Time period in hours:
 		
-assistant.session.form.button.update = Update
-assistant.session.form.button.delete = Delete
-assistant.session.form.button.create = Create
+assistant.tutorialSession.form.button.update = Update
+assistant.tutorialSession.form.button.delete = Delete
+assistant.tutorialSession.form.button.create = Create
 
-assistant.session.form.error.duplicated = This code is taken
-assistant.session.form.error.finishDate = Finish date must be after start date
-assistant.session.form.error.startDate = Time period must be at least one day ahead
-assistant.session.form.error.period = Time period must be from one up to five hour long
+assistant.tutorialSession.form.error.duplicated = This code is taken
+assistant.tutorialSession.form.error.finishDate = Finish date must be after start date
+assistant.tutorialSession.form.error.startDate = Time period must be at least one day ahead
+assistant.tutorialSession.form.error.period = Time period must be from one up to five hour long

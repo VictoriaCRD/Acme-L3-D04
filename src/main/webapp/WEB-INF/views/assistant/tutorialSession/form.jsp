@@ -16,24 +16,24 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-textbox code="assistant.session.form.label.title" path="title"/>
-	<acme:input-textarea code="assistant.session.form.label.abstractm" path="abstractm"/>
-	<acme:input-select code="assistant.session.form.label.sessionType" path="sessionType" choices="${types}"/>
-	<acme:input-moment code="assistant.session.form.label.startDate" path="startDate" />
-	<acme:input-moment code="assistant.session.form.label.endDate" path="endDate"/>
+	<acme:input-textbox code="assistant.tutorialSession.form.label.title" path="title"/>
+	<acme:input-textarea code="assistant.tutorialSession.form.label.abstractm" path="abstractm"/>
+	<acme:input-select code="assistant.tutorialSession.form.label.tutorialSessionType" path="tutorialSessionType" choices="${types}"/>
+	<acme:input-moment code="assistant.tutorialSession.form.label.startDate" path="startDate" />
+	<acme:input-moment code="assistant.tutorialSession.form.label.endDate" path="endDate"/>
 	<jstl:if test="${_command == 'show'}">
-		<acme:input-double code="assistant.session.form.label.period" path="period" readonly="true"/>
+		<acme:input-double code="assistant.tutorialSession.form.label.period" path="period" readonly="true"/>
 	</jstl:if>
-		<acme:input-textbox code="assistant.session.form.label.link" path="link"/>
+		<acme:input-textbox code="assistant.tutorialSession.form.label.link" path="link"/>
 	
 	
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
-			<acme:submit code="assistant.session.form.button.update" action="/assistant/tutorialSession/update"/>
-			<acme:submit code="assistant.session.form.button.delete" action="/assistant/tutorialSession/delete"/>
+			<acme:submit code="assistant.tutorialSession.form.button.update" action="/assistant/tutorialSession/update"/>
+			<acme:submit code="assistant.tutorialSession.form.button.delete" action="/assistant/tutorialSession/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistant.session.form.button.create" action="/assistant/tutorialSession/create?masterId=${masterlId}"/>
+			<acme:submit code="assistant.tutorialSession.form.button.create" action="/assistant/tutorialSession/create?masterId=${masterlId}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
