@@ -24,7 +24,7 @@
 	<acme:input-url code="student.activity.form.label.link" path="link"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && notPublished == false}">
 			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
 			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
 		</jstl:when>
