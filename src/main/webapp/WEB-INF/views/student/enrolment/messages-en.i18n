@@ -8,23 +8,35 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-student.tutorial.list.label.code = Code
-student.tutorial.list.label.title = Title
-student.tutorial.list.label.course.title = Course title
-student.tutorial.list.label.notPublished = Unpublished
-
-student.tutorial.list.button.create = Create
-
 student.enrolment.form.label.code = Code:
-student.enrolment.form.label.course = Course: 
-student.enrolment.form.label.title = Title:
 student.enrolment.form.label.motivation = Motivation:
 student.enrolment.form.label.goals = Goals:
-		
-student.enrolment.form.button.sessions = Activities
+student.enrolment.form.label.course = Course:
+student.enrolment.form.label.workTime = Work time (hours):
+student.enrolment.form.label.creditCardHolder = Holder name:
+student.enrolment.form.label.creditCardNumber = Card number:
+student.enrolment.form.label.expiryDate = Expiry date:
+student.enrolment.form.label.cvc = CVC:
+
+student.enrolment.form.message.creditCard = Provide a valid credit card if you want to finalise the enrolment:
+
+student.enrolment.form.button.activities = Activities
 student.enrolment.form.button.update = Update
 student.enrolment.form.button.delete = Delete
-student.enrolment.form.button.publish = Publish
+student.enrolment.form.button.finalise = Finalise
 student.enrolment.form.button.create = Create
 
-student.enrolment.form.error.duplicated = This code is already taken
+student.enrolment.form.error.null-creditCardHolder = Enter the card holder
+student.enrolment.form.error.code-duplicated = This code is taken
+student.enrolment.form.error.wrong-cardNumber = The card number must be composed of 16 digits
+student.enrolment.form.error.card-expired = This card is expired
+student.enrolment.form.error.null-expiryDate = Enter the expiry date
+student.enrolment.form.error.wrong-cvc = The CVC must be composed of 3 digits 
+
+student.enrolment.list.label.code = Code
+student.enrolment.list.label.motivation = Motivation
+student.enrolment.list.label.goals = Goals
+student.enrolment.list.label.course = Course
+student.enrolment.list.label.workTime = Work time (hours)
+
+student.enrolment.list.button.create = Create
