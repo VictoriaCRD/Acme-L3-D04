@@ -36,9 +36,13 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
-	protected double			estimatedTime;
-
 	protected Boolean			notPublished;
+
+	@Length(max = 75)
+	protected String			creditCardHolder;
+
+	@Pattern(regexp = "\\d{4}")
+	protected String			creditCardLowerNibble;
 
 	// Derived attributes -----------------------------------------------------
 
