@@ -38,7 +38,7 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 	public void check() {
 		boolean status;
 
-		status = super.getRequest().hasData("masterId", int.class);
+		status = super.getRequest().hasData("tutorialId", int.class);
 
 		super.getResponse().setChecked(status);
 	}
@@ -46,12 +46,14 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int tutorialId;
 		Tutorial tutorial;
+		Assistant assistant;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
-		status = tutorial != null && (!tutorial.getNotPublished() || super.getRequest().getPrincipal().hasRole(tutorial.getAssistant()));
+		tutorialId = super.getRequest().getData("tutorialId", int.class);
+		tutorial = this.repository.findOneTutorialById(tutorialId);
+		assistant = tutorial == null ? null : tutorial.getAssistant();
+		status = tutorial != null && super.getRequest().getPrincipal().hasRole(assistant) && !tutorial.getNotPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -59,10 +61,10 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 	@Override
 	public void load() {
 		Collection<TutorialSession> objects;
-		int masterId;
+		int tutorialId;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		objects = this.repository.findManyTutorialSessionsByTutorialId(masterId);
+		tutorialId = super.getRequest().getData("tutorialId", int.class);
+		objects = this.repository.findManyTutorialSessionsByTutorialId(tutorialId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -83,15 +85,15 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 
 		assert objects != null;
 
-		int masterId;
+		int tutorialId;
 		Tutorial tutorial;
 		final boolean showCreate;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
+		tutorialId = super.getRequest().getData("tutorialId", int.class);
+		tutorial = this.repository.findOneTutorialById(tutorialId);
 		showCreate = tutorial.getNotPublished() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
-		super.getResponse().setGlobal("masterId", masterId);
+		super.getResponse().setGlobal("tutorialId", tutorialId);
 		super.getResponse().setGlobal("showCreate", showCreate);
 
 	}

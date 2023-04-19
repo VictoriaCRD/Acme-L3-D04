@@ -29,19 +29,19 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	@Override
 	public void check() {
 		boolean status;
-		status = super.getRequest().hasData("masterId", int.class);
+		status = super.getRequest().hasData("tutorialId", int.class);
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int tutorialId;
 		Tutorial tutorial;
 
-		masterId = super.getRequest().getData("masterId", int.class);
+		tutorialId = super.getRequest().getData("tutorialId", int.class);
 
-		tutorial = this.repository.findOneTutorialById(masterId);
+		tutorial = this.repository.findOneTutorialById(tutorialId);
 		status = tutorial != null && //
 			tutorial.getNotPublished() && //
 			super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
@@ -52,10 +52,10 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	public void load() {
 		TutorialSession object;
 		Tutorial tutorial;
-		int masterId;
+		int tutorialId;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		tutorial = this.repository.findOneTutorialById(masterId);
+		tutorialId = super.getRequest().getData("tutorialId", int.class);
+		tutorial = this.repository.findOneTutorialById(tutorialId);
 
 		object = new TutorialSession();
 		object.setTutorial(tutorial);
@@ -105,7 +105,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		choices = SelectChoices.from(EnumType.class, object.getSessionType());
 
 		tuple = super.unbind(object, "title", "abstractm", "sessionType", "startDate", "endDate", "link");
-		tuple.put("masterId", super.getRequest().getData("masterId", int.class));
+		tuple.put("tutorialId", super.getRequest().getData("tutorialId", int.class));
 		tuple.put("types", choices);
 		tuple.put("notPublished", object.getTutorial().getNotPublished());
 

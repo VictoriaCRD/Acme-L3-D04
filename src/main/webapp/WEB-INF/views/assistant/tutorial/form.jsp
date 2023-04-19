@@ -27,10 +27,10 @@
 
 	<jstl:choose>	
 	<jstl:when test="${_command == 'show' && notPublished == false}">
-			<acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorialSession/list?masterId=${id}"/>			
+			<acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorialSession/list?tutorialId=${id}"/>			
 		</jstl:when> 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && notPublished == true}">	
-			<acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorialSession/list?masterId=${id}"/>		
+			<acme:button code="assistant.tutorial.form.button.sessions" action="/assistant/tutorialSession/list?tutorialId=${id}"/>		
 			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
 			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
 			<acme:submit code="assistant.tutorial.form.button.publish" action="/assistant/tutorial/publish"/>

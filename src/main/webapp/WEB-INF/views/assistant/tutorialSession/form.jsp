@@ -32,7 +32,7 @@
 			<acme:submit code="assistant.tutorialSession.form.button.delete" action="/assistant/tutorialSession/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistant.tutorialSession.form.button.create" action="/assistant/tutorialSession/create?masterId=${masterlId}"/>
+			<acme:submit code="assistant.tutorialSession.form.button.create" action="/assistant/tutorialSession/create?tutorialId=${id}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
