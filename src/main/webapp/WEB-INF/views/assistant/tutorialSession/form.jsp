@@ -17,8 +17,7 @@
 
 <acme:form> 
 	<acme:input-textbox code="assistant.tutorialSession.form.label.title" path="title"/>
-	<acme:input-textarea code="assistant.tutorialSession.form.label.abstractm" path="abstractm"/>
-	<acme:input-select code="assistant.tutorialSession.form.label.tutorialSessionType" path="tutorialSessionType" choices="${types}"/>
+	<acme:input-select code="assistant.tutorialSession.form.label.sessionType" path="sessionType" choices="${types}"/>
 	<acme:input-moment code="assistant.tutorialSession.form.label.startDate" path="startDate" />
 	<acme:input-moment code="assistant.tutorialSession.form.label.endDate" path="endDate"/>
 	<jstl:if test="${_command == 'show'}">

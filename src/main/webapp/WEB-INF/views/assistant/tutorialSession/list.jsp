@@ -18,11 +18,10 @@
 <acme:list>
 	<acme:list-column code="assistant.tutorialSession.list.label.title" path="title" width="25%"/>
 	<acme:list-column code="assistant.tutorialSession.list.label.startDate" path="startDate" width="25%"/>
-		<acme:list-column code="assistant.session.list.label.sessionType" path="sessionType" width="25%"/>
+	<acme:list-column code="assistant.tutorialSession.list.label.sessionType" path="sessionType" width="25%"/>
 	<acme:list-column code="assistant.tutorialSession.list.label.endDate" path="endDate" width="25%"/>
 </acme:list>
 
 
 <acme:button test="${showCreate}" code="assistant.tutorialSession.list.button.create" action="/assistant/tutorialSession/create?masterId=${masterId}"/>
-
 
