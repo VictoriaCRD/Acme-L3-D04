@@ -1,14 +1,3 @@
-/*
- * AuthenticatedConsumerUpdateService.java
- *
- * Copyright (C) 2012-2023 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.student.enrolment;
 
@@ -27,7 +16,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentUpdateService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentFinaliseService extends AbstractService<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -107,18 +96,25 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 			super.state(existing == null || existing.equals(object), "code", "student.enrolment.form.error.code-duplicated");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("creditCardHolder")) {
+			String creditCardHolder;
+
+			creditCardHolder = super.getRequest().getData("creditCardHolder", String.class);
+			super.state(!creditCardHolder.equals(""), "creditCardHolder", "student.enrolment.form.error.null-creditCardHolder");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("creditCardNumber")) {
 			String creditCardNumber;
 
 			creditCardNumber = super.getRequest().getData("creditCardNumber", String.class);
-			if (!creditCardNumber.equals(""))
-				super.state(creditCardNumber.matches("\\d{16}"), "creditCardNumber", "student.enrolment.form.error.wrong-cardNumber");
+			super.state(creditCardNumber.matches("\\d{16}"), "creditCardNumber", "student.enrolment.form.error.wrong-cardNumber");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("expiryDate")) {
 			Date expiryDate;
 
 			expiryDate = super.getRequest().getData("expiryDate", Date.class);
+			super.state(expiryDate != null, "expiryDate", "student.enrolment.form.error.null-expiryDate");
 			if (expiryDate != null)
 				super.state(MomentHelper.isFuture(expiryDate), "expiryDate", "student.enrolment.form.error.card-expired");
 		}
@@ -127,8 +123,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 			String cvc;
 
 			cvc = super.getRequest().getData("cvc", String.class);
-			if (!cvc.equals(""))
-				super.state(cvc.matches("\\d{3}"), "cvc", "student.enrolment.form.error.wrong-cvc");
+			super.state(cvc.matches("\\d{3}"), "cvc", "student.enrolment.form.error.wrong-cvc");
 		}
 	}
 
@@ -136,6 +131,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 	public void perform(final Enrolment object) {
 		assert object != null;
 
+		object.setNotPublished(false);
 		this.repository.save(object);
 	}
 
@@ -156,7 +152,7 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 		creditCardNumber = super.getRequest().getData("creditCardNumber", String.class);
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "notPublished", "creditCardHolder");
+		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "creditCardHolder");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 		if (creditCardNumber.length() == 16) {
@@ -166,4 +162,5 @@ public class StudentEnrolmentUpdateService extends AbstractService<Student, Enro
 
 		super.getResponse().setData(tuple);
 	}
+
 }

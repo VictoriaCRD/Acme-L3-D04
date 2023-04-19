@@ -41,8 +41,8 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 		student = this.repository.findOneStudentById(super.getRequest().getPrincipal().getActiveRoleId());
 		object = new Enrolment();
-		object.setStudent(student);
 		object.setNotPublished(true);
+		object.setStudent(student);
 
 		super.getBuffer().setData(object);
 	}
@@ -57,7 +57,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
-		super.bind(object, "code", "title", "abstractm", "goals");
+		super.bind(object, "code", "motivation", "goals");
 		object.setCourse(course);
 	}
 
@@ -69,7 +69,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 			Enrolment existing;
 
 			existing = this.repository.findOneEnrolmentByCode(object.getCode());
-			super.state(existing == null, "code", "assistant.tutorial.form.error.duplicated");
+			super.state(existing == null, "code", "student.enrolment.form.error.code-duplicated");
 		}
 	}
 
@@ -88,10 +88,10 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findAllCourses();
+		courses = this.repository.findPublishedCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "title", "abstractm", "goals", "notPublished");
+		tuple = super.unbind(object, "code", "motivation", "goals", "notPublished");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

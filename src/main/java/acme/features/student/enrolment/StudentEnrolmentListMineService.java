@@ -8,16 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Activity;
-import acme.entities.Course;
 import acme.entities.Enrolment;
-import acme.framework.components.jsp.SelectChoices;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
 @Service
-public class StudentEnrolmentShowService extends AbstractService<Student, Enrolment> {
+public class StudentEnrolmentListMineService extends AbstractService<Student, Enrolment> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -29,37 +28,23 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Enrolment enrolment;
-		Student student;
-
-		masterId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findOneEnrolmentById(masterId);
-		student = enrolment == null ? null : enrolment.getStudent();
-		status = super.getRequest().getPrincipal().hasRole(student);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Enrolment object;
-		int id;
+		Collection<Enrolment> objects;
+		Principal principal;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneEnrolmentById(id);
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findEnrolmentsByStudentId(principal.getActiveRoleId());
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
@@ -68,18 +53,10 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 
 		Tuple tuple;
 		int workTime;
-		Collection<Course> courses;
-		SelectChoices choices;
-
-		courses = this.repository.findPublishedCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		workTime = this.getWorkTime(object.getId());
-
-		tuple = super.unbind(object, "code", "motivation", "goals", "notPublished", "creditCardHolder");
+		tuple = super.unbind(object, "code", "motivation", "course.title");
 		tuple.put("workTime", workTime);
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
 
 		super.getResponse().setData(tuple);
 	}
