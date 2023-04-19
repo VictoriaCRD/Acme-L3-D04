@@ -41,7 +41,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 		activityId = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findOneEnrolmentByActivityId(activityId);
-		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		status = enrolment != null && !enrolment.getNotPublished() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -61,15 +61,15 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "summary", "type", "startDate", "endDate", "moreInfo");
+		super.bind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBefore(object.getInitialDate(), object.getFinishDate()), "finshDate", "student.activity.form.error.wrong-dates");
+		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
+			super.state(MomentHelper.isBefore(object.getInitialDate(), object.getFinishDate()), "finishDate", "student.activity.form.error.wrong-dates");
 	}
 
 	@Override
@@ -88,9 +88,9 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 
 		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
 
-		tuple = super.unbind(object, "title", "summary", "type", "startDate", "endDate", "moreInfo");
+		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
 		tuple.put("enrolmentId", object.getEnrolment().getId());
-		tuple.put("draftMode", object.getEnrolment().isDraftMode());
+		tuple.put("notPublished", object.getEnrolment().getNotPublished());
 		tuple.put("types", choices);
 
 		super.getResponse().setData(tuple);

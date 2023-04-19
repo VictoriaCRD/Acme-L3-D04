@@ -40,7 +40,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 
 		activityId = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findOneEnrolmentByActivityId(activityId);
-		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		status = enrolment != null && !enrolment.getNotPublished() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -60,7 +60,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "summary", "type", "startDate", "endDate", "moreInfo");
+		super.bind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
 	}
 
 	@Override
@@ -84,9 +84,9 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 
 		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
 
-		tuple = super.unbind(object, "title", "summary", "typeOfActivity", "initialDate", "finshDate", "link");
+		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
 		tuple.put("enrolmentId", object.getEnrolment().getId());
-		tuple.put("draftMode", object.getEnrolment().isDraftMode());
+		tuple.put("notPublished", object.getEnrolment().getNotPublished());
 		tuple.put("types", choices);
 
 		super.getResponse().setData(tuple);

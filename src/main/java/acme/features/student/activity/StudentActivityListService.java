@@ -42,7 +42,7 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
 		student = enrolment == null ? null : enrolment.getStudent();
-		status = enrolment != null && super.getRequest().getPrincipal().hasRole(student) && !enrolment.isDraftMode();
+		status = enrolment != null && super.getRequest().getPrincipal().hasRole(student) && !enrolment.getNotPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -64,7 +64,7 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "type", "startDate", "endDate");
+		tuple = super.unbind(object, "title", "typeOfActivity", "initialDate", "finishDate");
 
 		super.getResponse().setData(tuple);
 	}
@@ -79,10 +79,9 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
-		showCreate = !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		showCreate = !enrolment.getNotPublished() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
 		super.getResponse().setGlobal("enrolmentId", enrolmentId);
 		super.getResponse().setGlobal("showCreate", showCreate);
 	}
-
 }
