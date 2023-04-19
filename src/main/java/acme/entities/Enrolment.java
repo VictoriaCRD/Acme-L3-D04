@@ -40,8 +40,6 @@ public class Enrolment extends AbstractEntity {
 
 	protected Boolean			notPublished;
 
-	protected boolean			draftMode;
-
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
