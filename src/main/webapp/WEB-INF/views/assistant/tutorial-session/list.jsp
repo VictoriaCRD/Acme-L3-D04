@@ -23,5 +23,5 @@
 </acme:list>
 
 
-<acme:button test="${showCreate}" code="assistant.tutorialSession.list.button.create" action="/assistant/tutorialSession/create?tutorialId=${id}"/>
+<acme:button test="${showCreate}" code="assistant.tutorialSession.list.button.create" action="/assistant/tutorial-session/create?tutorialId=${tutorialId}"/>
 

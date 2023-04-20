@@ -45,7 +45,7 @@ master.menu.assistant = Asistente
 master.menu.assistant.favourite-link = Enlace favorito
 master.menu.assistant.tutorials.mine = Mis tutoriales
 
-master.menu.authenticated.bulletins = Bulletins
+master.menu.authenticated.bulletins = Boletines
 
 master.menu.authenticated = Autenticado
 master.menu.authenticated.tutorials = Todos los tutoriales

@@ -29,7 +29,9 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	@Override
 	public void check() {
 		boolean status;
+
 		status = super.getRequest().hasData("tutorialId", int.class);
+
 		super.getResponse().setChecked(status);
 	}
 
@@ -38,13 +40,13 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 		boolean status;
 		int tutorialId;
 		Tutorial tutorial;
+		Assistant assistant;
 
 		tutorialId = super.getRequest().getData("tutorialId", int.class);
-
 		tutorial = this.repository.findOneTutorialById(tutorialId);
-		status = tutorial != null && //
-			tutorial.getNotPublished() && //
-			super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		assistant = tutorial == null ? null : tutorial.getAssistant();
+		status = tutorial != null && super.getRequest().getPrincipal().hasRole(assistant);
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -68,7 +70,7 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 	public void bind(final TutorialSession object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstraction", "sessionType", "startDate", "endDate", "link");
+		super.bind(object, "title", "abstractm", "sessionType", "startDate", "endDate", "link");
 	}
 
 	@Override
@@ -82,10 +84,11 @@ public class AssistantTutorialSessionCreateService extends AbstractService<Assis
 			final boolean startDateIsOneDayAhead = durationSinceCurrentDate.doubleValue() >= 1.;
 			super.state(endDateIsAfter, "endDate", "assistant.tutorialSession.form.error.endDate");
 			super.state(startDateIsOneDayAhead, "startDate", "assistant.tutorialSession.form.error.startDate");
-			super.state(object.getDurationInHours() >= 1. && // 
+			super.state(object.getDurationInHours() >= 1. && //
 				object.getDurationInHours() <= 5., "endDate", "assistant.tutorialSession.form.error.period");
 
 		}
+
 	}
 
 	@Override

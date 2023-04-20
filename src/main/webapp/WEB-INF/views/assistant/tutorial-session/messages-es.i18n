@@ -16,13 +16,13 @@ assistant.tutorialSession.list.label.finishDate = Fecha de finalización
 assistant.tutorialSession.list.button.create = Crear
 
 assistant.tutorialSession.form.label.title = Título:
-assistant.tutorialSession.form.label.abstraction = Resumen:
-assistant.tutorialSession.form.label.type = Tipo:
+assistant.tutorialSession.form.label.abstractm = Resumen:
+assistant.tutorialSession.form.label.sessionType = Tipo:
 assistant.tutorialSession.form.label.startDate = Fecha de inicio:
-assistant.tutorialSession.form.label.finishDate = Fecha de fin:
+assistant.tutorialSession.form.label.endDate = Fecha de fin:
 assistant.tutorialSession.form.label.link = Link (opcional):
 assistant.tutorialSession.form.label.period = Periodo de tiempo en horas:
-		
+
 assistant.tutorialSession.form.button.update = Actualizar
 assistant.tutorialSession.form.button.delete = Borrar
 assistant.tutorialSession.form.button.create = Crear

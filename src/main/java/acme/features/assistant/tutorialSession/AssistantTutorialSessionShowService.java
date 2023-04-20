@@ -45,7 +45,7 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 		tutorial = tutorialSession == null ? null : tutorialSession.getTutorial();
 		assistant = tutorial == null ? null : tutorial.getAssistant();
 		status = tutorialSession != null && //
-			tutorial != null && super.getRequest().getPrincipal().hasRole(assistant) && tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+			tutorial != null && tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -78,10 +78,8 @@ public class AssistantTutorialSessionShowService extends AbstractService<Assista
 
 		tuple = super.unbind(object, "title", "abstractm", "sessionType", "startDate", "endDate", "link");
 		tuple.put("period", period);
-		tuple.put("tutorialId", tutorial.getId());
 		tuple.put("types", choices);
 		tuple.put("notPublished", notPublished);
-		tuple.put("tutorial", tutorial);
 
 		super.getResponse().setData(tuple);
 	}

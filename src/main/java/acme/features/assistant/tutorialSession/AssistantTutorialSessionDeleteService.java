@@ -37,7 +37,7 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 		boolean status;
 		int tutorialId;
 		TutorialSession tutorialSession;
-		Tutorial tutorial;
+		final Tutorial tutorial;
 		Assistant assistant;
 
 		tutorialId = super.getRequest().getData("id", int.class);
@@ -45,10 +45,7 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 		tutorial = tutorialSession == null ? null : tutorialSession.getTutorial();
 		assistant = tutorial == null ? null : tutorial.getAssistant();
 		status = tutorialSession != null && //
-			tutorial != null && //
-			tutorial.getNotPublished() && //
-			super.getRequest().getPrincipal().hasRole(assistant) && //
-			tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+			tutorial != null && tutorial.getAssistant().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -96,7 +93,7 @@ public class AssistantTutorialSessionDeleteService extends AbstractService<Assis
 		tutorial = object.getTutorial();
 
 		tuple = super.unbind(object, "title", "abstractm", "sessionType", "startDate", "endDate", "link");
-		tuple.put("types", choices);
+		tuple.put("types", choices.getSelected().getKey());
 		tuple.put("notPublished", tutorial.getNotPublished());
 		tuple.put("tutorialId", tutorial.getId());
 

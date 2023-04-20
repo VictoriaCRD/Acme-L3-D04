@@ -53,7 +53,7 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 		tutorialId = super.getRequest().getData("tutorialId", int.class);
 		tutorial = this.repository.findOneTutorialById(tutorialId);
 		assistant = tutorial == null ? null : tutorial.getAssistant();
-		status = tutorial != null && super.getRequest().getPrincipal().hasRole(assistant) && !tutorial.getNotPublished();
+		status = tutorial != null && super.getRequest().getPrincipal().hasRole(assistant);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -91,7 +91,7 @@ public class AssistantTutorialSessionListService extends AbstractService<Assista
 
 		tutorialId = super.getRequest().getData("tutorialId", int.class);
 		tutorial = this.repository.findOneTutorialById(tutorialId);
-		showCreate = tutorial.getNotPublished() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
+		showCreate = !tutorial.getNotPublished() && super.getRequest().getPrincipal().hasRole(tutorial.getAssistant());
 
 		super.getResponse().setGlobal("tutorialId", tutorialId);
 		super.getResponse().setGlobal("showCreate", showCreate);

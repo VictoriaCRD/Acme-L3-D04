@@ -17,9 +17,11 @@
 
 <acme:form> 
 	<acme:input-textbox code="assistant.tutorialSession.form.label.title" path="title"/>
+	<acme:input-textbox code="assistant.tutorialSession.form.label.abstractm" path="abstractm"/>
 	<acme:input-select code="assistant.tutorialSession.form.label.sessionType" path="sessionType" choices="${types}"/>
 	<acme:input-moment code="assistant.tutorialSession.form.label.startDate" path="startDate" />
 	<acme:input-moment code="assistant.tutorialSession.form.label.endDate" path="endDate"/>
+		
 	<jstl:if test="${_command == 'show'}">
 		<acme:input-double code="assistant.tutorialSession.form.label.period" path="period" readonly="true"/>
 	</jstl:if>
@@ -27,12 +29,12 @@
 	
 	
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
-			<acme:submit code="assistant.tutorialSession.form.button.update" action="/assistant/tutorialSession/update"/>
-			<acme:submit code="assistant.tutorialSession.form.button.delete" action="/assistant/tutorialSession/delete"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && notPublished == false}">
+			<acme:submit code="assistant.tutorialSession.form.button.update" action="/assistant/tutorial-session/update"/>
+			<acme:submit code="assistant.tutorialSession.form.button.delete" action="/assistant/tutorial-session/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="assistant.tutorialSession.form.button.create" action="/assistant/tutorialSession/create?tutorialId=${id}"/>
+			<acme:submit code="assistant.tutorialSession.form.button.create" action="/assistant/tutorial-session/create?tutorialId=${tutorialId}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
