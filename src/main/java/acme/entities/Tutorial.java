@@ -58,6 +58,8 @@ public class Tutorial extends AbstractEntity {
 
 	protected double			estimatedTime;
 
+	protected Boolean			notPublished;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
