@@ -45,12 +45,34 @@ master.menu.any.listPeeps = Peeps
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.assistant #######################################################
+master.menu.assistant = Asistente
+master.menu.assistant.favourite-link = Enlace favorito
+master.menu.assistant.tutorials.mine = Mis tutoriales
+
+master.menu.authenticated.bulletins = Boletines
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.tutorials = Todos los tutoriales
+
+
+
+# master.menu.assistant #######################################################
+master.menu.assistant = Asistente
+master.menu.assistant.favourite-link = Enlace favorito
+master.menu.assistant.tutorials.mine = Mis tutoriales
+
+master.menu.authenticated.bulletins = Boletines
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.tutorials = Todos los tutoriales
 # master.menu.student #####################################
 master.menu.student = Estudiante
 master.menu.student.favourite-link = Enlace  favorito
 master.menu.student.list-courses= Lista de cursos
 master.menu.student.list-enrolments = Mis inscripciones
 master.menu.student.dashboard = Mi panel
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta

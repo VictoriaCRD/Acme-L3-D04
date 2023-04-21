@@ -18,6 +18,7 @@ Tutorial
 + startDate: Date {NotNull, Temporal(TIMESTAMP)}
 + endDate: Date {NotNull, Temporal(TIMESTAMP)}
 + info: String {URL}
++ notPublished: Boolean
 
 
 

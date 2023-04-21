@@ -1,5 +1,5 @@
 /*
- * AuthenticatedBulletinShowService.java
+ * AuthenticatedAnnouncementListService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,68 +10,57 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.bulletin;
+package acme.features.assistant.tutorial;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Bulletin;
-import acme.framework.components.accounts.Authenticated;
+import acme.entities.Tutorial;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Assistant;
 
 @Service
-public class AuthenticatedBulletinShowService extends AbstractService<Authenticated, Bulletin> {
+public class AssistantTutorialListService extends AbstractService<Assistant, Tutorial> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedBulletinRepository repository;
+	protected AssistantTutorialRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Bulletin bulletin;
-
-		masterId = super.getRequest().getData("id", int.class);
-		bulletin = this.repository.findOneBulletinById(masterId);
-		status = bulletin != null && super.getRequest().getPrincipal().isAuthenticated();
-
-		super.getResponse().setAuthorised(status);
-
+		super.getResponse().setAuthorised(true);
 	}
+
 	@Override
 	public void load() {
-		Bulletin object;
-		int id;
+		Collection<Tutorial> objects;
+		int assistantId;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneBulletinById(id);
+		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
+		objects = this.repository.findManyTutorialsByAssistantId(assistantId);
 
-		super.getBuffer().setData(object);
-
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Bulletin object) {
+	public void unbind(final Tutorial object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "moment", "message", "critical", "link");
+		tuple = super.unbind(object, "code", "title", "abstractm", "goals", "notPublished", "estimatedTime");
 
 		super.getResponse().setData(tuple);
 	}

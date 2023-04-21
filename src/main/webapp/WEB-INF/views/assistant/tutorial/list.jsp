@@ -16,11 +16,16 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.bulletin.list.label.title" path="title" width="40%"/>
-	<acme:list-column code="authenticated.bulletin.list.label.moment" path="moment" width="20%"/>
-	<acme:list-column code="authenticated.bulletin.list.label.message" path="message" width="20%"/>
-	<acme:list-column code="authenticated.bulletin.list.label.critical" path="critical" width="20%"/>
-	
+	<acme:list-column code="assistant.tutorial.list.label.code" path="code" width="5%"/>
+	<acme:list-column code="assistant.tutorial.list.label.title" path="title" width="5%"/>
+	<acme:list-column code="assistant.tutorial.list.label.course.title" path="course.title" width="80%"/>	
+	<acme:list-column code="assistant.tutorial.list.label.notPublished" path="notPublished" width="5%"/>	
+	<acme:list-column code="assistant.tutorial.list.label.estimatedTime" path="estimatedTime" width="5%"/>
 </acme:list>
+
+
+<jstl:if test="${_command == 'list-mine'}">
+	<acme:button code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
+</jstl:if>
 
 

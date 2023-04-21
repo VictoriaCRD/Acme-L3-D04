@@ -26,11 +26,24 @@
 			<acme:menu-suboption code="master.menu.marzoiras.favourite-link" action="https://pasteleriarisco.com/"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.tutorials" action="/authenticated/tutorial/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.bulletins" action="/authenticated/bulletin/list"/>
+		</acme:menu-option>
+		
+		
+
 		<acme:menu-option code="master.menu.any">
 		    <acme:menu-suboption code="master.menu.any.courses" action="/any/course/list"/>		
 			<acme:menu-suboption code="master.menu.any.listPeeps" action="/any/peep/list"/>
 		</acme:menu-option>
 
+ refs/remotes/origin/develop
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.tutorials" action="/authenticated/tutorial/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.bulletins" action="/authenticated/bulletin/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
@@ -48,6 +61,9 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
+			<acme:menu-suboption code="master.menu.assistant.tutorials.mine" action="/assistant/tutorial/list-mine"/>
+
 
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list-mine"/>
@@ -60,10 +76,10 @@
 				<acme:menu-suboption code="master.menu.student.list-enrolments" action="/student/enrolment/list-mine"/>
 		        <acme:menu-separator/>
 				<acme:menu-suboption code="master.menu.student.dashboard" action="/student/student-dashboard/show"/>
-		</acme:menu-option>
-		
-		
 
+		</acme:menu-option>
+
+				
 	</acme:menu-left>
 
 	<acme:menu-right>
