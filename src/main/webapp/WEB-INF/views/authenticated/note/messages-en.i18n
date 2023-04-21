@@ -8,18 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-auditor.audit.list.label.code = Code
-auditor.audit.list.label.conclusion = Conclusion
+authenticated.note.list.label.title = Title
+authenticated.note.list.label.instantiationMoment = Conclusion
+authenticated.note.list.label.author = Author
+authenticated.note.list.label.message = Message
 
-auditor.audit.form.button.create = Create
-auditor.audit.form.button.delete = Delete
-auditor.audit.form.button.update = Update
-auditor.audit.form.button.auditRecords = Records
+authenticated.note.form.button.create = Crear
 
-auditor.audit.form.label.code = Code:
-auditor.audit.form.label.conclusion = Conclusion:
-auditor.audit.form.label.strongPoints = Strong points:
-auditor.audit.form.label.weakPoints = Weak points:
+
+authenticated.note.form.label.title = Title
+authenticated.note.form.label.instantiationMoment = Conclusion
+authenticated.note.form.label.author = Author
+authenticated.note.form.label.message = Message
+authenticated.note.form.label.email = Email
+authenticated.note.form.label.link = Link
 
 auditor.audit.form.error.duplicated = This code is already taken
+
+
 

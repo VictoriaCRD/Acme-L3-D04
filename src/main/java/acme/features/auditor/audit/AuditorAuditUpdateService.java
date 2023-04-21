@@ -10,7 +10,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
+public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 
 	@Autowired
 	protected AuditorAuditRepository repository;
@@ -18,33 +18,38 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
-
+		boolean status;
+		status = super.getRequest().hasData("id", int.class);
+		super.getResponse().setChecked(status);
 	}
-
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		Audit audit;
+		masterId = super.getRequest().getData("id", int.class);
+		audit = this.repository.findOneAuditById(masterId);
+		status = audit != null && //
+			audit.getNotPublished() && //
+			super.getRequest().getPrincipal().hasRole(audit.getAuditor()) && //
+			audit.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		final Audit object;
-		Auditor auditor;
-
-		auditor = this.repository.findOneAuditorById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new Audit();
-		object.setAuditor(auditor);
-		object.setNotPublished(true);
-
+		Audit object;
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneAuditById(id);
 		super.getBuffer().setData(object);
 	}
 
 	@Override
 	public void bind(final Audit object) {
 		assert object != null;
-		super.bind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "notPublished");
 
+		super.bind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "notPublished");
 	}
 
 	@Override
@@ -53,25 +58,22 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Audit existing;
 			existing = this.repository.findOneAuditByCode(object.getCode());
-			super.state(existing == null, "code", "auditor.audit.form.error.duplicated");
+			super.state(existing == null || existing.getId() == object.getId(), "code", "auditor.audit.form.error.duplicated");
 		}
 	}
 
 	@Override
 	public void perform(final Audit object) {
 		assert object != null;
-
 		this.repository.save(object);
 	}
-
 	@Override
 	public void unbind(final Audit object) {
 		assert object != null;
-
 		Tuple tuple;
 
 		tuple = super.unbind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "notPublished");
+
 		super.getResponse().setData(tuple);
 	}
-
 }

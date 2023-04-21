@@ -18,3 +18,4 @@
 <div class="rounded" style="background: <acme:message code='master.banner.background'/>">
 	<img src="images/banner.png" alt="<acme:message code='master.banner.alt'/>" class="img-fluid rounded"/>
 </div>
+

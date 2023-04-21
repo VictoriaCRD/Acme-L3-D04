@@ -11,15 +11,9 @@
 auditor.audit.list.label.code = Code
 auditor.audit.list.label.conclusion = Conclusion
 
-auditor.audit.form.button.create = Create
-auditor.audit.form.button.delete = Delete
-auditor.audit.form.button.update = Update
-auditor.audit.form.button.auditRecords = Records
+auditor.audit.list.button.create = Create
 
-auditor.audit.form.label.code = Code:
-auditor.audit.form.label.conclusion = Conclusion:
-auditor.audit.form.label.strongPoints = Strong points:
-auditor.audit.form.label.weakPoints = Weak points:
-
-auditor.audit.form.error.duplicated = This code is already taken
-
+auditor.audit.form.label.code = Code
+auditor.audit.form.label.conclusion = Conclusion
+auditor.audit.form.label.strongPoints = Strong points
+auditor.audit.form.label.weakPoints = Weak points

@@ -1,51 +1,48 @@
 
-package acme.features.auditor.audit;
+package acme.features.authenticated.note;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Audit;
+import acme.entities.Note;
+import acme.framework.components.accounts.Authenticated;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
-import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditListService extends AbstractService<Auditor, Audit> {
+public class AuthenticatedNoteListService extends AbstractService<Authenticated, Note> {
 
 	@Autowired
-	protected AuditorAuditRepository repository;
+	protected AuthenticatedNoteRepository repository;
 
 
 	@Override
 	public void check() {
 		super.getResponse().setChecked(true);
-
 	}
-
 	@Override
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
 	}
-
 	@Override
 	public void load() {
-		Collection<Audit> objects;
-		final int id;
+		Collection<Note> objects;
 
-		id = super.getRequest().getPrincipal().getActiveRoleId();
-		objects = this.repository.findManyAuditsByAuditor(id);
+		objects = this.repository.findAllNotes();
 
 		super.getBuffer().setData(objects);
+
 	}
 
 	@Override
-	public void unbind(final Audit object) {
+	public void unbind(final Note object) {
 		assert object != null;
 
 		Tuple tuple;
-		tuple = super.unbind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "auditor.id");
+
+		tuple = super.unbind(object, "title", "instantiationMoment", "author", "message");
 
 		super.getResponse().setData(tuple);
 	}

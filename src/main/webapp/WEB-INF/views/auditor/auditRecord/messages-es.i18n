@@ -8,15 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-auditor.audit.list.label.code = Código
-auditor.audit.list.label.conclusion = Conclusión
+auditor.record.list.label.code = Asunto
+auditor.record.list.label.conclusion = Evaluación
 
-auditor.audit.list.button.create = Crear
-auditor.audit.list.button.delete = Borrar
-auditor.audit.list.button.update = Editar
-auditor.audit.form.button.auditRecords = Records
+auditor.record.list.button.create = Crear
 
-auditor.audit.form.label.code = Código:
-auditor.audit.form.label.conclusion = Conclusión:
-auditor.audit.form.label.strongPoints = Puntos fuertes:
-auditor.audit.form.label.weakPoints = Puntos débiles:
+auditor.record.form.label.code = Código
+auditor.record.form.label.conclusion = Conclusión
+auditor.record.form.label.strongPoints = Puntos fuertes
+auditor.record.form.label.weakPoints = Puntos débiles
