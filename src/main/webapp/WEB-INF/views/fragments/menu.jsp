@@ -25,6 +25,11 @@
 			<acme:menu-suboption code="master.menu.alvparbor1.favourite-link" action="https://www.linkedin.com/in/alvaro-paradas-borrego-756661206/"/>
 			<acme:menu-suboption code="master.menu.marzoiras.favourite-link" action="https://pasteleriarisco.com/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any">
+		    <acme:menu-suboption code="master.menu.any.courses" action="/any/course/list"/>		
+			<acme:menu-suboption code="master.menu.any.listPeeps" action="/any/peep/list"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
