@@ -35,12 +35,17 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	@Override
 	public void authorise() {
 		boolean status;
-		int activityId;
-		Enrolment enrolment;
+		int enrolmentId;
+		final Activity activity;
+		final Enrolment enrolment;
+		Student student;
 
-		activityId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findOneEnrolmentByActivityId(activityId);
-		status = enrolment != null && !enrolment.getNotPublished() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		enrolmentId = super.getRequest().getData("id", int.class);
+		activity = this.repository.findOneActivityById(enrolmentId);
+		enrolment = activity == null ? null : activity.getEnrolment();
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = activity != null && //
+			enrolment != null && enrolment.getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -60,7 +65,8 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
+		super.bind(object, "title", "abstractm", "typeOfActivity", "initialDate", "finishDate", "link");
+
 	}
 
 	@Override
@@ -79,15 +85,17 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	public void unbind(final Activity object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Tuple tuple;
+		SelectChoices choices;
+		Enrolment enrolment;
 
 		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
+		enrolment = object.getEnrolment();
 
-		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
-		tuple.put("enrolmentId", object.getEnrolment().getId());
-		tuple.put("notPublished", object.getEnrolment().getNotPublished());
-		tuple.put("types", choices);
+		tuple = super.unbind(object, "title", "abstractm", "typeOfActivity", "initialDate", "finishDate", "link");
+		tuple.put("types", choices.getSelected().getKey());
+		tuple.put("notPublished", enrolment.getNotPublished());
+		tuple.put("enrolmentId", enrolment.getId());
 
 		super.getResponse().setData(tuple);
 	}

@@ -16,10 +16,12 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="student.activity.list.label.title" path="title" width="40%"/>
-	<acme:list-column code="student.activity.list.label.typeOfActivity" path="typeOfActivity" width="10%"/>
+	<acme:list-column code="student.activity.list.label.title" path="title" width="25%"/>
 	<acme:list-column code="student.activity.list.label.initialDate" path="initialDate" width="25%"/>
+	<acme:list-column code="student.activity.list.label.typeOfActivity" path="typeOfActivity" width="25%"/>
 	<acme:list-column code="student.activity.list.label.finishDate" path="finishDate" width="25%"/>
 </acme:list>
 
-<acme:button test="${showCreate}" code="student.activity.list.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>
+
+<acme:button test="${showCreate}" code="typeOfActivity.list.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>
+

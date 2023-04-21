@@ -1,7 +1,17 @@
+/*
+ * AuthenticatedConsumerUpdateService.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.student.activity;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +49,17 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	@Override
 	public void authorise() {
 		boolean status;
-		int activityId;
-		Enrolment enrolment;
+		int enrolmentId;
+		Activity activity;
+		final Enrolment enrolment;
+		Student student;
 
-		activityId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findOneEnrolmentByActivityId(activityId);
-		status = enrolment != null && !enrolment.getNotPublished() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		enrolmentId = super.getRequest().getData("id", int.class);
+		activity = this.repository.findOneActivityById(enrolmentId);
+		enrolment = activity == null ? null : activity.getEnrolment();
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = activity != null && //
+			enrolment != null && enrolment.getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -64,47 +79,24 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
+		super.bind(object, "title", "abstractm", "typeOfActivity", "initialDate", "finishDate", "link");
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("initialDate")) {
-			Calendar calendar;
-			final Date date;
+		if (!(super.getBuffer().getErrors().hasErrors("initialDate") || super.getBuffer().getErrors().hasErrors("finishDate"))) {
+			final boolean endDateIsAfter = object.getFinishDate().after(object.getInitialDate());
+			final Date currentDate = MomentHelper.getCurrentMoment();
+			final Long durationSinceCurrentDate = MomentHelper.computeDuration(currentDate, object.getInitialDate()).toDays();
+			final boolean startDateIsOneDayAhead = durationSinceCurrentDate.doubleValue() >= 1.;
+			super.state(endDateIsAfter, "finishDate", "student.activity.form.error.finishDate");
+			super.state(startDateIsOneDayAhead, "initialDate", "student.activity.form.error.initialDate");
+			super.state(object.getDurationInHours() >= 1. && // 
+				object.getDurationInHours() <= 5., "finishDate", "student.activity.form.error.period");
 
-			calendar = Calendar.getInstance();
-			calendar.set(Calendar.YEAR, 2000);
-			calendar.set(Calendar.MONTH, Calendar.JANUARY);
-			calendar.set(Calendar.DAY_OF_MONTH, 1);
-			calendar.set(Calendar.HOUR_OF_DAY, 0);
-			calendar.set(Calendar.MINUTE, 0);
-			calendar.set(Calendar.SECOND, 0);
-			calendar.set(Calendar.MILLISECOND, 0);
-			date = new Date(calendar.getTimeInMillis());
-
-			super.state(MomentHelper.isAfter(object.getInitialDate(), date), "initialDate", "student.activity.form.error.wrong-start");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
-			Calendar calendar;
-			final Date date;
-
-			calendar = Calendar.getInstance();
-			calendar.set(Calendar.YEAR, 2100);
-			calendar.set(Calendar.MONTH, Calendar.DECEMBER);
-			calendar.set(Calendar.DAY_OF_MONTH, 31);
-			calendar.set(Calendar.HOUR_OF_DAY, 23);
-			calendar.set(Calendar.MINUTE, 59);
-			calendar.set(Calendar.SECOND, 59);
-			calendar.set(Calendar.MILLISECOND, 0);
-			date = new Date(calendar.getTimeInMillis());
-
-			super.state(MomentHelper.isBefore(object.getFinishDate(), date), "finishDate", "student.activity.form.error.wrong-end");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
-			super.state(MomentHelper.isBefore(object.getInitialDate(), object.getFinishDate()), "finishDate", "student.activity.form.error.wrong-dates");
 	}
 
 	@Override
@@ -118,14 +110,16 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void unbind(final Activity object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Tuple tuple;
+		SelectChoices choices;
+		Enrolment enrolment;
 
 		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
+		enrolment = object.getEnrolment();
 
-		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
-		tuple.put("enrolmentId", object.getEnrolment().getId());
-		tuple.put("notPublished", object.getEnrolment().getNotPublished());
+		tuple = super.unbind(object, "title", "abstractm", "typeOfActivity", "initialDate", "finishDate", "link");
+		tuple.put("enrolmentId", enrolment.getId());
+		tuple.put("notPublished", enrolment.getNotPublished());
 		tuple.put("types", choices);
 
 		super.getResponse().setData(tuple);

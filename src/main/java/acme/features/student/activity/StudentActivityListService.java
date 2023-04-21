@@ -1,3 +1,14 @@
+/*
+ * AuthenticatedAnnouncementListService.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.student.activity;
 
@@ -42,7 +53,7 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
 		student = enrolment == null ? null : enrolment.getStudent();
-		status = enrolment != null && super.getRequest().getPrincipal().hasRole(student) && !enrolment.getNotPublished();
+		status = enrolment != null && super.getRequest().getPrincipal().hasRole(student);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -71,11 +82,12 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 	@Override
 	public void unbind(final Collection<Activity> objects) {
+
 		assert objects != null;
 
 		int enrolmentId;
 		Enrolment enrolment;
-		boolean showCreate;
+		final boolean showCreate;
 
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
@@ -83,5 +95,7 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 		super.getResponse().setGlobal("enrolmentId", enrolmentId);
 		super.getResponse().setGlobal("showCreate", showCreate);
+
 	}
+
 }

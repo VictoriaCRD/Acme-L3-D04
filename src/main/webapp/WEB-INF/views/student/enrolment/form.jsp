@@ -15,30 +15,26 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:form>
-	<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>	
-	<acme:input-select code="student.enrolment.form.label.course" path="course" choices="${courses}"/>
+<acme:form> 
+	<acme:input-textbox code="student.enrolment.form.label.code" path="code"/>
+	<acme:input-select code="student.enrolment.form.label.course" path="course" choices="${courses}"/>	
 	<acme:input-textbox code="student.enrolment.form.label.motivation" path="motivation"/>
+	<acme:input-textarea code="student.enrolment.form.label.abstractm" path="abstractm"/>
 	<acme:input-textarea code="student.enrolment.form.label.goals" path="goals"/>
-	<acme:input-integer code="student.enrolment.form.label.workTime" path="workTime" readonly="true"/>
-	<br>
-	<jstl:if test="${acme:anyOf(_command, 'show|update|delete|finalise') && draftMode == true}">
-		<h3><acme:message code="student.enrolment.form.message.creditCard"/></h3>
-		<acme:input-textbox code="student.enrolment.form.label.creditCardHolder" path="creditCardHolder"/>
-		<acme:input-textbox code="student.enrolment.form.label.creditCardNumber" path="creditCardNumber"/>
-		<acme:input-moment code="student.enrolment.form.label.expiryDate" path="expiryDate"/>
-		<acme:input-textbox code="student.enrolment.form.label.cvc" path="cvc"/>
-	</jstl:if>
+	<acme:input-textarea code="student.enrolment.form.label.estimatedTime" path="estimatedTime"/>
 		
-	
-	<jstl:choose>	 
-		<jstl:when test="${_command == 'show' && draftMode == false}">
+	<acme:hidden-data path="id"/>
+	<acme:hidden-data path="notPublished"/>
+
+	<jstl:choose>	
+	<jstl:when test="${_command == 'show' && notPublished == false}">
 			<acme:button code="student.enrolment.form.button.activities" action="/student/activity/list?enrolmentId=${id}"/>			
-		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|finalise') && notPublished == true}">
+		</jstl:when> 
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && notPublished == true}">	
+			<acme:button code="student.enrolment.form.button.activities" action="/student/activity/list?enrolmentId=${id}"/>		
 			<acme:submit code="student.enrolment.form.button.update" action="/student/enrolment/update"/>
 			<acme:submit code="student.enrolment.form.button.delete" action="/student/enrolment/delete"/>
-			<acme:submit code="student.enrolment.form.button.finalise" action="/student/enrolment/finalise"/>
+			<acme:submit code="student.enrolment.form.button.publish" action="/student/enrolment/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="student.enrolment.form.button.create" action="/student/enrolment/create"/>

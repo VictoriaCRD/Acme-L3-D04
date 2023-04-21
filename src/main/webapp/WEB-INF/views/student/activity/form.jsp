@@ -15,18 +15,23 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
-<acme:form>
+<acme:form> 
 	<acme:input-textbox code="student.activity.form.label.title" path="title"/>
-	<acme:input-textarea code="student.activity.form.label.textAbstract" path="textAbstract"/>
+	<acme:input-textbox code="student.activity.form.label.abstractm" path="abstractm"/>
 	<acme:input-select code="student.activity.form.label.typeOfActivity" path="typeOfActivity" choices="${types}"/>
-	<acme:input-moment code="student.activity.form.label.initialDate" path="initialDate"/>
-	<acme:input-moment code="student.activity.form.label.finishDate" path="finshDate"/>	
-	<acme:input-url code="student.activity.form.label.link" path="link"/>
+	<acme:input-moment code="student.activity.form.label.initialDate" path="initialDate" />
+	<acme:input-moment code="student.activity.form.label.finishDate" path="finishDate"/>
+		
+	<jstl:if test="${_command == 'show'}">
+		<acme:input-double code="student.activity.form.label.period" path="period" readonly="true"/>
+	</jstl:if>
+		<acme:input-textbox code="student.activity.form.label.link" path="link"/>
 	
-	<jstl:choose>
+	
+	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && notPublished == false}">
 			<acme:submit code="student.activity.form.button.update" action="/student/activity/update"/>
-			<acme:submit code="student.activity.form.button.delete" action="/student/activity/delete"/>
+			<acme:submit code="student.activity.form.button.delete" action="/student/activty/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="student.activity.form.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>

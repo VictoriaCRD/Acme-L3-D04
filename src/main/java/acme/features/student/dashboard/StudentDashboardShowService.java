@@ -118,8 +118,11 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		for (final Activity activity : activities) {
 			final Duration duration = MomentHelper.computeDuration(activity.getInitialDate(), activity.getFinishDate());
 			final double diffInMinutes = duration.toMinutes();
-			final double diffInHours = diffInMinutes / 60;
+			double diffInHours = diffInMinutes / 60;
+			if (diffInHours < 0)
+				diffInHours = diffInHours * diffInHours;
 			result.add(diffInHours);
+
 		}
 		return result;
 	}

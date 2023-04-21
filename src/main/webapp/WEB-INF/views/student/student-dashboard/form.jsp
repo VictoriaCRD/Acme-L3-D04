@@ -105,7 +105,7 @@
 	$(document).ready(function() {
 		var data = {
 			labels : [
-					"THEORY", "HANDS ON"
+					"THEORETICAL", "HANDS ON"
 			],
 			datasets : [
 				{
@@ -125,7 +125,7 @@
 					yAxes : [
 						{
 							ticks : {
-								suggestedMin : 0.0,
+								suggestedMin : 10.0,
 								suggestedMax : maxValue
 							}
 						}

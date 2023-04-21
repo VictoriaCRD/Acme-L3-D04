@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Activity;
+import acme.entities.Enrolment;
 import acme.entities.EnumType;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
@@ -34,14 +35,17 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int enrolmentId;
 		Activity activity;
+		final Enrolment enrolment;
 		Student student;
 
-		masterId = super.getRequest().getData("id", int.class);
-		activity = this.repository.findOneActivityById(masterId);
-		student = activity == null ? null : activity.getEnrolment().getStudent();
-		status = super.getRequest().getPrincipal().hasRole(student);
+		enrolmentId = super.getRequest().getData("id", int.class);
+		activity = this.repository.findOneActivityById(enrolmentId);
+		enrolment = activity == null ? null : activity.getEnrolment();
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = activity != null && //
+			enrolment != null && enrolment.getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -61,16 +65,23 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 	public void unbind(final Activity object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Tuple tuple;
+		SelectChoices choices;
+		Enrolment enrolment;
+		boolean notPublished;
+		final Double period;
 
+		enrolment = object.getEnrolment();
+		notPublished = enrolment.getNotPublished();
 		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
+		period = object.getDurationInHours();
 
-		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "endDate", "link");
-		tuple.put("enrolmentId", object.getEnrolment().getId());
-		tuple.put("notPublished", object.getEnrolment().getNotPublished());
+		tuple = super.unbind(object, "title", "abstractm", "typeOfActivity", "initialDate", "finishDate", "link");
+		tuple.put("period", period);
 		tuple.put("types", choices);
+		tuple.put("notPublished", notPublished);
 
 		super.getResponse().setData(tuple);
 	}
+
 }

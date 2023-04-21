@@ -24,38 +24,36 @@ import acme.roles.Student;
 @Controller
 public class StudentEnrolmentController extends AbstractController<Student, Enrolment> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
-	protected StudentEnrolmentListMineService	listMineService;
+	protected StudentEnrolmentListService		listService;
 
 	@Autowired
 	protected StudentEnrolmentShowService		showService;
 
 	@Autowired
-	protected StudentEnrolmentCreateService		createService;
+	protected StudentEnrolmentUpdateService		updateService;
 
 	@Autowired
-	protected StudentEnrolmentUpdateService		updateService;
+	protected StudentEnrolmentCreateService		createService;
 
 	@Autowired
 	protected StudentEnrolmentDeleteService		deleteService;
 
 	@Autowired
-	protected StudentEnrolmentFinaliseService	finaliseService;
-
+	protected StudentEnrolmentPublishService	publishService;
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("delete", this.deleteService);
 
-		super.addCustomCommand("list-mine", "list", this.listMineService);
-		super.addCustomCommand("finalise", "update", this.finaliseService);
+		super.addCustomCommand("list-mine", "list", this.listService);
+		super.addCustomCommand("publish", "update", this.publishService);
+
 	}
 
 }

@@ -26,27 +26,25 @@ import acme.roles.Student;
 @Repository
 public interface StudentEnrolmentRepository extends AbstractRepository {
 
-	@Query("select e from Enrolment e where e.id = :id")
+	@Query("SELECT e FROM Enrolment e WHERE e.id = :id")
 	Enrolment findOneEnrolmentById(int id);
 
-	@Query("select e from Enrolment e where e.code = :code")
-	Enrolment findOneEnrolmentByCode(String code);
+	@Query("SELECT e FROM Enrolment e WHERE e.student.id = :id")
+	Collection<Enrolment> findManyEnrolmentsByStudentId(int id);
 
-	@Query("select e from Enrolment e where e.student.id = :studentId")
-	Collection<Enrolment> findEnrolmentsByStudentId(int studentId);
+	@Query("SELECT s FROM Student s WHERE s.id = :id")
+	Student findOneStudentById(int id);
 
-	@Query("select a from Activity a where a.enrolment.id = :enrolmentId")
-	Collection<Activity> findActivitiesByEnrolmentId(int enrolmentId);
-
-	@Query("select c from Course c")
-	Collection<Course> findAllCourses();
-
-	@Query("select c from Course c where c.notPublished = 0")
-	Collection<Course> findPublishedCourses();
-
-	@Query("select c from Course c where c.id = :id")
+	@Query("SELECT c FROM Course c WHERE c.id = :id")
 	Course findOneCourseById(int id);
 
-	@Query("select s from Student s where s.id = :id")
-	Student findOneStudentById(int id);
+	@Query("SELECT c FROM Course c WHERE c.notPublished = false")
+	Collection<Course> findAllCourses();
+
+	@Query("SELECT s FROM Activity s WHERE s.enrolment.id = :id")
+	Collection<Activity> findManyActivitiesByEnrolmentId(int id);
+
+	@Query("SELECT e FROM Enrolment e WHERE e.code = :code")
+	Enrolment findOneEnrolmentByCode(String code);
+
 }

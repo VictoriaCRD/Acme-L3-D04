@@ -44,7 +44,9 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		masterId = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findOneEnrolmentById(masterId);
 		student = enrolment == null ? null : enrolment.getStudent();
-		status = enrolment != null && enrolment.getNotPublished() && super.getRequest().getPrincipal().hasRole(student);
+		status = enrolment != null && enrolment.getNotPublished() && //
+			super.getRequest().getPrincipal().hasRole(student) && //
+			enrolment.getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -70,7 +72,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
-		super.bind(object, "code", "motivation", "goals");
+		super.bind(object, "code", "motivation", "abstractm", "goals", "notPublished", "estimatedTime");
 		object.setCourse(course);
 	}
 
@@ -83,10 +85,10 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	public void perform(final Enrolment object) {
 		assert object != null;
 
-		Collection<Activity> duties;
+		Collection<Activity> sessions;
 
-		duties = this.repository.findActivitiesByEnrolmentId(object.getId());
-		this.repository.deleteAll(duties);
+		sessions = this.repository.findManyActivitiesByEnrolmentId(object.getId());
+		this.repository.deleteAll(sessions);
 		this.repository.delete(object);
 	}
 
@@ -98,10 +100,10 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 		SelectChoices choices;
 		Tuple tuple;
 
-		courses = this.repository.findPublishedCourses();
+		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode");
+		tuple = super.unbind(object, "code", "motivation", "abstractm", "goals", "notPublished", "estimatedTime");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

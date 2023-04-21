@@ -1,6 +1,8 @@
 
 package acme.features.student.activity;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,10 +40,12 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		boolean status;
 		int enrolmentId;
 		Enrolment enrolment;
+		Student student;
 
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
-		status = enrolment != null && !enrolment.getNotPublished() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		student = enrolment == null ? null : enrolment.getStudent();
+		status = enrolment != null && super.getRequest().getPrincipal().hasRole(student);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,8 +53,8 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	@Override
 	public void load() {
 		Activity object;
-		int enrolmentId;
 		Enrolment enrolment;
+		int enrolmentId;
 
 		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
 		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
@@ -59,6 +63,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 		object.setEnrolment(enrolment);
 
 		super.getBuffer().setData(object);
+
 	}
 
 	@Override
@@ -72,8 +77,18 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	public void validate(final Activity object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBefore(object.getInitialDate(), object.getFinishDate()), "endDate", "student.activity.form.error.wrong-dates");
+		if (!(super.getBuffer().getErrors().hasErrors("initialDate") || super.getBuffer().getErrors().hasErrors("finishDate"))) {
+			final boolean endDateIsAfter = object.getFinishDate().after(object.getInitialDate());
+			final Date currentDate = MomentHelper.getCurrentMoment();
+			final Long durationSinceCurrentDate = MomentHelper.computeDuration(currentDate, object.getInitialDate()).toDays();
+			final boolean startDateIsOneDayAhead = durationSinceCurrentDate.doubleValue() >= 1.;
+			super.state(endDateIsAfter, "finishDate", "student.activity.form.error.finishDate");
+			super.state(startDateIsOneDayAhead, "initialDate", "student.activity.form.error.initialDate");
+			super.state(object.getDurationInHours() >= 1. && //
+				object.getDurationInHours() <= 5., "finishDate", "student.activity.form.error.period");
+
+		}
+
 	}
 
 	@Override
@@ -87,15 +102,15 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 	public void unbind(final Activity object) {
 		assert object != null;
 
-		SelectChoices choices;
 		Tuple tuple;
+		SelectChoices choices;
 
 		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
 
-		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
+		tuple = super.unbind(object, "title", "abstractm", "typeOfActivity", "initialDate", "finishDate", "link");
 		tuple.put("enrolmentId", super.getRequest().getData("enrolmentId", int.class));
-		tuple.put("notPublished", object.getEnrolment().getNotPublished());
 		tuple.put("types", choices);
+		tuple.put("notPublished", object.getEnrolment().getNotPublished());
 
 		super.getResponse().setData(tuple);
 	}

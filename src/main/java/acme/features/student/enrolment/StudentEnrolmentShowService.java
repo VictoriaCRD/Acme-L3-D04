@@ -1,18 +1,15 @@
 
 package acme.features.student.enrolment;
 
-import java.time.Duration;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Activity;
 import acme.entities.Course;
 import acme.entities.Enrolment;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
-import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
 
@@ -46,7 +43,9 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		masterId = super.getRequest().getData("id", int.class);
 		enrolment = this.repository.findOneEnrolmentById(masterId);
 		student = enrolment == null ? null : enrolment.getStudent();
-		status = super.getRequest().getPrincipal().hasRole(student);
+		status = enrolment != null && //
+			super.getRequest().getPrincipal().hasRole(student) && //
+			enrolment.getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -67,50 +66,15 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		assert object != null;
 
 		Tuple tuple;
-		int workTime;
-		Collection<Course> courses;
 		SelectChoices choices;
+		final Collection<Course> courses = this.repository.findAllCourses();
 
-		courses = this.repository.findPublishedCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
-		workTime = this.getWorkTime(object.getId());
-
-		tuple = super.unbind(object, "code", "motivation", "goals", "notPublished", "creditCardHolder");
-		tuple.put("workTime", workTime);
+		tuple = super.unbind(object, "code", "motivation", "abstractm", "goals", "notPublished", "estimatedTime");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
-
 		super.getResponse().setData(tuple);
 	}
-
-	// Aux --------------------------------------------------------------------
-
-	private int getWorkTime(final int enrolmentId) {
-		int result = 0;
-		final Collection<Activity> activities = this.repository.findActivitiesByEnrolmentId(enrolmentId);
-		for (final Activity activity : activities) {
-			final Duration duration = MomentHelper.computeDuration(activity.getInitialDate(), activity.getFinishDate());
-			final Long seconds = duration.getSeconds();
-			final double res = seconds.doubleValue() / 3600.;
-			final int diffInHours = (int) res;
-
-			result += diffInHours;
-		}
-		return result;
-	}
-	/*
-	 * private int getWorkTime(final int enrolmentId) {
-	 * int result = 0;
-	 * final Collection<Activity> activities = this.repository.findActivitiesByEnrolmentId(enrolmentId);
-	 * for (final Activity activity : activities) {
-	 * final Duration duration = MomentHelper.computeDuration(activity.getInitialDate(), activity.getFinishDate());
-	 * final int diffInHours = (int) duration.toHours();
-	 * 
-	 * result += diffInHours;
-	 * }
-	 * return result;
-	 * }
-	 */
 
 }
