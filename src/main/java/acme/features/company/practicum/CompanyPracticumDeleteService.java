@@ -1,5 +1,5 @@
 
-package acme.features.company;
+package acme.features.company.practicum;
 
 import java.util.Collection;
 
@@ -15,7 +15,7 @@ import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumPublishService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumDeleteService extends AbstractService<Company, Practicum> {
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
@@ -32,22 +32,20 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	public void authorise() {
 		boolean status;
 		Practicum practicum;
-		Company company;
 		int practicumId;
 		practicumId = super.getRequest().getData("id", int.class);
 		practicum = this.repository.findOnePracticumById(practicumId);
-		company = practicum == null ? null : practicum.getCompany();
-		status = practicum != null && practicum.getDraftMode() && super.getRequest().getPrincipal().hasRole(company);
+		status = practicum != null && practicum.getCompany().getId() == super.getRequest().getPrincipal().getActiveRoleId() && practicum.getDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Practicum object;
+		Practicum practicum;
 		int idPracticum;
 		idPracticum = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePracticumById(idPracticum);
-		super.getBuffer().setData(object);
+		practicum = this.repository.findOnePracticumById(idPracticum);
+		super.getBuffer().setData(practicum);
 	}
 
 	@Override
@@ -64,28 +62,28 @@ public class CompanyPracticumPublishService extends AbstractService<Company, Pra
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
-		final Collection<SessionPracticum> sessions = this.repository.findSessionsByPracticumId(object.getId());
-		super.state(!sessions.isEmpty(), "*", "company.practicum.emptyPracticum");
 	}
 
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
-		object.setDraftMode(false);
-		this.repository.save(object);
+		Collection<SessionPracticum> sessionPracticums;
+		sessionPracticums = this.repository.findSessionsByPracticumId(object.getId());
+		this.repository.deleteAll(sessionPracticums);
+		this.repository.delete(object);
 	}
 
 	@Override
 	public void unbind(final Practicum object) {
 		assert object != null;
 		Collection<Course> courses;
-		SelectChoices sChoices;
+		SelectChoices choices;
 		Tuple tuple;
 		courses = this.repository.findAllCourses();
-		sChoices = SelectChoices.from(courses, "code", object.getCourse());
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 		tuple = super.unbind(object, "code", "title", "overview", "goals");
-		tuple.put("course", sChoices.getSelected().getKey());
-		tuple.put("courses", sChoices);
+		tuple.put("course", choices.getSelected().getKey());
+		tuple.put("courses", choices);
 		super.getResponse().setData(tuple);
 	}
 }

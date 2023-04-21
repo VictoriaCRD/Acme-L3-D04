@@ -1,5 +1,5 @@
 
-package acme.features.company;
+package acme.features.company.practicum;
 
 import java.util.Collection;
 
@@ -8,14 +8,13 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Course;
 import acme.entities.Practicum;
-import acme.entities.SessionPracticum;
 import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Company;
 
 @Service
-public class CompanyPracticumDeleteService extends AbstractService<Company, Practicum> {
+public class CompanyPracticumUpdateService extends AbstractService<Company, Practicum> {
 
 	@Autowired
 	protected CompanyPracticumRepository repository;
@@ -24,7 +23,9 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	@Override
 	public void check() {
 		boolean status;
+
 		status = super.getRequest().hasData("id", int.class);
+
 		super.getResponse().setChecked(status);
 	}
 
@@ -62,15 +63,18 @@ public class CompanyPracticumDeleteService extends AbstractService<Company, Prac
 	@Override
 	public void validate(final Practicum object) {
 		assert object != null;
+		Collection<String> codes;
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			codes = this.repository.findAllCodes();
+			codes.remove(object.getCode());
+			super.state(!codes.contains(object.getCode()), "code", "company.practicum.form.error.code");
+		}
 	}
 
 	@Override
 	public void perform(final Practicum object) {
 		assert object != null;
-		Collection<SessionPracticum> sessionPracticums;
-		sessionPracticums = this.repository.findSessionsByPracticumId(object.getId());
-		this.repository.deleteAll(sessionPracticums);
-		this.repository.delete(object);
+		this.repository.save(object);
 	}
 
 	@Override

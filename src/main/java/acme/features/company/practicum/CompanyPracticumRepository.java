@@ -1,5 +1,5 @@
 
-package acme.features.company;
+package acme.features.company.practicum;
 
 import java.util.Collection;
 
