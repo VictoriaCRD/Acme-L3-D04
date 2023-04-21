@@ -48,5 +48,6 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
-master.menu.user-account.update-company = Datos de empresa
+master.menu.user-account.update-company = Actualiza datos de empresa
 master.menu.user-account.create-company = Crea tu empresa
+master.menu.user-account.company = Datos de empresa
