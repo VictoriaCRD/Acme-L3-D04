@@ -43,13 +43,12 @@
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
-			<acme:menu-suboption code="master.menu.assistant.favourite-link" action="http://www.example.com/"/>
-			<acme:menu-suboption code="master.menu.assistant.tutorials.mine" action="/assistant/tutorial/list-mine"/>
-		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
 				<acme:menu-suboption code="master.menu.student.list-courses" action="/student/course/list"/>
+				<acme:menu-suboption code="master.menu.student.list-enrolments" action="/student/enrolment/list-mine"/>
+		        <acme:menu-separator/>
+				<acme:menu-suboption code="master.menu.student.dashboard" action="/student/student-dashboard/show"/>
 		</acme:menu-option>
 		
 		

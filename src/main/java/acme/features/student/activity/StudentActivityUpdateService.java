@@ -1,6 +1,9 @@
 
 package acme.features.student.activity;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,6 +71,38 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void validate(final Activity object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("initialDate")) {
+			Calendar calendar;
+			final Date date;
+
+			calendar = Calendar.getInstance();
+			calendar.set(Calendar.YEAR, 2000);
+			calendar.set(Calendar.MONTH, Calendar.JANUARY);
+			calendar.set(Calendar.DAY_OF_MONTH, 1);
+			calendar.set(Calendar.HOUR_OF_DAY, 0);
+			calendar.set(Calendar.MINUTE, 0);
+			calendar.set(Calendar.SECOND, 0);
+			calendar.set(Calendar.MILLISECOND, 0);
+			date = new Date(calendar.getTimeInMillis());
+
+			super.state(MomentHelper.isAfter(object.getInitialDate(), date), "initialDate", "student.activity.form.error.wrong-start");
+		}
+		if (!super.getBuffer().getErrors().hasErrors("finishDate")) {
+			Calendar calendar;
+			final Date date;
+
+			calendar = Calendar.getInstance();
+			calendar.set(Calendar.YEAR, 2100);
+			calendar.set(Calendar.MONTH, Calendar.DECEMBER);
+			calendar.set(Calendar.DAY_OF_MONTH, 31);
+			calendar.set(Calendar.HOUR_OF_DAY, 23);
+			calendar.set(Calendar.MINUTE, 59);
+			calendar.set(Calendar.SECOND, 59);
+			calendar.set(Calendar.MILLISECOND, 0);
+			date = new Date(calendar.getTimeInMillis());
+
+			super.state(MomentHelper.isBefore(object.getFinishDate(), date), "finishDate", "student.activity.form.error.wrong-end");
+		}
 		if (!super.getBuffer().getErrors().hasErrors("finishDate"))
 			super.state(MomentHelper.isBefore(object.getInitialDate(), object.getFinishDate()), "finishDate", "student.activity.form.error.wrong-dates");
 	}

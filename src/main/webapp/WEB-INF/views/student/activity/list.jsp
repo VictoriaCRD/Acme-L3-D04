@@ -19,7 +19,7 @@
 	<acme:list-column code="student.activity.list.label.title" path="title" width="40%"/>
 	<acme:list-column code="student.activity.list.label.typeOfActivity" path="typeOfActivity" width="10%"/>
 	<acme:list-column code="student.activity.list.label.initialDate" path="initialDate" width="25%"/>
-	<acme:list-column code="student.activity.list.label.finishDate" path="finshDate" width="25%"/>
+	<acme:list-column code="student.activity.list.label.finishDate" path="finishDate" width="25%"/>
 </acme:list>
 
 <acme:button test="${showCreate}" code="student.activity.list.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>

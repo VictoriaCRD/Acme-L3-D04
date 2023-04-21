@@ -152,7 +152,7 @@ public class StudentEnrolmentFinaliseService extends AbstractService<Student, En
 
 		creditCardNumber = super.getRequest().getData("creditCardNumber", String.class);
 
-		tuple = super.unbind(object, "code", "motivation", "goals", "draftMode", "creditCardHolder");
+		tuple = super.unbind(object, "code", "motivation", "goals", "notPublished", "creditCardHolder");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 		if (creditCardNumber.length() == 16) {

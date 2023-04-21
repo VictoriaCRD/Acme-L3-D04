@@ -91,10 +91,26 @@ public class StudentEnrolmentShowService extends AbstractService<Student, Enrolm
 		final Collection<Activity> activities = this.repository.findActivitiesByEnrolmentId(enrolmentId);
 		for (final Activity activity : activities) {
 			final Duration duration = MomentHelper.computeDuration(activity.getInitialDate(), activity.getFinishDate());
-			final int diffInHours = (int) duration.toHours();
+			final Long seconds = duration.getSeconds();
+			final double res = seconds.doubleValue() / 3600.;
+			final int diffInHours = (int) res;
+
 			result += diffInHours;
 		}
 		return result;
 	}
+	/*
+	 * private int getWorkTime(final int enrolmentId) {
+	 * int result = 0;
+	 * final Collection<Activity> activities = this.repository.findActivitiesByEnrolmentId(enrolmentId);
+	 * for (final Activity activity : activities) {
+	 * final Duration duration = MomentHelper.computeDuration(activity.getInitialDate(), activity.getFinishDate());
+	 * final int diffInHours = (int) duration.toHours();
+	 * 
+	 * result += diffInHours;
+	 * }
+	 * return result;
+	 * }
+	 */
 
 }

@@ -92,7 +92,7 @@ public class StudentActivityCreateService extends AbstractService<Student, Activ
 
 		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
 
-		tuple = super.unbind(object, "title", "textAbstracty", "typeOfActivity", "initialDate", "finishDate", "link");
+		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
 		tuple.put("enrolmentId", super.getRequest().getData("enrolmentId", int.class));
 		tuple.put("notPublished", object.getEnrolment().getNotPublished());
 		tuple.put("types", choices);

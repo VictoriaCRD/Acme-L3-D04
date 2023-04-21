@@ -43,11 +43,12 @@ master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
 
-# master.menu.assistant #####################################
-master.menu.assistant = Asisstant
-master.menu.assistant.favourite-link = Favourite link
-master.menu.assistant.tutorials.mine = My tutorials
-
+# master.menu.student #####################################
+master.menu.student = Student
+master.menu.student.favourite-link = Favourite link
+master.menu.student.list-courses= Courses List
+master.menu.student.list-enrolments = My enrolments
+master.menu.student.dashboard = My Dashboard
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
