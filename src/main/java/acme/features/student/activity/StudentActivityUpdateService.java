@@ -79,7 +79,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstractm", "typeOfActivity", "initialDate", "finishDate", "link");
+		super.bind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
 		enrolment = object.getEnrolment();
 
-		tuple = super.unbind(object, "title", "abstractm", "typeOfActivity", "initialDate", "finishDate", "link");
+		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
 		tuple.put("enrolmentId", enrolment.getId());
 		tuple.put("notPublished", enrolment.getNotPublished());
 		tuple.put("types", choices);

@@ -24,4 +24,6 @@
 
 
 <acme:button test="${showCreate}" code="typeOfActivity.list.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>
+<acme:button test="${showUpdate}" code="typeOfActivity.list.button.update" action="/student/activty/update"/>
+<acme:button test="${showDelete}" code="typeOfActivity.list.button.delete" action="/student/activty/delete"/>
 

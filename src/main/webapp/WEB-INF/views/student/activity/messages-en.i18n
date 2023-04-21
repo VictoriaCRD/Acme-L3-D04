@@ -15,6 +15,9 @@ student.activity.list.label.title = Title
 student.activity.list.label.typeOfActivity = Type
 student.activity.list.label.initialDate = Initial date
 student.activity.list.label.finishDate = Finish date
+typeOfActivity.list.button.create=Create
+typeOfActivity.list.button.update=Update
+typeOfActivity.list.button.delete=Delete
  
 
 student.activity.list.button.create = Create

@@ -15,6 +15,7 @@ student.course.form.label.retailPrice = Retail price:
 student.course.form.label.link = More info: (Optional)
 student.course.form.label.lecturer = Lecturer: 
 
+
 student.course.form.button.lectures = Lectures
 
 student.course.list.label.code = Code

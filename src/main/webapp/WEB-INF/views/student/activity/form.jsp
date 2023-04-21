@@ -17,7 +17,7 @@
 
 <acme:form> 
 	<acme:input-textbox code="student.activity.form.label.title" path="title"/>
-	<acme:input-textbox code="student.activity.form.label.abstractm" path="abstractm"/>
+	<acme:input-textbox code="student.activity.form.label.textAbstract" path="texAbstract"/>
 	<acme:input-select code="student.activity.form.label.typeOfActivity" path="typeOfActivity" choices="${types}"/>
 	<acme:input-moment code="student.activity.form.label.initialDate" path="initialDate" />
 	<acme:input-moment code="student.activity.form.label.finishDate" path="finishDate"/>

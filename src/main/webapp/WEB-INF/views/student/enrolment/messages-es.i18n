@@ -10,7 +10,6 @@
 
 student.enrolment.list.label.code = Código
 student.enrolment.list.label.motivation = Título
-student.enrolment.list.label.course.title = Título del curso
 student.enrolment.list.label.notPublished = Sin publicar
 student.enrolment.list.label.estimatedTime = Tiempo estimado
 

@@ -18,7 +18,6 @@
 <acme:list>
 	<acme:list-column code="student.enrolment.list.label.code" path="code" width="5%"/>
 	<acme:list-column code="student.enrolment.list.label.motivation" path="motivation" width="5%"/>
-	<acme:list-column code="student.enrolment.list.label.course.title" path="course.title" width="80%"/>	
 	<acme:list-column code="student.enrolment.list.label.notPublished" path="notPublished" width="5%"/>	
 	<acme:list-column code="student.enrolment.list.label.estimatedTime" path="estimatedTime" width="5%"/>
 </acme:list>

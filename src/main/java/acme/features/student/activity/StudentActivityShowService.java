@@ -76,7 +76,7 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
 		period = object.getDurationInHours();
 
-		tuple = super.unbind(object, "title", "abstractm", "typeOfActivity", "initialDate", "finishDate", "link");
+		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
 		tuple.put("period", period);
 		tuple.put("types", choices);
 		tuple.put("notPublished", notPublished);
