@@ -1,0 +1,33 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+assistant.tutorialSession.list.label.title = Título
+assistant.tutorialSession.list.label.type = Tipo
+assistant.tutorialSession.list.label.startDate = Fecha de inicio
+assistant.tutorialSession.list.label.finishDate = Fecha de finalización
+
+assistant.tutorialSession.list.button.create = Crear
+
+assistant.tutorialSession.form.label.title = Título:
+assistant.tutorialSession.form.label.abstractm = Resumen:
+assistant.tutorialSession.form.label.sessionType = Tipo:
+assistant.tutorialSession.form.label.startDate = Fecha de inicio:
+assistant.tutorialSession.form.label.endDate = Fecha de fin:
+assistant.tutorialSession.form.label.link = Link (opcional):
+assistant.tutorialSession.form.label.period = Periodo de tiempo en horas:
+
+assistant.tutorialSession.form.button.update = Actualizar
+assistant.tutorialSession.form.button.delete = Borrar
+assistant.tutorialSession.form.button.create = Crear
+
+assistant.tutorialSession.form.error.duplicated = Este código no está libre
+assistant.tutorialSession.form.error.finishDate = La fecha de finalización debe ser después de la fecha de inicio
+assistant.tutorialSession.form.error.startDate = El periodo debe empezar al menos un día por delante
+assistant.tutorialSession.form.error.period = El periodo debe tener una duración de una a cinco horas

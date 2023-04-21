@@ -1,0 +1,11 @@
+key,key:tutorial,title,abstractm,sessionType,startDate,endDate,link
+tutorialSession-01,tutorial-01,Example Session,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorialSession-02,tutorial-02,Example Session,This is an example session,HANDS_ON,2023/04/25 16:00,2023/04/25 17:30,https://www.us.es/
+tutorialSession-03,tutorial-03,1,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorialSession-04,tutorial-04,Example Session,1,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorialSession-05,tutorial-05,this is a sample text of 75 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjf,This is an example session,HANDS_ON,2023/03/30 16:00,2023/03/30 17:50,null
+tutorialSession-06,tutorial-05,Example Session,this is a sample text of 100 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkjfsdfsjñlkjfñlkjdfñkjadfjr,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorialSession-07,tutorial-07,no mais,This is an example session,THEORETICAL,2023/06/01 12:30,2023/06/01 13:15,null
+tutorialSession-08,tutorial-08,Example Session,jelou,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorialSession-09,tutorial-09,Im hacking you,This is an example session,THEORETICAL,2023/04/25 16:00,2023/04/25 17:30,null
+tutorialSession-10,tutorial-10,Example Session,Im hacking you,THEORETICAL,2023/06/01 12:30,2023/06/01 13:15,null
