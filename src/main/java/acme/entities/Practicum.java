@@ -1,3 +1,4 @@
+
 package acme.entities;
 
 import javax.persistence.Column;
@@ -18,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Practicum extends AbstractEntity { 
+public class Practicum extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -36,7 +37,7 @@ public class Practicum extends AbstractEntity {
 	protected String			title;
 
 	@NotBlank
-	@Length(max = 101)
+	@Length(max = 100)
 	protected String			abstractedness;
 
 	@NotBlank
@@ -45,6 +46,9 @@ public class Practicum extends AbstractEntity {
 
 	@NotNull
 	protected Double			estimatedTime;
+
+	@NotNull
+	protected Boolean			draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
