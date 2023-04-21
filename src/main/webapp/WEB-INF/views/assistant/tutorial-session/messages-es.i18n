@@ -9,9 +9,9 @@
 # they accept any liabilities with respect to them.
 
 assistant.tutorialSession.list.label.title = Título
-assistant.tutorialSession.list.label.type = Tipo
+assistant.tutorialSession.list.label.sessionType = Tipo
 assistant.tutorialSession.list.label.startDate = Fecha de inicio
-assistant.tutorialSession.list.label.finishDate = Fecha de finalización
+assistant.tutorialSession.list.label.endDate = Fecha de finalización
 
 assistant.tutorialSession.list.button.create = Crear
 
@@ -22,12 +22,13 @@ assistant.tutorialSession.form.label.startDate = Fecha de inicio:
 assistant.tutorialSession.form.label.endDate = Fecha de fin:
 assistant.tutorialSession.form.label.link = Link (opcional):
 assistant.tutorialSession.form.label.period = Periodo de tiempo en horas:
+assistant.session.form.error.period.
 
 assistant.tutorialSession.form.button.update = Actualizar
 assistant.tutorialSession.form.button.delete = Borrar
 assistant.tutorialSession.form.button.create = Crear
 
 assistant.tutorialSession.form.error.duplicated = Este código no está libre
-assistant.tutorialSession.form.error.finishDate = La fecha de finalización debe ser después de la fecha de inicio
+assistant.tutorialSession.form.error.endDate = La fecha de finalización debe ser después de la fecha de inicio
 assistant.tutorialSession.form.error.startDate = El periodo debe empezar al menos un día por delante
 assistant.tutorialSession.form.error.period = El periodo debe tener una duración de una a cinco horas

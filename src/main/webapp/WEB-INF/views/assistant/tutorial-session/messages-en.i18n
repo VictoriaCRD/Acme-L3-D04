@@ -12,9 +12,9 @@
 
 
 assistant.tutorialSession.list.label.title = Title
-assistant.tutorialSession.list.label.type = Type
+assistant.tutorialSession.list.label.sessionType = Type
 assistant.tutorialSession.list.label.startDate = Start date
-assistant.tutorialSession.list.label.finishDate = Finish date
+assistant.tutorialSession.list.label.endDate = End date
 
 assistant.tutorialSession.list.button.create = Create
 
@@ -33,6 +33,6 @@ assistant.tutorialSession.form.button.delete = Delete
 assistant.tutorialSession.form.button.create = Create
 
 assistant.tutorialSession.form.error.duplicated = This code is taken
-assistant.tutorialSession.form.error.finishDate = Finish date must be after start date
+assistant.tutorialSession.form.error.endDate = Finish date must be after start date
 assistant.tutorialSession.form.error.startDate = Time period must be at least one day ahead
 assistant.tutorialSession.form.error.period = Time period must be from one up to five hour long

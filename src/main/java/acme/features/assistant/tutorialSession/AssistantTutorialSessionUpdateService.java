@@ -91,10 +91,10 @@ public class AssistantTutorialSessionUpdateService extends AbstractService<Assis
 			final Date currentDate = MomentHelper.getCurrentMoment();
 			final Long durationSinceCurrentDate = MomentHelper.computeDuration(currentDate, object.getStartDate()).toDays();
 			final boolean startDateIsOneDayAhead = durationSinceCurrentDate.doubleValue() >= 1.;
-			super.state(endDateIsAfter, "endDate", "assistant.session.form.error.endDate");
-			super.state(startDateIsOneDayAhead, "startDate", "assistant.session.form.error.startDate");
+			super.state(endDateIsAfter, "endDate", "assistant.tutorialSession.form.error.endDate");
+			super.state(startDateIsOneDayAhead, "startDate", "assistant.tutorialSession.form.error.startDate");
 			super.state(object.getDurationInHours() >= 1. && // 
-				object.getDurationInHours() <= 5., "endDate", "assistant.session.form.error.period");
+				object.getDurationInHours() <= 5., "endDate", "assistant.tutorialSession.form.error.period");
 
 		}
 	}
