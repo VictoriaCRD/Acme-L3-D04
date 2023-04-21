@@ -19,3 +19,4 @@
 	<img src="images/banner.png" alt="<acme:message code='master.banner.alt'/>" class="img-fluid rounded"/>
 </div>
 
+

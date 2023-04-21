@@ -19,3 +19,5 @@
 	<h1><acme:message code="master.welcome.title"/></h1>
 	<acme:message code="master.welcome.text"/>
 </div>
+
+
