@@ -6,9 +6,9 @@
 <acme:form>
     <acme:input-textbox code="authenticated.note.form.label.title" path="title"/>
     <acme:input-textarea code="authenticated.note.form.label.message" path="message"/>
-	<acme:input-textbox code="authenticated.note.from.label.author" path="author"/>
+	<acme:input-textbox code="authenticated.note.form.label.author" path="author"/>
 	<acme:input-textbox code="authenticated.note.form.label.email" path="email"/>
-	<acme:input-textbox code="authenticated.note.from.label.link" path="link"/>
+	<acme:input-textbox code="authenticated.note.form.label.link" path="link"/>
 	
 	<jstl:choose>	
 

@@ -14,19 +14,22 @@ import acme.roles.Auditor;
 public class AuditorAuditController extends AbstractController<Auditor, Audit> {
 
 	@Autowired
-	protected AuditorAuditShowService	showService;
+	protected AuditorAuditShowService		showService;
 
 	@Autowired
-	protected AuditorAuditListService	listService;
+	protected AuditorAuditListService		listService;
 
 	@Autowired
-	protected AuditorAuditCreateService	createService;
+	protected AuditorAuditCreateService		createService;
 
 	@Autowired
-	protected AuditorAuditDeleteService	deleteService;
+	protected AuditorAuditDeleteService		deleteService;
 
 	@Autowired
-	protected AuditorAuditUpdateService	updateService;
+	protected AuditorAuditUpdateService		updateService;
+
+	@Autowired
+	protected AuditorAuditPublishService	publishService;
 
 
 	@PostConstruct
@@ -36,5 +39,6 @@ public class AuditorAuditController extends AbstractController<Auditor, Audit> {
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("delete", this.deleteService);
 		super.addBasicCommand("update", this.updateService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 }

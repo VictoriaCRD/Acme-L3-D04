@@ -16,7 +16,7 @@ public interface AuthenticatedNoteRepository extends AbstractRepository {
 	@Query("select n from Note n where n.id = :id")
 	Note findOneNoteById(int id);
 
-	@Query("select n from Note n where n.instantiationMoment <= :deadline")
+	@Query("select n from Note n where n.instantiationMoment >= :deadline")
 	Collection<Note> findRecentNotes(Date deadline);
 
 	@Query("select n from Note n")

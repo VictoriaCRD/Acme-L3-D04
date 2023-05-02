@@ -34,6 +34,7 @@ public class AuthenticatedNoteShowService extends AbstractService<Authenticated,
 	public void authorise() {
 
 		boolean status;
+		boolean isAfter;
 		int id;
 		Note note;
 		Date deadline;
@@ -41,7 +42,8 @@ public class AuthenticatedNoteShowService extends AbstractService<Authenticated,
 		id = super.getRequest().getData("id", int.class);
 		note = this.repository.findOneNoteById(id);
 		deadline = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
-		status = note != null && MomentHelper.isAfter(note.getInstantiationMoment(), deadline);
+		isAfter = MomentHelper.isAfter(note.getInstantiationMoment(), deadline);
+		status = note != null && isAfter == true && super.getRequest().getPrincipal().isAuthenticated();
 
 		super.getResponse().setAuthorised(status);
 

@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 authenticated.note.list.label.title = Título
-authenticated.note.list.label.instantiationMoment = Fecha
+authenticated.note.list.label.instantiationMoment = Momento
 authenticated.note.list.label.author = Autor
 authenticated.note.list.label.message = Mensaje
 

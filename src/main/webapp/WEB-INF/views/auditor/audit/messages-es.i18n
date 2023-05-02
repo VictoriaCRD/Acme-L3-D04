@@ -14,6 +14,7 @@ auditor.audit.list.label.conclusion = Conclusión
 auditor.audit.list.button.create = Crear
 auditor.audit.list.button.delete = Borrar
 auditor.audit.list.button.update = Editar
+auditor.audit.form.button.publish = Publicar
 auditor.audit.form.button.auditRecords = Records
 
 auditor.audit.form.label.code = Código:
