@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.Note;
 import acme.framework.components.accounts.Authenticated;
+import acme.framework.components.accounts.DefaultUserIdentity;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
@@ -15,8 +17,12 @@ import acme.framework.services.AbstractService;
 @Service
 public class AuthenticatedNoteCreateService extends AbstractService<Authenticated, Note> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
 	protected AuthenticatedNoteRepository repository;
+
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
@@ -32,8 +38,28 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	@Override
 	public void load() {
 		Note object;
+		Date moment;
+		String author;
+		String username;
+		String fullName;
+		Principal principal;
+		DefaultUserIdentity identity;
+
+		moment = MomentHelper.getCurrentMoment();
+
+		principal = super.getRequest().getPrincipal();
+		username = principal.getUsername();
+		identity = this.repository.findIdentityByUsername(username);
+		fullName = identity.getFullName();
+		author = username + " - " + fullName;
 
 		object = new Note();
+		object.setInstantiationMoment(moment);
+		object.setAuthor(author);
+		object.setTitle("");
+		object.setMessage("");
+		object.setEmail("");
+		object.setLink("");
 
 		super.getBuffer().setData(object);
 	}
@@ -42,22 +68,27 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 	public void bind(final Note object) {
 		assert object != null;
 
-		Date instantiationMoment;
-
-		instantiationMoment = MomentHelper.getCurrentMoment();
-		super.bind(object, "title", "author", "message", "email", "link");
-		object.setInstantiationMoment(instantiationMoment);
+		super.bind(object, "moment", "author", "title", "message", "email", "moreInfo");
 	}
 
 	@Override
 	public void validate(final Note object) {
 		assert object != null;
+
+		boolean confirmation;
+
+		confirmation = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 
 	@Override
 	public void perform(final Note object) {
 		assert object != null;
 
+		Date moment;
+
+		moment = MomentHelper.getCurrentMoment();
+		object.setInstantiationMoment(moment);
 		this.repository.save(object);
 	}
 
@@ -67,10 +98,10 @@ public class AuthenticatedNoteCreateService extends AbstractService<Authenticate
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "author", "message", "email", "link");
+		tuple = super.unbind(object, "moment", "author", "title", "message", "email", "moreInfo");
+		tuple.put("confirmation", false);
 
 		super.getResponse().setData(tuple);
-
 	}
 
 }

@@ -16,11 +16,14 @@ import acme.framework.services.AbstractService;
 @Service
 public class AuthenticatedNoteShowService extends AbstractService<Authenticated, Note> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
 	protected AuthenticatedNoteRepository repository;
 
-
 	// AbstractService interface ----------------------------------------------
+
+
 	@Override
 	public void check() {
 		boolean status;
@@ -32,21 +35,17 @@ public class AuthenticatedNoteShowService extends AbstractService<Authenticated,
 
 	@Override
 	public void authorise() {
-
 		boolean status;
-		boolean isAfter;
 		int id;
-		Note note;
+		final Note note;
 		Date deadline;
 
 		id = super.getRequest().getData("id", int.class);
 		note = this.repository.findOneNoteById(id);
 		deadline = MomentHelper.deltaFromCurrentMoment(-30, ChronoUnit.DAYS);
-		isAfter = MomentHelper.isAfter(note.getInstantiationMoment(), deadline);
-		status = note != null && isAfter == true && super.getRequest().getPrincipal().isAuthenticated();
+		status = MomentHelper.isAfter(note.getInstantiationMoment(), deadline);
 
 		super.getResponse().setAuthorised(status);
-
 	}
 
 	@Override
@@ -58,7 +57,6 @@ public class AuthenticatedNoteShowService extends AbstractService<Authenticated,
 		object = this.repository.findOneNoteById(id);
 
 		super.getBuffer().setData(object);
-
 	}
 
 	@Override
@@ -67,7 +65,7 @@ public class AuthenticatedNoteShowService extends AbstractService<Authenticated,
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "instantiationMoment", "author", "message", "email", "link");
+		tuple = super.unbind(object, "moment", "author", "title", "message", "email", "moreInfo");
 
 		super.getResponse().setData(tuple);
 	}

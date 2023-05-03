@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.Note;
+import acme.framework.components.accounts.DefaultUserIdentity;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -21,4 +22,8 @@ public interface AuthenticatedNoteRepository extends AbstractRepository {
 
 	@Query("select n from Note n")
 	Collection<Note> findAllNotes();
+
+	@Query("select ua.identity from UserAccount ua where ua.username = :username")
+	DefaultUserIdentity findIdentityByUsername(String username);
+
 }

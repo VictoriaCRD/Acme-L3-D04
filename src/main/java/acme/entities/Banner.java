@@ -23,6 +23,7 @@ import lombok.Setter;
 public class Banner extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull

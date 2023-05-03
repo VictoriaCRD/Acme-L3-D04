@@ -40,11 +40,20 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+
 # master.menu.auditor ##########################################################
 
 master.menu.auditor = Auditor
 master.menu.auditor.audits = Auditorias
 master.menu.auditor.auditRecords = Records
+
+
+# master.menu.student #####################################
+master.menu.student = Estudiante
+master.menu.student.favourite-link = Enlace  favorito
+master.menu.student.list-courses= Lista de cursos
+master.menu.student.list-enrolments = Mis inscripciones
+master.menu.student.dashboard = Mi panel
 
 # master.menu.user-account ####################################################
 
@@ -54,4 +63,11 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+
 master.menu.user-account.notes = Notas
+
+master.menu.user-account.assistant = Datos de asistente
+master.menu.user-account.become-assistant = Hazte asistente
+master.menu.user-account.student = Datos de estudiante
+master.menu.user-account.become-student = Hazte estudiante
+

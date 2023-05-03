@@ -47,7 +47,8 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			link;
 
-	protected Boolean			notPublished;
+	protected boolean			notPublished;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------

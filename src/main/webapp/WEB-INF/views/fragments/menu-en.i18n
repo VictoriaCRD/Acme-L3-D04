@@ -48,6 +48,14 @@ master.menu.auditor = Auditor
 master.menu.auditor.audits = Audits
 master.menu.auditor.auditRecords = Auditing Records
 
+
+# master.menu.student #####################################
+master.menu.student = Student
+master.menu.student.favourite-link = Favourite link
+master.menu.student.list-courses= Courses List
+master.menu.student.list-enrolments = My enrolments
+master.menu.student.dashboard = My Dashboard
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -56,4 +64,11 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
 master.menu.user-account.notes = Notes
+
+master.menu.user-account.assistant = Assistant data
+master.menu.user-account.become-assistant = Become an assistant
+master.menu.user-account.student = Student data
+master.menu.user-account.become-student = Become an student
+
