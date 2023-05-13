@@ -37,6 +37,11 @@ master.menu.administrator.shut-down = Shut down
 master.menu.provider = Provider
 master.menu.provider.favourite-link = Favourite link
 
+# master.menu.any ###################################################
+
+master.menu.any = Any
+master.menu.any.listPeeps = Peeps
+
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumer
@@ -49,13 +54,30 @@ master.menu.auditor.audits = Audits
 master.menu.auditor.auditRecords = Auditing Records
 
 
+# master.menu.assistant #####################################
+master.menu.assistant = Asisstant
+master.menu.assistant.favourite-link = Favourite link
+master.menu.assistant.tutorials.mine = My tutorials
+
+master.menu.bulletin.mine = My Bulletins
+master.menu.authenticated.bulletins = Bulletins
+
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.tutorials = All tutorials
+
+master.menu.bulletins = Boletines
 # master.menu.student #####################################
 master.menu.student = Student
 master.menu.student.favourite-link = Favourite link
 master.menu.student.list-courses= Courses List
 master.menu.student.list-enrolments = My enrolments
 master.menu.student.dashboard = My Dashboard
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/develop
+>>>>>>> refs/heads/develop-marpedrod-D03
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
@@ -65,7 +87,13 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 
+<<<<<<< HEAD
 master.menu.user-account.notes = Notes
+=======
+master.menu.user-account.update-company = Update Company data
+master.menu.user-account.create-company = Create your company
+master.menu.user-account.company = Company data
+>>>>>>> refs/heads/develop-marpedrod-D03
 
 master.menu.user-account.assistant = Assistant data
 master.menu.user-account.become-assistant = Become an assistant

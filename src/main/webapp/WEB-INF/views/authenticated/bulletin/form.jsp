@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-moment code="administrator.bulletin.form.label.moment" path="moment"/>	
-	<acme:input-textbox code="administrator.bulletin.form.label.message" path="message"/>
-	<acme:input-textarea code="administrator.bulletin.form.label.title" path="title"/>
-	<acme:input-textarea code="administrator.bulletin.form.label.critical" path="critical"/>
-	<acme:input-url code="administrator.bulletin.form.label.link" path="moreInfo"/> 
+	<acme:input-moment code="authenticated.bulletin.form.label.moment" path="moment"/>	
+	<acme:input-textbox code="authenticated.bulletin.form.label.message" path="message"/>
+	<acme:input-textarea code="authenticated.bulletin.form.label.title" path="title"/>
+	<acme:input-textarea code="authenticated.bulletin.form.label.critical" path="critical"/>
+	<acme:input-url code="authenticated.bulletin.form.label.link" path="moreInfo"/> 
 </acme:form>

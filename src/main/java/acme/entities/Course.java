@@ -12,6 +12,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.datatypes.TypeNature;
 import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Lecturer;
@@ -41,6 +42,8 @@ public class Course extends AbstractEntity {
 	@NotBlank
 	@Length(max = 100)
 	protected String			abstraction;
+
+	protected TypeNature		type;
 
 	protected Money				retailPrice;
 

@@ -13,9 +13,13 @@ authenticated.bulletin.form.label.title = Título:
 authenticated.bulletin.form.label.message = Message:
 authenticated.bulletin.form.label.critical = Crítico:
 authenticated.bulletin.form.label.link = Más información: (Opcional)
+authenticated.bulletin.form.label.status = Estado
 
 authenticated.bulletin.list.label.moment = Momento
 authenticated.bulletin.list.label.title Título
 authenticated.bulletin.list.label.message = Mensaje
 authenticated.bulletin.list.label.critical = Crítico
+authenticated.bulletin.list.label.status= Estado
+
+master.menu.bulletin.mine = Boletines
 

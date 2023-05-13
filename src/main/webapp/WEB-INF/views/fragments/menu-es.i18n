@@ -35,11 +35,17 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.provider = Proveedor
 master.menu.provider.favourite-link = Enlace favorito
 
+# master.menu.any ###################################################
+
+master.menu.any = Cualquiera
+master.menu.any.listPeeps = Peeps
+
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+<<<<<<< HEAD
 
 # master.menu.auditor ##########################################################
 
@@ -48,6 +54,29 @@ master.menu.auditor.audits = Auditorias
 master.menu.auditor.auditRecords = Records
 
 
+=======
+# master.menu.assistant #######################################################
+master.menu.assistant = Asistente
+master.menu.assistant.favourite-link = Enlace favorito
+master.menu.assistant.tutorials.mine = Mis tutoriales
+
+master.menu.authenticated.bulletins = Boletines
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.tutorials = Todos los tutoriales
+
+
+
+# master.menu.assistant #######################################################
+master.menu.assistant = Asistente
+master.menu.assistant.favourite-link = Enlace favorito
+master.menu.assistant.tutorials.mine = Mis tutoriales
+
+master.menu.authenticated.bulletins = Boletines
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.tutorials = Todos los tutoriales
+>>>>>>> refs/heads/develop-marpedrod-D03
 # master.menu.student #####################################
 master.menu.student = Estudiante
 master.menu.student.favourite-link = Enlace  favorito
@@ -64,7 +93,13 @@ master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 
+<<<<<<< HEAD
 master.menu.user-account.notes = Notas
+=======
+master.menu.user-account.update-company = Actualiza datos de empresa
+master.menu.user-account.create-company = Crea tu empresa
+master.menu.user-account.company = Datos de empresa
+>>>>>>> refs/heads/develop-marpedrod-D03
 
 master.menu.user-account.assistant = Datos de asistente
 master.menu.user-account.become-assistant = Hazte asistente
