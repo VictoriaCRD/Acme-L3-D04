@@ -1,0 +1,5 @@
+key,title,abstraction,learningTime,body,type,link
+lecture-01,This is a sample text for restrictions of 75 characters. This is a sample .,This is a sample text for restrictions of 100 characters. This is a sample text for restrictions of.,1200,This is a sample text for restrictions of 100 characters. This is a sample text for restrictions of.,THEORETICAL,null
+lecture-02,This is a sample,This is a sample,1200,This is a sample,HANDS_ON,http://www.local.net
+lecture-03,A,B,1,C,THEORETICAL,null
+lecture-04,Design and Tests, This course contains basic concepts about Design and Test in Software development.,12,Join us!,HANDS_ON,https://www.us.es/estudiar/que-estudiar/oferta-de-grados/grado-en-ingenieria-informatica-ingenieria-del-software/2050049

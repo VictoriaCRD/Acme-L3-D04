@@ -1,3 +1,60 @@
 key,enabled,identity,password,username
 user-account-anonymous-01,false,"UserIdentity{name: 'John', surname: 'Doe', email: 'john.doe@acme.com'}",HIDDEN-PASSWORD,anonymous
 user-account-administrator-01,true,"UserIdentity{name: 'Administrator', surname: 'Acme', email: 'administrator@acme.com'}",administrator,administrator
+user-account-student-01,true,"UserIdentity{name: 'Victoria', surname: 'Ruiz', email: 'student01@gmail.com'}",student1,student1
+user-account-student-02,true,"UserIdentity{name: 'María', surname: 'Lopez', email: 'student02@gmail.com'}",student2,student2
+user-account-lecturer-01,true,"UserIdentity{name: 'Manuel', surname: 'Garcia Perez', email: 'lecturer1@acme.com'}",lecturer1,lecturer1
+user-account-lecturer-02,true,"UserIdentity{name: 'Lecturer', surname: '2', email: 'lecturer2@acme.com'}",lecturer2,lecturer2
+user-account-lecturer-03,true,"UserIdentity{name: 'Lecturer3', surname: '3', email: 'lecturer3@acme.com'}",lecturer3,lecturer3
+user-account-lecturer-04,true,"UserIdentity{name: 'Lecturer4', surname: '4', email: 'lecturer4@acme.com'}",lecturer4,lecturer4
+user-account-lecturer-05,true,"UserIdentity{name: 'lecturer', surname: 'Respect', email: 'lecturer5@acme.com'}",This is a sample text for restrictions of 60 characters :).,This is a sample text for restrictions of 60 characters :).
+user-account-lecturer-06,false,"UserIdentity{name: 'José Manuel', surname: 'De Burgos', email: 'JoseManuel@acme.com'}",lecturer6,lecturer6
+user-account-auditor-01,true,"UserIdentity{name: 'Auditor', surname: '1', email: 'auditor1@acme.com'}",auditor1,auditor1
+user-account-auditor-02,true,"UserIdentity{name: 'Auditor', surname: '2', email: 'auditor2@acme.com'}",auditor2,auditor2
+user-account-auditor-03,true,"UserIdentity{name: 'Auditor', surname: '3', email: 'auditor3@acme.com'}",auditor3,auditor3
+user-account-auditor-04,true,"UserIdentity{name: 'Auditor', surname: '4', email: 'auditor4@acme.com'}",auditor4,auditor4
+user-account-auditor-05,true,"UserIdentity{name: 'Auditor', surname: '5', email: 'auditor5@acme.com'}",auditor5,auditor5
+user-account-auditor-06,true,"UserIdentity{name: 'Auditor', surname: '6', email: 'auditor6@acme.com'}",auditor6,auditor6
+user-account-auditor-07,true,"UserIdentity{name: 'Auditor', surname: '7', email: 'auditor7@acme.com'}",auditor7,auditor7
+user-account-auditor-08,true,"UserIdentity{name: 'Auditor', surname: '8', email: 'auditor8@acme.com'}",auditor8,auditor8
+user-account-auditor-09,true,"UserIdentity{name: 'Auditor', surname: '9', email: 'auditor9@acme.com'}",1111,auditor9
+user-account-auditor-10,true,"UserIdentity{name: 'Auditor', surname: '10', email: 'auditor10@acme.com'}",This is a sample text for restrictions of 60 characters :)..,auditor10
+user-account-auditor-11,true,"UserIdentity{name: 'Auditor', surname: '11', email: 'auditor11@acme.com'}",auditor11,This is a sample text for restrictions of 60 characters :)..
+user-account-auditor-12,true,"UserIdentity{name: 'Auditor', surname: '12', email: 'auditor12@acme.com'}",auditor12,11111
+user-account-auditor-13,true,"UserIdentity{name: 'Auditor', surname: '13', email: 'Auditor@acme.com'}",auditor13,auditor13
+user-account-auditor-14,false,"UserIdentity{name: 'Auditor', surname: '14', email: 'auditor14@acme.com'}",auditor14,auditor14
+user-account-auditor-15,true,"UserIdentity{name: 'musi', surname: 'Respect', email: 'auditor15@acme.com'}",auditor15,auditor15
+user-account-assistant-01,true,"UserIdentity{name: 'Assistant', surname: '1', email: 'assistant1@acme.com'}",assistant1,assistant1
+user-account-assistant-02,true,"UserIdentity{name: 'Assistant', surname: '2', email: 'assistant2@acme.com'}",assistant2,assistant2
+user-account-assistant-03,true,"UserIdentity{name: 'Assistant', surname: '3', email: 'assistant3@acme.com'}",assistant3,assistant3
+user-account-assistant-04,true,"UserIdentity{name: 'Assistant', surname: '4', email: 'assistant4@acme.com'}",assistant4,assistant4
+user-account-assistant-05,true,"UserIdentity{name: 'Assistant', surname: '5', email: 'assistant5@acme.com'}",assistant5,assistant5
+user-account-assistant-06,true,"UserIdentity{name: 'Assistant', surname: '6', email: 'assistant6@acme.com'}",assistant6,assistant6
+user-account-assistant-07,true,"UserIdentity{name: 'Assistant', surname: '7', email: 'assistant7@acme.com'}",assistant7,assistant7
+user-account-assistant-08,true,"UserIdentity{name: 'Assistant', surname: '8', email: 'assistant8@acme.com'}",assistant8,assistant8
+user-account-assistant-09,true,"UserIdentity{name: 'Assistant', surname: '9', email: 'assistant9@acme.com'}",assistant9,assistant9
+user-account-assistant-10,true,"UserIdentity{name: 'Assistant', surname: '10', email: 'assistant10@acme.com'}",assistant10,assistant10
+user-account-assistant-11,true,"UserIdentity{name: 'Assistant', surname: '11', email: 'assistant11@acme.com'}",assistant11,assistant11
+user-account-assistant-12,true,"UserIdentity{name: 'Assistant', surname: '12', email: 'assistant12@acme.com'}",assistant12,assistant12
+user-account-assistant-13,true,"UserIdentity{name: 'Assistant', surname: '13', email: 'assistant13@acme.com'}",assistant13,assistant13
+user-account-assistant-14,true,"UserIdentity{name: 'Assistant', surname: '14', email: 'assistant14@acme.com'}",assistant14,assistant14
+user-account-company-01,true,"UserIdentity{name: 'company', surname: '1', email: 'company1@acme.com'}",company1,company1
+user-account-company-02,true,"UserIdentity{name: 'company', surname: '2', email: 'company2@acme.com'}",company2,company2
+user-account-company-03,true,"UserIdentity{name: 'company', surname: '3', email: 'company3@acme.com'}",company3,company3
+user-account-company-04,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company4,company4
+user-account-company-05,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company5,company5
+user-account-company-06,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company6,company6
+user-account-company-07,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company7,company7
+user-account-company-08,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company8,company8
+user-account-company-09,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company9,company9
+user-account-company-10,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company10,company10
+user-account-company-11,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company11,company11
+user-account-company-12,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company12,company12
+user-account-company-13,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company13,company13
+user-account-company-14,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company14,company14
+user-account-company-15,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company15,company15
+user-account-company-16,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company16,company16
+user-account-company-17,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company17,company17
+user-account-company-18,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company18,company18
+user-account-company-19,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company19,company19
+user-account-company-20,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company20,company20

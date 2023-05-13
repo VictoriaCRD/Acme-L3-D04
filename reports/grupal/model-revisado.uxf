@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>7</y>
+      <w>413</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Note
+--
++ moment: Date {NotNull, Temporal(TIMESTAMP), Past}
++ title: String {NotBlank, Length(1,75)}
++ /author: String {NotBlank, Length(1,75)}
++ message: String {NotBlank, Length(1,100)}
++ info: String {URL}
++ email: String {Email}
+
+
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1001</x>
+      <y>63</y>
+      <w>294</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Peep
+--
++ moment: Date {NotNull, Temporal(TIMESTAMP), Past}
++ title: String {NotBlank, Length(1,75)}
++ nick: String {NotBlank, Length(1,75)}
++ message: String {NotBlank, Length(1,100)}
++ email: String {Email}
++ link: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>791</x>
+      <y>532</y>
+      <w>406</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+SystemConfiguration
+--
++ systemCurrency: String {NotBlank}
++ acceptedCurrencies: String {NotBlank, Pattern (^[A-Z]{3}(,[A-Z]{3})*$)}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1057</x>
+      <y>462</y>
+      <w>154</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>systemCurrency debe ser 
+una de las currencies
+contenidas en systemCurrencies
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1001</x>
+      <y>483</y>
+      <w>70</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;70.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>910</x>
+      <y>672</y>
+      <w>203</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>DefaultValues..
+systemCurrency="EUR"
+acceptedCurrencies="EUR,USD,GBP"
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>973</x>
+      <y>609</y>
+      <w>21</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>35</y>
+      <w>329</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+MoneyExchange
+--
++ source: Money {NotNull, Valid}
++ targetCurrency {NotBlank}
++ change: Money
++ date: Date
++ rate: Double
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>854</x>
+      <y>231</y>
+      <w>147</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Desde el moment al
+startDate debe haber mínimo
+un día de diferencia, y, 
+el endDate debe ser como mucho
+1 semana desùés del moment
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>917</x>
+      <y>308</y>
+      <w>112</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>140.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>861</x>
+      <y>0</y>
+      <w>168</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>El autor debe estructurarse 
+con el formato
+"〈username〉-〈surname, name〉"
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>847</x>
+      <y>14</y>
+      <w>28</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;20.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>147</y>
+      <w>329</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+AdminDashboard
+--
++ totalPrincipalsPerRole: Map&lt;String,Integer&gt;
++ ratioPeeps: Double
++ ratioBulletins: Map&lt;Boolean, Double&gt;
++ budgetConcurrency: Map&lt;Currency, Stats&gt;
++ noteConcurrency: Stats
+  
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1015</x>
+      <y>196</y>
+      <w>301</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Bulletin
+--
++ moment: Date {NotNull, Temporal(TIMESTAMP), Past}
++ title: String {NotBlank, Length(1,75)}
++ message: String {NotBlank, Length(1,100)}
++ critical: boolean 
++ link: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1015</x>
+      <y>322</y>
+      <w>301</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Offer
+--
++ moment: Date {NotNull, Temporal(TIMESTAMP), Past}
++ heading: String {NotBlank, Length(1,75)}
++ summary: String {NotBlank, Length(1,100)}
++ startDate: Date {NotNull, Temporal(TIMESTAMP)}
++ endDate: Date {NotNull, Temporal(TIMESTAMP)}
++ price: Money {NotNull,positive}
++ link: String {URL}
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>413</x>
+      <y>196</y>
+      <w>413</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Banner
+--
++ moment: Date {NotNull, Temporal(TIMESTAMP), Past}
++ startDate: Date {NotNull, Temporal(TIMESTAMP)}
++ endDate: Date {NotNull, Temporal(TIMESTAMP)}
++ picture: String {NotBlank, URL}
++ slogan: String {NotBlank, Length(1,76)}
++ target: String {NotBlank,URL}
+
+
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>525</x>
+      <y>378</y>
+      <w>147</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Desde el moment al
+startDate debe haber mínimo
+un día de diferencia, y, 
+el endDate debe ser como mucho
+1 semana desùés del moment
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>427</x>
+      <y>294</y>
+      <w>112</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>140.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>273</y>
+      <w>329</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+Stats
+--
++ average: Double
++ minimum: Double
++ maximum: Double
++ standardDeviation: Double
+  
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,0 +1,38 @@
+# messages-en.i18n
+#
+# messages-en.i18n
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+
+assistant.tutorialSession.list.label.title = Title
+assistant.tutorialSession.list.label.sessionType = Type
+assistant.tutorialSession.list.label.startDate = Start date
+assistant.tutorialSession.list.label.endDate = End date
+
+assistant.tutorialSession.list.button.create = Create
+
+assistant.tutorialSession.form.label.title = Title:
+assistant.tutorialSession.form.label.abstractm = Abstract: 
+assistant.tutorialSession.form.label.sessionType = Type:
+assistant.tutorialSession.form.label.startDate = Start date:
+assistant.tutorialSession.form.label.endDate = End date:
+assistant.tutorialSession.form.label.link = Link (optional):
+assistant.tutorialSession.form.label.period = Time period in hours:
+
+
+		
+assistant.tutorialSession.form.button.update = Update
+assistant.tutorialSession.form.button.delete = Delete
+assistant.tutorialSession.form.button.create = Create
+
+assistant.tutorialSession.form.error.duplicated = This code is taken
+assistant.tutorialSession.form.error.endDate = Finish date must be after start date
+assistant.tutorialSession.form.error.startDate = Time period must be at least one day ahead
+assistant.tutorialSession.form.error.period = Time period must be from one up to five hour long
