@@ -38,7 +38,7 @@
 			<acme:menu-suboption code="master.menu.any.listPeeps" action="/any/peep/list"/>
 		</acme:menu-option>
 
- refs/remotes/origin/develop
+
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.tutorials" action="/authenticated/tutorial/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.bulletins" action="/authenticated/bulletin/list"/>
@@ -63,7 +63,7 @@
 		
 		<acme:menu-option code="master.menu.assistant" access="hasRole('Assistant')">
 			<acme:menu-suboption code="master.menu.assistant.tutorials.mine" action="/assistant/tutorial/list-mine"/>
-
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.company" access="hasRole('Company')">
 			<acme:menu-suboption code="master.menu.company.practicum.list" action="/company/practicum/list-mine"/>
