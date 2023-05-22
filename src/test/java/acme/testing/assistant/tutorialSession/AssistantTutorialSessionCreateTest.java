@@ -59,14 +59,14 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 0, title);
-		super.checkColumnHasValue(tutorialSessionRecordIndex, 2, sessionType);
-		super.checkColumnHasValue(tutorialSessionRecordIndex, 3, startDate);
-		super.checkColumnHasValue(tutorialSessionRecordIndex, 4, endDate);
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 1, sessionType);
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 2, startDate);
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 3, endDate);
 
 		super.clickOnListingRecord(tutorialSessionRecordIndex);
 		super.checkInputBoxHasValue("title", title);
-		super.checkInputBoxHasValue("sessionType", sessionType);
 		super.checkInputBoxHasValue("startDate", startDate);
+		super.checkInputBoxHasValue("sessionType", sessionType);
 		super.checkInputBoxHasValue("endDate", endDate);
 
 		super.signOut();
