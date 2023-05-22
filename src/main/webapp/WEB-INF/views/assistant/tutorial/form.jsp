@@ -1,4 +1,4 @@
-<%--
+code<%--
 - form.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.
@@ -17,11 +17,12 @@
 
 <acme:form> 
 	<acme:input-textbox code="assistant.tutorial.form.label.code" path="code"/>
-	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>	
 	<acme:input-textbox code="assistant.tutorial.form.label.title" path="title"/>
+	<acme:input-textarea code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime"/>
+	<acme:input-select code="assistant.tutorial.form.label.course" path="course" choices="${courses}"/>	
 	<acme:input-textarea code="assistant.tutorial.form.label.abstractm" path="abstractm"/>
 	<acme:input-textarea code="assistant.tutorial.form.label.goals" path="goals"/>
-	<acme:input-textarea code="assistant.tutorial.form.label.estimatedTime" path="estimatedTime"/>
+	
 		
 	<acme:hidden-data path="id"/>
 	<acme:hidden-data path="notPublished"/>

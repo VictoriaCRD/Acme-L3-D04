@@ -1,0 +1,6 @@
+recordIndex,code,course,title,abstractm,goals,estimatedTime,notPublished
+0,ZA000,This is also a course that is published,Dies ist ein Beispieltext,My first tutorial,Know what is a tutorial,890.23,false
+1,ZA234,Curso sobre medicina forense.,Tutorial 1,My first tutorial,Know what is a tutorial,2.00,true
+2,ZAB796,Curso sobre medicina forense.,1,My first tutorial,Know what is a tutorial,30.00,false
+3,ZBC896,This is also a course that is published,Tutorial 1,1,Know what is a tutorial,20.40,true
+4,ZDC696,Curso sobre medicina forense.,this is a sample text of 75 characters sdfañlkjfsdñfkjsdfsdfñalkjfñlkjñlkj,My first tutorial,Dies ist ein Beispieltext,30.00,false

@@ -24,6 +24,7 @@
 			<acme:menu-suboption code="master.menu.marpedrod3.favourite-link" action= "http://www.cuquirecetasdemariel.wixsite.com/site"/>
 			<acme:menu-suboption code="master.menu.alvparbor1.favourite-link" action="https://www.linkedin.com/in/alvaro-paradas-borrego-756661206/"/>
 			<acme:menu-suboption code="master.menu.marzoiras.favourite-link" action="https://pasteleriarisco.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
