@@ -38,6 +38,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("abstractm", abstractm);
 		super.fillInputBoxIn("goals", goals);
+		super.fillInputBoxIn("estimatedTime", estimatedTime);
 
 		super.clickOnSubmit("Create");
 
@@ -45,7 +46,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
-		super.checkColumnHasValue(recordIndex, 3, estimatedTime);
+		super.checkColumnHasValue(recordIndex, 2, estimatedTime);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
