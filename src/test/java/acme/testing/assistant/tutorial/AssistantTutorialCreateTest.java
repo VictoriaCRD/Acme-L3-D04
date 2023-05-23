@@ -22,7 +22,7 @@ public class AssistantTutorialCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorial/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int recordIndex, final String code, final String course, final String title, final String abstractm, final String goals, final String estimatedTime) {
+	public void test100Positive(final int recordIndex, final String code, final String title, final String estimatedTime, final String course, final String abstractm, final String goals) {
 		// HINT: this test authenticates as an assistant and then lists his or her
 		// HINT: tutorials, creates a new one, and check that it's been created properly.
 
@@ -38,26 +38,26 @@ public class AssistantTutorialCreateTest extends TestHarness {
 		super.fillInputBoxIn("course", course);
 		super.fillInputBoxIn("abstractm", abstractm);
 		super.fillInputBoxIn("goals", goals);
-		super.fillInputBoxIn("estimatedTime", estimatedTime);
 
 		super.clickOnSubmit("Create");
 
+		super.clickOnMenu("Asisstant", "My tutorials");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(recordIndex, 0, code);
 		super.checkColumnHasValue(recordIndex, 1, title);
-		super.checkColumnHasValue(recordIndex, 2, estimatedTime);
+		super.checkColumnHasValue(recordIndex, 3, estimatedTime);
 
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("course", course);
 		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("estimatedTime", estimatedTime);
+		super.checkInputBoxHasValue("course", course);
 		super.checkInputBoxHasValue("abstractm", abstractm);
 		super.checkInputBoxHasValue("goals", goals);
-		super.checkInputBoxHasValue("estimatedTime", estimatedTime);
 
-		super.clickOnButton("Tutorial Sessions");
+		super.clickOnButton("Tutorial sessions");
 		super.checkListingExists();
 		super.checkListingEmpty();
 
