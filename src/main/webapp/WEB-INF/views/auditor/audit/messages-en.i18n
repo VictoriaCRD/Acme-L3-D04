@@ -10,6 +10,7 @@
 
 auditor.audit.list.label.code = Code
 auditor.audit.list.label.conclusion = Conclusion
+auditor.audit.list.button.create = Create
 
 auditor.audit.form.button.create = Create
 auditor.audit.form.button.delete = Delete

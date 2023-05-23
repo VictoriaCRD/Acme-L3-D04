@@ -29,10 +29,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 		Audit audit;
 		masterId = super.getRequest().getData("id", int.class);
 		audit = this.repository.findOneAuditById(masterId);
-		status = audit != null && //
-			audit.getNotPublished() && //
-			super.getRequest().getPrincipal().hasRole(audit.getAuditor()) && //
-			audit.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		status = audit != null && audit.getNotPublished() == true && super.getRequest().getPrincipal().hasRole(audit.getAuditor()) && audit.getAuditor().getId() == super.getRequest().getPrincipal().getActiveRoleId();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -40,8 +37,10 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	public void load() {
 		Audit object;
 		int id;
+
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneAuditById(id);
+
 		super.getBuffer().setData(object);
 	}
 
@@ -49,7 +48,7 @@ public class AuditorAuditUpdateService extends AbstractService<Auditor, Audit> {
 	public void bind(final Audit object) {
 		assert object != null;
 
-		super.bind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "notPublished");
+		super.bind(object, "code", "conclusion", "strongPoint", "weakPoint");
 	}
 
 	@Override

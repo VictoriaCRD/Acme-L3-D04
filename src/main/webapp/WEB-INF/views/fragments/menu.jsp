@@ -45,7 +45,6 @@
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.audits" action="/auditor/audit/list"/>
-			<acme:menu-suboption code="master.menu.auditor.auditRecords" action="/auditor/audit-record/list?masterId=${id}"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

@@ -43,7 +43,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 	@Override
 	public void bind(final Audit object) {
 		assert object != null;
-		super.bind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "notPublished");
+		super.bind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark");
 
 	}
 
@@ -70,7 +70,7 @@ public class AuditorAuditCreateService extends AbstractService<Auditor, Audit> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark", "notPublished");
+		tuple = super.unbind(object, "code", "conclusion", "strongPoint", "weakPoint", "mark");
 		super.getResponse().setData(tuple);
 	}
 

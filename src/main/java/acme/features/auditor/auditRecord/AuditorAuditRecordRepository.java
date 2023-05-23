@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.Audit;
 import acme.entities.AuditRecord;
+import acme.entities.Course;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -21,4 +22,16 @@ public interface AuditorAuditRecordRepository extends AbstractRepository {
 
 	@Query("select a from Audit a WHERE a.id = :id")
 	Audit findOneAuditById(int id);
+
+	@Query("select a from AuditRecord a WHERE a.id = :id")
+	AuditRecord findOneAuditRecordById(int id);
+
+	@Query("select a.audit from AuditRecord a where a.id = :id")
+	Audit findOneAuditRecordByAuditId(int id);
+
+	@Query("SELECT c FROM Course c WHERE c.notPublished = false")
+	Collection<Course> findAllCourses();
+
+	@Query("SELECT c FROM Course c WHERE c.id = :id")
+	Course findOneCourseById(int id);
 }

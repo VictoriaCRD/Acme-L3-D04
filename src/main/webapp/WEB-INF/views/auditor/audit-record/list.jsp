@@ -9,4 +9,4 @@
 
 </acme:list>
 
-    <acme:button code="auditor.record.list.button.create" action="/auditor/audit/create"/>
+    <acme:button code="auditor.record.list.button.create" action="/auditor/audit-record/create?masterId=${masterId}"/>
