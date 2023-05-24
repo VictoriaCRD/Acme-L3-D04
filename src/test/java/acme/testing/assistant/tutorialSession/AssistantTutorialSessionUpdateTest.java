@@ -33,7 +33,7 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/tutorialSession/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/assistant/tutorialSession/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test100Positive(final int tutorialRecordIndex, final String code, final int tutorialSessionRecordIndex, final String title, final String abstractm, final String sessionType, final String startDate, final String endDate) {
 		// HINT: this test authenticates as an assistant, list his or her tutorials, navigates
 		// HINT+ to their duties, and checks that they have the expected data.
@@ -74,7 +74,7 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 	}
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/assistant/tutorialSession/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/assistant/tutorialSession/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	public void test200Negative(final int tutorialRecordIndex, final String code, final int tutorialSessionRecordIndex, final String title, final String abstractm, final String sessionType, final String startDate, final String endDate) {
 		// HINT: this test attempts to create duties using wrong data.
 
@@ -121,7 +121,7 @@ public class AssistantTutorialSessionUpdateTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
-			super.signIn("worker1", "worker1");
+			super.signIn("auditor1", "auditor1");
 			super.request("/assistant/tutorialSession/create", param);
 			super.checkPanicExists();
 			super.signOut();

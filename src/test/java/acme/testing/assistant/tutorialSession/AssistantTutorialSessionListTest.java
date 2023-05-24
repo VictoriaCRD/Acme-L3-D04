@@ -51,8 +51,8 @@ public class AssistantTutorialSessionListTest extends TestHarness {
 
 		super.checkListingExists();
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 0, title);
-		super.checkColumnHasValue(tutorialSessionRecordIndex, 1, startDate);
-		super.checkColumnHasValue(tutorialSessionRecordIndex, 2, sessionType);
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 2, startDate);
+		super.checkColumnHasValue(tutorialSessionRecordIndex, 1, sessionType);
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 3, endDate);
 		super.clickOnListingRecord(tutorialSessionRecordIndex);
 
@@ -92,7 +92,7 @@ public class AssistantTutorialSessionListTest extends TestHarness {
 				super.checkPanicExists();
 				super.signOut();
 
-				super.signIn("worker1", "worker1");
+				super.signIn("auditor1", "auditor1");
 				super.request("/assistant/tutorialSession/list", param);
 				super.checkPanicExists();
 				super.signOut();

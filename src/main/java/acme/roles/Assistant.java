@@ -37,12 +37,10 @@ public class Assistant extends AbstractRole {
 	@Length(max = 75)
 	protected String			supervisor;
 
-	//Separados por ;
 	@NotBlank
 	@Length(max = 100)
 	protected String			fields;
 
-	//Separado por ; 
 	@NotBlank
 	@Length(max = 100)
 	protected String			resume;

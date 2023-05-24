@@ -119,7 +119,7 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 			super.checkPanicExists();
 			super.signOut();
 
-			super.signIn("worker1", "worker1");
+			super.signIn("auditor1", "auditor1");
 			super.request("/assistant/tutorialSession/create", param);
 			super.checkPanicExists();
 			super.signOut();
