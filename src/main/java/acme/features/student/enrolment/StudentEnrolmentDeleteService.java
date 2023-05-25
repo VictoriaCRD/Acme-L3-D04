@@ -1,15 +1,21 @@
+/*
+ * AuthenticatedConsumerCreateService.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.student.enrolment;
-
-import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Activity;
-import acme.entities.Course;
 import acme.entities.Enrolment;
-import acme.framework.components.jsp.SelectChoices;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Student;
@@ -22,7 +28,7 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	@Autowired
 	protected StudentEnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Authenticated, Consumer> ---------------------------
 
 
 	@Override
@@ -37,43 +43,31 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int enrolmentId;
 		Enrolment enrolment;
 		Student student;
 
-		masterId = super.getRequest().getData("id", int.class);
-		enrolment = this.repository.findOneEnrolmentById(masterId);
+		enrolmentId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
 		student = enrolment == null ? null : enrolment.getStudent();
-		status = enrolment != null && enrolment.getNotPublished() && //
-			super.getRequest().getPrincipal().hasRole(student) && //
-			enrolment.getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		status = enrolment != null && enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(student);
 
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Enrolment object;
-		int id;
+		final int id = super.getRequest().getData("id", int.class);
+		final Enrolment enrolment = this.repository.findEnrolmentById(id);
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneEnrolmentById(id);
-
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(enrolment);
 	}
 
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		int courseId;
-		Course course;
-
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
-
-		super.bind(object, "code", "motivation", "abstractm", "goals", "notPublished", "estimatedTime");
-		object.setCourse(course);
+		super.bind(object, "motivation", "goals", "code");
 	}
 
 	@Override
@@ -85,10 +79,6 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	public void perform(final Enrolment object) {
 		assert object != null;
 
-		Collection<Activity> sessions;
-
-		sessions = this.repository.findManyActivitiesByEnrolmentId(object.getId());
-		this.repository.deleteAll(sessions);
 		this.repository.delete(object);
 	}
 
@@ -96,18 +86,9 @@ public class StudentEnrolmentDeleteService extends AbstractService<Student, Enro
 	public void unbind(final Enrolment object) {
 		assert object != null;
 
-		Collection<Course> courses;
-		SelectChoices choices;
 		Tuple tuple;
-
-		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
-
-		tuple = super.unbind(object, "code", "motivation", "abstractm", "goals", "notPublished", "estimatedTime");
-		tuple.put("course", choices.getSelected().getKey());
-		tuple.put("courses", choices);
+		tuple = super.unbind(object, "motivation", "goals", "code", "draftMode");
 
 		super.getResponse().setData(tuple);
 	}
-
 }

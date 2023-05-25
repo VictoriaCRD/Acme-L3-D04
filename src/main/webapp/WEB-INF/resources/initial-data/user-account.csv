@@ -58,3 +58,7 @@ user-account-company-17,true,"UserIdentity{name: 'company', surname: '4', email:
 user-account-company-18,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company18,company18
 user-account-company-19,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company19,company19
 user-account-company-20,true,"UserIdentity{name: 'company', surname: '4', email: 'company4@acme.com'}",company20,company20
+user-account-student-03,true,"UserIdentity{name: 'Student', surname: '3', email: 'student03@gmail.com'}",student3,student3
+user-account-student-04,true,"UserIdentity{name: 'Student', surname: '4', email: 'student04@gmail.com'}",student4,student4
+user-account-student-05,true,"UserIdentity{name: 'Student', surname: '5', email: 'student05@gmail.com'}",student5,student5
+user-account-student-06,true,"UserIdentity{name: 'Student', surname: '6', email: 'student06@gmail.com'}",student6,student6

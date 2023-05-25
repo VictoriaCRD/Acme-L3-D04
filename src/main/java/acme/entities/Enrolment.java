@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -16,16 +17,16 @@ import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
 public class Enrolment extends AbstractEntity {
 
 	protected static final long	serialVersionUID	= 1L;
 
-	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "[A-Z]{1,3}[0-9]{3}")
+	@Column(unique = true)
+	@Pattern(regexp = "(^[A-Z]{1,3}[0-9]{3}$)", message = "{validation.enrolment.code}")
 	protected String			code;
 
 	@NotBlank
@@ -36,25 +37,31 @@ public class Enrolment extends AbstractEntity {
 	@Length(max = 100)
 	protected String			goals;
 
-	@NotBlank
-	@Length(max = 100)
-	protected String			abstractm;
+	//Relaciones
 
-	protected Boolean			notPublished;
-
-	protected double			estimatedTime;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
-
-	@ManyToOne(optional = false)
 	@NotNull
 	@Valid
-	protected Course			course;
-
 	@ManyToOne(optional = false)
-	@Valid
 	protected Student			student;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
+	
+	protected boolean			draftMode;
+
+	protected String			holderName;
+
+	protected String			lowerNibble;
+
+	@Transient
+	private String				creditCard;
+	
+	@Transient
+	private String				cvc;
+	
+	@Transient
+	private String				expiryDate;
 
 }

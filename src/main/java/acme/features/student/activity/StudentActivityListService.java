@@ -1,5 +1,5 @@
 /*
- * AuthenticatedAnnouncementListService.java
+ * AuthenticatedConsumerCreateService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -31,40 +31,34 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 	@Autowired
 	protected StudentActivityRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Authenticated, Consumer> ---------------------------
 
 
 	@Override
 	public void check() {
 		boolean status;
-
-		status = super.getRequest().hasData("enrolmentId", int.class);
-
+		status = super.getRequest().hasData("id", int.class);
 		super.getResponse().setChecked(status);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
+		boolean result;
 		int enrolmentId;
 		Enrolment enrolment;
-		Student student;
 
-		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
-		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
-		student = enrolment == null ? null : enrolment.getStudent();
-		status = enrolment != null && super.getRequest().getPrincipal().hasRole(student);
-
-		super.getResponse().setAuthorised(status);
+		enrolmentId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
+		result = enrolment != null && (!enrolment.isDraftMode() || super.getRequest().getPrincipal().hasRole(enrolment.getStudent()));
+		super.getResponse().setAuthorised(result);
 	}
 
 	@Override
 	public void load() {
-		Collection<Activity> objects;
-		int enrolmentId;
+		final Collection<Activity> objects;
 
-		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
-		objects = this.repository.findManyActivitiesByEnrolmentId(enrolmentId);
+		final int enrolmentId = super.getRequest().getData("id", int.class);
+		objects = this.repository.findManyActivityByEnrolmentId(enrolmentId);
 
 		super.getBuffer().setData(objects);
 	}
@@ -75,27 +69,25 @@ public class StudentActivityListService extends AbstractService<Student, Activit
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "typeOfActivity", "initialDate", "finishDate");
+		tuple = super.unbind(object, "title", "nature");
 
 		super.getResponse().setData(tuple);
 	}
 
 	@Override
 	public void unbind(final Collection<Activity> objects) {
-
 		assert objects != null;
 
-		int enrolmentId;
-		Enrolment enrolment;
+		final int enrolmentId;
+		final Enrolment enrolment;
 		final boolean showCreate;
 
-		enrolmentId = super.getRequest().getData("enrolmentId", int.class);
-		enrolment = this.repository.findOneEnrolmentById(enrolmentId);
-		showCreate = !enrolment.getNotPublished() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
+		enrolmentId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findEnrolmentById(enrolmentId);
+		showCreate = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
 		super.getResponse().setGlobal("enrolmentId", enrolmentId);
 		super.getResponse().setGlobal("showCreate", showCreate);
-
 	}
 
 }

@@ -1,3 +1,14 @@
+/*
+ * AuthenticatedConsumerCreateService.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.student.enrolment;
 
@@ -21,7 +32,7 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	@Autowired
 	protected StudentEnrolmentRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Authenticated, Consumer> ---------------------------
 
 
 	@Override
@@ -36,44 +47,36 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 
 	@Override
 	public void load() {
-		Enrolment object;
-		Student student;
+		final Enrolment enrolment = new Enrolment();
 
-		student = this.repository.findOneStudentById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new Enrolment();
-		object.setStudent(student);
-		object.setNotPublished(true);
-		object.setCode("");
-		object.setMotivation("");
-		object.setAbstractm("");
+		enrolment.setDraftMode(true);
 
-		super.getBuffer().setData(object);
+		final Student student = this.repository.findStudentById(super.getRequest().getPrincipal().getActiveRoleId());
+		enrolment.setStudent(student);
+
+		super.getBuffer().setData(enrolment);
 	}
-
 	@Override
 	public void bind(final Enrolment object) {
 		assert object != null;
 
-		int courseId;
-		Course course;
-
-		courseId = super.getRequest().getData("course", int.class);
-		course = this.repository.findOneCourseById(courseId);
-
-		super.bind(object, "code", "motivation", "abstractm", "goals");
+		final int courseId = super.getRequest().getData("course", int.class);
+		final Course course = this.repository.findCourseById(courseId);
 		object.setCourse(course);
+
+		super.bind(object, "motivation", "goals", "code");
+
 	}
 
 	@Override
 	public void validate(final Enrolment object) {
 		assert object != null;
-
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Enrolment existing;
+			final boolean duplicatedCode = this.repository.findAllEnrolments().stream().anyMatch(e -> e.getCode().equals(object.getCode()));
 
-			existing = this.repository.findOneEnrolmentByCode(object.getCode());
-			super.state(existing == null, "code", "student.enrolment.form.error.duplicated");
+			super.state(!duplicatedCode, "code", "student.enrolment.form.error.duplicated-code");
 		}
+
 	}
 
 	@Override
@@ -86,15 +89,14 @@ public class StudentEnrolmentCreateService extends AbstractService<Student, Enro
 	@Override
 	public void unbind(final Enrolment object) {
 		assert object != null;
+		Tuple tuple;
 
 		Collection<Course> courses;
 		SelectChoices choices;
-		Tuple tuple;
+		courses = this.repository.findAllCourse(false);
+		choices = SelectChoices.from(courses, "code", object.getCourse());
 
-		courses = this.repository.findAllCourses();
-		choices = SelectChoices.from(courses, "title", object.getCourse());
-
-		tuple = super.unbind(object, "code", "motivation", "abstractm", "goals", "notPublished", "estimatedTime");
+		tuple = super.unbind(object, "code", "draftMode", "motivation", "goals", "expiryDate", "cvc", "creditCard", "holderName");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 

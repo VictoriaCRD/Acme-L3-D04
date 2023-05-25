@@ -1,3 +1,14 @@
+/*
+ * AuthenticatedConsumerController.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.student.activity;
 
@@ -15,12 +26,12 @@ import acme.roles.Student;
 @Service
 public class StudentActivityShowService extends AbstractService<Student, Activity> {
 
-	// Internal state ---------------------------------------------------------
+	//Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected StudentActivityRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	//AbstractService<Authenticated, Consumer> ---------------------------
 
 
 	@Override
@@ -35,17 +46,12 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 	@Override
 	public void authorise() {
 		boolean status;
-		int enrolmentId;
-		Activity activity;
-		final Enrolment enrolment;
-		Student student;
+		int activityId;
+		Enrolment enrolment;
 
-		enrolmentId = super.getRequest().getData("id", int.class);
-		activity = this.repository.findOneActivityById(enrolmentId);
-		enrolment = activity == null ? null : activity.getEnrolment();
-		student = enrolment == null ? null : enrolment.getStudent();
-		status = activity != null && //
-			enrolment != null && enrolment.getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		activityId = super.getRequest().getData("id", int.class);
+		enrolment = this.repository.findOneEnrolmentByActivityId(activityId);
+		status = enrolment != null && (!enrolment.isDraftMode() || super.getRequest().getPrincipal().hasRole(enrolment.getStudent()));
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -56,7 +62,8 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneActivityById(id);
+
+		object = this.repository.findActivityById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -65,23 +72,14 @@ public class StudentActivityShowService extends AbstractService<Student, Activit
 	public void unbind(final Activity object) {
 		assert object != null;
 
-		Tuple tuple;
 		SelectChoices choices;
-		Enrolment enrolment;
-		boolean notPublished;
-		final Double period;
+		Tuple tuple;
+		choices = SelectChoices.from(EnumType.class, object.getNature());
 
-		enrolment = object.getEnrolment();
-		notPublished = enrolment.getNotPublished();
-		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
-		period = object.getDurationInHours();
-
-		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
-		tuple.put("period", period);
-		tuple.put("types", choices);
-		tuple.put("notPublished", notPublished);
-
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature");
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("enrolmentId", object.getEnrolment().getId());
+		tuple.put("natures", choices);
 		super.getResponse().setData(tuple);
 	}
-
 }

@@ -64,7 +64,7 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		numberOfTheoryActivites = 0;
 		numberOfHandsOnActivites = 0;
 		for (final Activity a : activities)
-			if (a.getTypeOfActivity().equals(EnumType.THEORETICAL))
+			if (a.getNature().equals(EnumType.THEORETICAL))
 				numberOfTheoryActivites++;
 			else
 				numberOfHandsOnActivites++;
@@ -116,7 +116,7 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		final List<Double> result = new ArrayList<>();
 		final Collection<Activity> activities = this.repository.findActivitiesByStudentId(studentId);
 		for (final Activity activity : activities) {
-			final Duration duration = MomentHelper.computeDuration(activity.getInitialDate(), activity.getFinishDate());
+			final Duration duration = MomentHelper.computeDuration(activity.getInicialPeriod(), activity.getFinalPeriod());
 			final double diffInMinutes = duration.toMinutes();
 			double diffInHours = diffInMinutes / 60;
 			if (diffInHours < 0)
@@ -144,6 +144,10 @@ public class StudentDashboardShowService extends AbstractService<Student, Studen
 		final double avg = list.stream().mapToDouble(Double::doubleValue).average().orElse(Double.NaN);
 		final double summation = list.stream().mapToDouble(numero -> Math.pow(numero - avg, 2)).sum();
 		return Math.sqrt(summation / (list.size() - 1));
+	}
+
+	public static void main(final String[] args) {
+
 	}
 
 }

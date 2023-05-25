@@ -1,0 +1,5 @@
+enrolmentIndex,code,motivation,goals,course,expiryDate,cvc,creditCard,holderName
+0,A001,Acudir a clase,aprobar,Z123,,,,
+1,ABC023,"<h1>hello</h1>",Goals,Z123,,,,
+2,ABC053,Motivation,"<h1>hello</h1>",Z123,,,,
+3,ABC111,Motivation,<script>alert(""hi"")</script>,Z123,,,,

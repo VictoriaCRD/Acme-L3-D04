@@ -16,8 +16,6 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="student.course.list.label.code" path="code" width="20%"/>
-	<acme:list-column code="student.course.list.label.title" path="title" width="40%"/>
-	<acme:list-column code="student.course.list.label.retailPrice" path="retailPrice" width="20%"/>	
-	<acme:list-column code="student.course.list.label.lecturer" path="lecturer" width="20%"/>	
+	<acme:list-column code="student.enrolment.list.label.code" path="code"/>
+	<acme:list-column code="student.enrolment.list.label.title" path="title"/>	
 </acme:list>
