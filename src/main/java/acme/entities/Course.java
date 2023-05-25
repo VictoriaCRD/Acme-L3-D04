@@ -1,9 +1,14 @@
 
 package acme.entities;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -49,13 +54,40 @@ public class Course extends AbstractEntity {
 
 	protected Boolean			notPublished;
 
-// Derived attributes -----------------------------------------------------
+	// Derived attributes -----------------------------------------------------
+
+
+	@Transient
+	public EnumType nature(final List<Lecture> lectures) {
+		EnumType res = EnumType.BALANCED;
+		if (!lectures.isEmpty()) {
+			final Map<EnumType, Integer> lecturesByNature = new HashMap<>();
+			for (final Lecture lecture : lectures) {
+				final EnumType nature = lecture.getType();
+				if (lecturesByNature.containsKey(nature))
+					lecturesByNature.put(nature, lecturesByNature.get(nature) + 1);
+				else
+					lecturesByNature.put(nature, 1);
+			}
+			if (lecturesByNature.containsKey(EnumType.HANDS_ON) && lecturesByNature.containsKey(EnumType.THEORETICAL))
+				if (lecturesByNature.get(EnumType.HANDS_ON) > lecturesByNature.get(EnumType.THEORETICAL))
+					res = EnumType.HANDS_ON;
+				else if (lecturesByNature.get(EnumType.THEORETICAL) > lecturesByNature.get(EnumType.HANDS_ON))
+					res = EnumType.THEORETICAL;
+			if (lecturesByNature.containsKey(EnumType.HANDS_ON) && !lecturesByNature.containsKey(EnumType.THEORETICAL))
+				res = EnumType.HANDS_ON;
+			if (!lecturesByNature.containsKey(EnumType.HANDS_ON) && lecturesByNature.containsKey(EnumType.THEORETICAL))
+				res = EnumType.THEORETICAL;
+		}
+		return res;
+	}
 
 	// Relationships ----------------------------------------------------------
+
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Lecturer			lecturer;
+	protected Lecturer lecturer;
 
 }
