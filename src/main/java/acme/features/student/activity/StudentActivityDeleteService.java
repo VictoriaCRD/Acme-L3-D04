@@ -1,3 +1,14 @@
+/*
+ * AuthenticatedConsumerCreateService.java
+ *
+ * Copyright (C) 2012-2023 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering education and research, it is
+ * the policy of the copyright owner to permit non-commercial use and redistribution of
+ * this software. It has been tested carefully, but it is not guaranteed for any particular
+ * purposes. The copyright owner does not offer any warranties or representations, nor do
+ * they accept any liabilities with respect to them.
+ */
 
 package acme.features.student.activity;
 
@@ -20,7 +31,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	@Autowired
 	protected StudentActivityRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Authenticated, Consumer> ---------------------------
 
 
 	@Override
@@ -36,16 +47,11 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	public void authorise() {
 		boolean status;
 		int enrolmentId;
-		final Activity activity;
-		final Enrolment enrolment;
-		Student student;
+		Enrolment enrolment;
 
 		enrolmentId = super.getRequest().getData("id", int.class);
-		activity = this.repository.findOneActivityById(enrolmentId);
-		enrolment = activity == null ? null : activity.getEnrolment();
-		student = enrolment == null ? null : enrolment.getStudent();
-		status = activity != null && //
-			enrolment != null && enrolment.getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		enrolment = this.repository.findOneEnrolmentByActivityId(enrolmentId);
+		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -56,7 +62,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneActivityById(id);
+		object = this.repository.findActivityById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -65,8 +71,7 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
-
+		super.bind(object, "title", "abstracts", "inicialPeriod", "FinalPeriod", "link");
 	}
 
 	@Override
@@ -85,19 +90,14 @@ public class StudentActivityDeleteService extends AbstractService<Student, Activ
 	public void unbind(final Activity object) {
 		assert object != null;
 
-		Tuple tuple;
 		SelectChoices choices;
-		Enrolment enrolment;
+		Tuple tuple;
+		choices = SelectChoices.from(EnumType.class, object.getNature());
 
-		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
-		enrolment = object.getEnrolment();
-
-		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
-		tuple.put("types", choices.getSelected().getKey());
-		tuple.put("notPublished", enrolment.getNotPublished());
-		tuple.put("enrolmentId", enrolment.getId());
-
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature");
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("enrolmentId", object.getEnrolment().getId());
+		tuple.put("natures", choices);
 		super.getResponse().setData(tuple);
 	}
-
 }

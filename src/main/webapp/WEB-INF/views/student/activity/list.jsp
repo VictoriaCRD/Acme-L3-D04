@@ -15,15 +15,18 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
+
 <acme:list>
-	<acme:list-column code="student.activity.list.label.title" path="title" width="25%"/>
-	<acme:list-column code="student.activity.list.label.initialDate" path="initialDate" width="25%"/>
-	<acme:list-column code="student.activity.list.label.typeOfActivity" path="typeOfActivity" width="25%"/>
-	<acme:list-column code="student.activity.list.label.finishDate" path="finishDate" width="25%"/>
+	<acme:list-column code="student.activity.list.label.title" path="title"/>
+	<acme:list-column code="student.activity.list.label.nature" path="nature"/>
+	
+	<jstl:choose>	 
+		<jstl:when test="${_command == 'show'}">
+			<acme:button code="student.enrolment.form.button.activity" action="/student/activity/list?enrolmentId=${id}"/>
+		</jstl:when>
+	</jstl:choose>
+	
+	
 </acme:list>
 
-
-<acme:button test="${showCreate}" code="typeOfActivity.list.button.create" action="/student/activity/create?enrolmentId=${enrolmentId}"/>
-<acme:button test="${showUpdate}" code="typeOfActivity.list.button.update" action="/student/activty/update"/>
-<acme:button test="${showDelete}" code="typeOfActivity.list.button.delete" action="/student/activty/delete"/>
-
+<acme:button test="${showCreate}" code="student.activity.create.button.activity" action="/student/activity/create?enrolmentId=${enrolmentId}"/>

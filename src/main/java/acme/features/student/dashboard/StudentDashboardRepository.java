@@ -17,7 +17,7 @@ public interface StudentDashboardRepository extends AbstractRepository {
 	@Query("select a from Activity a where a.enrolment.student.id = :id")
 	Collection<Activity> findActivitiesByStudentId(int id);
 
-	@Query("select e.course from Enrolment e where e.notPublished = 0 and e.student.id = :id")
+	@Query("select e.course from Enrolment e where e.draftMode = 0 and e.student.id = :id")
 	Collection<Course> findEnrolledCoursesByStudentId(int id);
 
 	@Query("select cl.lecture from CourseLecture cl where cl.course.id = :id")

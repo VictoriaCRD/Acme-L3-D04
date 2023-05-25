@@ -1,11 +1,13 @@
-key,key:student,code,motivation,goals,key:course,notPublished,estimatedTime,abstractm
-enrolment-01,student-01,AAA999,ser ingeniero,estudiar mucho,course-01,true,20.4,menos cosas
-enrolment-02,student-01,AAA998,ser cantante,estudiar poco,course-01,true,50.4,menos cosas 
-enrolment-03,student-02,AAA876,60 caracteres tiene este largo,cumplir mis sueños,course-01,false,12.6,menos cosas
-enrolment-04,student-02,BBB876,ninguna,cumplir mis sueños,course-01,false,45.4,menos cosas
-enrolment-05,student-01,CCC876,motivación es lo que tengo,100 caracteres tiene este texto que servira para tener una mejor variabilidad en los datos de prueba,course-01,false,45.7,menos cosas
-enrolment-06,student-02,SSS324,dot,cumplir mis sueños,course-01,true,20.5,menos cosas
-enrolment-07,student-02,DEE876,esta es la mitad de caracteres limites,cumplir mis sueños,course-01,true,30.6,menos cosas
-enrolment-08,student-01,DFG333,ser dibujante,50 caracteres es la mitad de caracteres limitessss,course-01,true,58.7,menos cosas
-enrolment-09,student-01,DGT667,sobrevivir,objetivo,course-01,false,30.7,menos cosas
-enrolment-10,student-01,DDD667,motivacion,aprobar,course-01,true,45.8,menos cosas
+key,code,motivation,goals,draftMode,key:student,key:course
+enrolment-01,A001,Acudir a clase,aprobar,false,student-01,course-02
+enrolment-02,A012,Estudiar diariamente,aprender conocimientos nuevos,false,student-02,course-02
+enrolment-03,A021,Acudir a clasehjkashduahdjkahde,aprobar,false,student-03,course-02
+enrolment-04,A042,Estudiaroaksk93058alskdmkjlasdasdsd,prueba de rellenar muchos muchos datos,false,student-04,course-02
+enrolment-05,A420,Motivation,Goals,false,student-02,course-02
+enrolment-06,ABC923,2,Goals,false,student-02,course-02
+enrolment-07,A440,Motivation,4,false,student-02,course-02
+enrolment-08,A410,??,Goals,true,student-05,course-02
+enrolment-09,A411,Motivation,??,false,student-03,course-02
+enrolment-10,ABC023,<h1>hello</h1>,Goals,false,student-01,course-02
+enrolment-11,ABC053,Motivation,<h1>hello</h1>,false,student-01,course-02
+enrolment-12,ABC111,Motivation,"<script>alert(""""hi"""")</script>",false,student-01,course-02

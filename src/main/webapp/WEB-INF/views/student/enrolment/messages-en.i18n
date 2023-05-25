@@ -9,25 +9,29 @@
 # they accept any liabilities with respect to them.
 
 student.enrolment.list.label.code = Code
+
 student.enrolment.list.label.motivation = Motivation
-student.enrolment.list.label.notPublished = Unpublished
-student.enrolment.list.label.estimatedTime = Estimated Time
+student.enrolment.list.label.goals = Goals
+student.enrolment.list.label.creditCard = Credit card
+student.enrolment.list.label.course = Course
 
-student.enrolment.list.button.create = Create
-
-student.enrolment.form.label.code = Code:
-student.enrolment.form.label.course = Course: 
-student.enrolment.form.label.motivation = Motivation:
-student.enrolment.form.label.goals = Goals:
-student.enrolment.form.label.estimatedTime = Estimated Time (in hours):
-
-		
-student.enrolment.form.button.activities = Activities
+student.enrolment.form.button.activity = Activities
 student.enrolment.form.button.update = Update
-student.enrolment.form.button.delete = Delete
-student.enrolment.form.button.publish = Publish
 student.enrolment.form.button.create = Create
+student.enrolment.list.button.create = Create
+student.enrolment.form.button.delete = Delete
+student.enrolment.list.label.expiryDate = Expiricy date 
+student.enrolment.list.label.cvc = CVC
+student.enrolment.list.label.cardNumber = Credit card number
+student.enrolment.list.label.holderName = Holder name
+student.enrolment.form.button.finalise = Finalise
+student.enrolment.list.label.draftMode = Draft
+student.activity.list.label.workTime = Work Time
 
-student.enrolment.form.error.duplicated = This code is already taken
+student.enrolment.form.label.code = Code
 
-assistant.tutorial.form.label.totalTime = Total Time
+student.enrolment.form.error.wrong-expiry-date = Expiricy date's format must be dd/yy
+student.enrolment.form.error.wrong-cvc = CVC format must be 3 numbers
+student.enrolment.form.error.wrong-card = Credit card's format must be xxxx/xxxx/xxxx/xxxx
+student.enrolment.form.error.duplicated-code = Duplicated code
+student.enrolment.form.error.wrong-holder = This entry cannot be empty

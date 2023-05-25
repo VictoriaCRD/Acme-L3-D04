@@ -1,0 +1,5 @@
+enrolmentRecordIndex,code,activityRecordIndex,title,abstracts,inicialPeriod,finalPeriod,nature,link
+0,A001,0,Activity01,act1,2025/12/01 20:00,2025/12/02 23:00,THEORETICAL,http://activity1-example.com
+1,ABC023,0,A,act1111111222222333333344444444444,2025/12/03 20:00,2025/12/04 23:00,BALANCE,
+2,ABC053,0,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",A,2025/12/03 20:00,2025/12/04 23:00,BALANCE,
+3,ABC111,0,Activity04,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",2025/12/03 20:00,2025/12/04 23:00,BALANCE,http://activity4-example.com

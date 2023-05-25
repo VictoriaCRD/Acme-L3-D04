@@ -8,16 +8,14 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-student.course.form.label.code = Código:
-student.course.form.label.title = Título:
-student.course.form.label.abstraction = Resumen:
-student.course.form.label.retailPrice = PVP:
-student.course.form.label.link = Más información: (Opcional)
-student.course.form.label.lecturer = Profesor: 
-
-student.course.form.button.lectures = Lecciones
-
 student.course.list.label.code = Código
 student.course.list.label.title = Título
-student.course.list.label.retailPrice = PVP
+student.course.list.label.abstraction = Resumen
+student.course.list.label.retailPrice = Precio
+student.course.list.label.link = Link
 student.course.list.label.lecturer = Profesor
+student.course.list.label.lecture = Clase
+
+
+student.enrolment.list.label.code = Código
+student.enrolment.list.label.title = Título

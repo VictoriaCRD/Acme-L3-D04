@@ -8,27 +8,31 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+
 student.enrolment.list.label.code = Código
-student.enrolment.list.label.motivation = Título
-student.enrolment.list.label.notPublished = Sin publicar
-student.enrolment.list.label.estimatedTime = Tiempo estimado
+student.enrolment.list.label.motivation = Motivación
+student.enrolment.list.label.goals = Objetivos
+student.enrolment.list.label.creditCard = Tarjeta de crédito
+student.enrolment.list.label.course = Curso
 
-student.enrolment.list.button.create = Crear
-
-student.enrolment.form.label.code = Código:
-student.enrolment.form.label.course = Curso: 
-student.enrolment.form.label.motivation = Título:
-student.enrolment.form.label.abstractm = Resumen:
-student.enrolment.form.label.goals = Objetivos:
-student.enrolment.form.label.estimatedTime = Tiempo Estimado (En Horas)
-		
-student.enrolment.form.button.activities = Actividades
+student.enrolment.form.button.activity = Actividades
 student.enrolment.form.button.update = Actualizar
-student.enrolment.form.button.delete = Borrar
-student.enrolment.form.button.publish = Publicar
+student.enrolment.form.button.delete = Eliminar
 student.enrolment.form.button.create = Crear
+student.enrolment.list.button.create = Crear
+student.enrolment.list.label.expiryDate = Fecha caducidad 
+student.enrolment.list.label.cvc = CVC
+student.enrolment.list.label.cardNumber = Tarjeta de crédito
+student.enrolment.list.label.holderName = Nombre 
+student.enrolment.form.button.finalise = Finalizar
+student.enrolment.list.label.draftMode = Borrador
 
-student.enrolment.form.error.duplicated = Este código no está libre
-student.enrolment.form.error.activities = Tiene que haber al menos una actividad
+student.activity.list.label.workTime = Timpo de Trabajo
 
-student.enrolment.form.label.totalTime = Tiempo total
+student.enrolment.form.label.code= Codigo
+
+student.enrolment.form.error.wrong-expiry-date = Fecha de caducidad debe seguir el formato dd/yy
+student.enrolment.form.error.wrong-cvc = CVC deben tener 3 números
+student.enrolment.form.error.wrong-card = La tarjeta de crédito tiene que seguir el formato xxxx/xxxx/xxxx/xxxx
+student.enrolment.form.error.duplicated-code = Código duplicado
+student.enrolment.form.error.wrong-holder = Esta entrada no debe estar vacía

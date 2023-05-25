@@ -8,28 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-student.activity.list.label.title = Título
-student.activity.list.label.typeOfActivity = Tipo
-student.activity.list.label.initialDate = Fecha de inicio
-student.activityn.list.label.finishDate = Fecha de finalización
-typeOfActivity.list.button.create=Crear
-typeOfActivity.list.button.update=Actualizar
-typeOfActivity.list.button.delete=Borrar
-student.activity.list.button.create = Crear
+student.activity.form.label.title = Título
+student.activity.form.label.abstracts = Resumen
+student.activity.form.label.nature = Tipo de actividad
+student.activity.form.label.inicialPeriod = Fecha inicio
+student.activity.form.label.finalPeriod = Fecha fin
+student.activity.form.label.link = Link
+student.activity.list.label.enrolment = Inscripción
 
-student.activity.form.label.title = Título:
-student.activity.form.label.abstractm = Resumen:
-student.activity.form.label.typeOfActivity = Tipo:
-student.activity.form.label.initialDate = Fecha de inicio:
-student.activity.form.label.finishDate = Fecha de fin:
-student.activity.form.label.link = Link (opcional):
-student.activity.form.label.period = Periodo de tiempo en horas:
 
+student.activity.create.button.activity= Crear
 student.activity.form.button.update = Actualizar
-student.activity.form.button.delete = Borrar
+student.activity.form.button.delete = Eliminar
 student.activity.form.button.create = Crear
 
-student.activity.form.error.duplicated = Este código no está libre
-student.activity.form.error.finishDate = La fecha de finalización debe ser después de la fecha de inicio
-student.activity.form.error.initialDate = El periodo debe empezar al menos un día por delante
-student.activity.form.error.period = El periodo debe tener una duración de una a cinco horas
+
+student.activity.list.label.title = Título
+student.activity.list.label.nature = Tipo de actividad
+student.activity.list.button.create = Crear
+student.activity.form.error.menor = La fecha fin debe ser posterior a la fecha inicial

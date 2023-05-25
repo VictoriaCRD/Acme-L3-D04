@@ -1,18 +1,8 @@
-key,key:enrolment,title,textAbstract,initialDate,finishDate,link,typeOfActivity
-activity-01,enrolment-02,75 caracteres tiene este largo y extenso texto para tener datos variablesss,abstracto,2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
-activity-02,enrolment-03,1,abstracto,2010/10/30 20:59,2000/01/01 00:00,http://ev.us,HANDS_ON
-activity-03,enrolment-01,esta es la mitad de caracteres limites,abstracto,2021/11/30 23:58,2001/01/01 10:30,http://ev.us,HANDS_ON
-activity-04,enrolment-01,titulo,abstracto,2021/11/30 23:58,2021/12/31 00:00,http://ev.us,HANDS_ON
-activity-05,enrolment-01,75 caracteres tiene este largo y extenso texto para tener datos variablesss,abstracto,2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
-activity-06,enrolment-01,75 caracteres tiene este largo y extenso texto para tener datos variablesss,abstracto,2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
-activity-07,enrolment-01,1,abstracto,2010/10/30 20:59,2000/01/01 00:00,http://ev.us,HANDS_ON
-activity-08,enrolment-01,esta es la mitad de caracteres limites,abstracto,2021/11/30 23:58,2001/01/01 10:30,http://ev.us,HANDS_ON
-activity-09,enrolment-01,titulo,abstracto,2021/11/30 23:58,2021/12/31 00:00,http://ev.us,HANDS_ON
-activity-10,enrolment-01,75 caracteres tiene este largo y extenso texto para tener datos variablesss,abstracto,2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
-activity-11,enrolment-01,75 caracteres tiene este largo y extenso texto para tener datos variablesss,abstracto,2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
-activity-12,enrolment-01,1,abstracto,2010/10/30 20:59,2000/01/01 00:00,http://ev.us,HANDS_ON
-activity-13,enrolment-01,esta es la mitad de caracteres limites,abstracto,2021/11/30 23:58,2001/01/01 10:30,http://ev.us,HANDS_ON
-activity-14,enrolment-01,titulo,abstracto,2021/11/30 23:58,2021/12/31 00:00,http://ev.us,HANDS_ON
-activity-15,enrolment-01,75 caracteres tiene este largo y extenso texto para tener datos variablesss,abstracto,2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
-activity-16,enrolment-01,75 caracteres tiene este largo y extenso texto para tener datos variablesss,abstracto,2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
-activity-17,enrolment-01,75 caracteres tiene este largo y extenso texto para tener datos variablesss,abstracto,2010/10/30 20:59,2000/01/01 10:30,http://ev.us,THEORETICAL
+key,title,abstracts,inicialPeriod,finalPeriod,nature,link,key:enrolment
+activity-01,Activity01,act1,2025/12/01 20:00,2025/12/02 23:00,THEORETICAL,http://activity1-example.com,enrolment-01
+activity-02,Activity02,act2,2025/12/03 20:00,2025/12/04 23:00,BALANCED,http://activity2-example.com,enrolment-02
+activity-03,Activity03,act3,2025/12/01 20:00,2025/12/02 23:00,THEORETICAL,http://activity3-example.com,enrolment-03
+activity-05,Activity04,act4,2025/12/03 20:00,2025/12/04 23:00,BALANCED,http://activity4-example.com,enrolment-03
+activity-06,A,act5,2025/12/03 20:00,2025/12/04 23:00,BALANCED,,enrolment-10
+activity-07,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo",A,2025/12/03 20:00,2025/12/04 23:00,BALANCED,,enrolment-11
+activity-08,Activity04,"La vida es corta, haz lo que te apasiona y disfruta cada momento al máximo.",2025/12/03 20:00,2025/12/04 23:00,BALANCED,http://activity4-example.com,enrolment-12

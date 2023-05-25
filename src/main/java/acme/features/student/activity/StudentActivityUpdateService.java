@@ -1,5 +1,5 @@
 /*
- * AuthenticatedConsumerUpdateService.java
+ * AuthenticatedConsumerController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -11,8 +11,6 @@
  */
 
 package acme.features.student.activity;
-
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,13 +26,12 @@ import acme.roles.Student;
 
 @Service
 public class StudentActivityUpdateService extends AbstractService<Student, Activity> {
-
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected StudentActivityRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Authenticated, Consumer> ---------------------------
 
 
 	@Override
@@ -50,16 +47,11 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void authorise() {
 		boolean status;
 		int enrolmentId;
-		Activity activity;
-		final Enrolment enrolment;
-		Student student;
+		Enrolment enrolment;
 
 		enrolmentId = super.getRequest().getData("id", int.class);
-		activity = this.repository.findOneActivityById(enrolmentId);
-		enrolment = activity == null ? null : activity.getEnrolment();
-		student = enrolment == null ? null : enrolment.getStudent();
-		status = activity != null && //
-			enrolment != null && enrolment.getStudent().getId() == super.getRequest().getPrincipal().getActiveRoleId();
+		enrolment = this.repository.findOneEnrolmentByActivityId(enrolmentId);
+		status = enrolment != null && !enrolment.isDraftMode() && super.getRequest().getPrincipal().hasRole(enrolment.getStudent());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -67,10 +59,8 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	@Override
 	public void load() {
 		Activity object;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneActivityById(id);
+		final int id = super.getRequest().getData("id", int.class);
+		object = this.repository.findActivityById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -79,24 +69,14 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void bind(final Activity object) {
 		assert object != null;
 
-		super.bind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
+		super.bind(object, "title", "abstracts", "inicialPeriod", "nature", "finalPeriod", "link");
 	}
 
 	@Override
 	public void validate(final Activity object) {
 		assert object != null;
-
-		if (!(super.getBuffer().getErrors().hasErrors("initialDate") || super.getBuffer().getErrors().hasErrors("finishDate"))) {
-			final boolean endDateIsAfter = object.getFinishDate().after(object.getInitialDate());
-			final Date currentDate = MomentHelper.getCurrentMoment();
-			final Long durationSinceCurrentDate = MomentHelper.computeDuration(currentDate, object.getInitialDate()).toDays();
-			final boolean startDateIsOneDayAhead = durationSinceCurrentDate.doubleValue() >= 1.;
-			super.state(endDateIsAfter, "finishDate", "student.activity.form.error.finishDate");
-			super.state(startDateIsOneDayAhead, "initialDate", "student.activity.form.error.initialDate");
-			super.state(object.getDurationInHours() >= 1. && // 
-				object.getDurationInHours() <= 5., "finishDate", "student.activity.form.error.period");
-
-		}
+		if (!super.getBuffer().getErrors().hasErrors("finalPeriod"))
+			super.state(MomentHelper.isAfter(object.getFinalPeriod(), object.getInicialPeriod()), "finalPeriod", "student.activity.form.error.menor");
 	}
 
 	@Override
@@ -110,19 +90,16 @@ public class StudentActivityUpdateService extends AbstractService<Student, Activ
 	public void unbind(final Activity object) {
 		assert object != null;
 
-		Tuple tuple;
 		SelectChoices choices;
-		Enrolment enrolment;
+		Tuple tuple;
+		choices = SelectChoices.from(EnumType.class, object.getNature());
 
-		choices = SelectChoices.from(EnumType.class, object.getTypeOfActivity());
-		enrolment = object.getEnrolment();
-
-		tuple = super.unbind(object, "title", "textAbstract", "typeOfActivity", "initialDate", "finishDate", "link");
-		tuple.put("enrolmentId", enrolment.getId());
-		tuple.put("notPublished", enrolment.getNotPublished());
-		tuple.put("types", choices);
-
+		tuple = super.unbind(object, "title", "abstracts", "inicialPeriod", "finalPeriod", "link", "nature");
+		tuple.put("nature", choices.getSelected().getKey());
+		tuple.put("enrolmentId", object.getEnrolment().getId());
+		tuple.put("natures", choices);
 		super.getResponse().setData(tuple);
+
 	}
 
 }
