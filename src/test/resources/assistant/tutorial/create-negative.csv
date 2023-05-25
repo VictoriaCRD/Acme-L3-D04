@@ -4,5 +4,7 @@ recordIndex,code,course,title,abstractm,goals,estimatedTime
 2,ABC798,This is also a course that is published,,consectetur adipiscing elit. Praesent elementum diam erat. Sed porta quis arcu non eleifend. Ut tincidunt sapien mauris,vitae ornare tortor aliquet non. Nunc molestie mollis nisl sed consequat. Ut at nisi lacus. Nulla quis mattis purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed mi tellus,gravida sit amet imperdiet ac,hendrerit in odio. Sed sed imperdiet lacus. Mauris at dapibus massa. Quisque accumsan scelerisque vestibulum. Vivamus cursus interdum,My first tutorial,Know what is a tutorial,30.0
 3,ABC894,This is also a course that is published,Tutorial 1,1,,20.4
 4,,This is also a course that is published,Tutorial 1,My first tutorial,Know what is a tutorial,2.00
-4,AD223,This is also a course that is published,Tutorial 1,Lorem ipsum dolor sit amet demasiado largo,consectetur adipiscing elit. Donec semper,,Know what is a tutorial,2.00
-4,AD22333,This is also a course that is published,Tutorial 1,My first tutorial,Lorem ipsum dolor sit amet too long,29.05,dui elementum iaculis mauris.,2.00
+5,AD223,This is also a course that is published,Tutorial 1,Lorem ipsum dolor sit amet demasiado largo,consectetur adipiscing elit. Donec semper,,Know what is a tutorial,2.00
+6,AD22333,This is also a course that is published,Tutorial 1,My first tutorial,Lorem ipsum dolor sit amet too long,29.05,dui elementum iaculis mauris.,2.00
+7,AD223,This is also a course that is published,Tutorial 1,My first tutorial,Lorem ipsum dolor sit amet too long,-29.05,dui elementum iaculis mauris.,2.00
+7,AD223,---,Tutorial 1,My first tutorial,Lorem ipsum dolor sit amet too long,29.05,dui elementum iaculis mauris.,2.00
