@@ -29,44 +29,44 @@ public class AuthenticatedAssistantShowService extends AbstractService<Authentic
 
 	// Internal state ---------------------------------------------------------
 
-		@Autowired
-		protected AuthenticatedBulletinRepository repository;
+	@Autowired
+	protected AuthenticatedBulletinRepository repository;
 
-		// AbstractService interface ----------------------------------------------
+	// AbstractService interface ----------------------------------------------
 
 
-		@Override
-		public void check() {
-			boolean status;
+	@Override
+	public void check() {
+		boolean status;
 
-			status = super.getRequest().hasData("id", int.class);
+		status = super.getRequest().hasData("id", int.class);
 
-			super.getResponse().setChecked(status);
-		}
-
-		@Override
-		public void authorise() {
-			super.getResponse().setAuthorised(true);
-		}
-
-		@Override
-		public void load() {
-			Collection<Bulletin> objects;
-
-			objects = this.repository.findManyBulletins();
-
-			super.getBuffer().setData(objects);
-		}
-
-		@Override
-		public void unbind(final Assistant object) {
-			assert object != null;
-
-			Tuple tuple;
-
-			tuple = super.unbind(object, "title", "moment", "message", "critical", "link");
-
-			super.getResponse().setData(tuple);
-		}
-
+		super.getResponse().setChecked(status);
 	}
+
+	@Override
+	public void authorise() {
+		super.getResponse().setAuthorised(true);
+	}
+
+	@Override
+	public void load() {
+		Collection<Bulletin> objects;
+
+		objects = this.repository.findManyBulletins();
+
+		super.getBuffer().setData(objects);
+	}
+
+	@Override
+	public void unbind(final Assistant object) {
+		assert object != null;
+
+		Tuple tuple;
+
+		tuple = super.unbind(object, "title", "moment", "message", "critical", "link");
+
+		super.getResponse().setData(tuple);
+	}
+
+}

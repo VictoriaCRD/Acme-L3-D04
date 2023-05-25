@@ -1,5 +1,8 @@
 recordIndex,code,title,estimatedTime,course,abstractm,goals
-0,AAA033,Tutorial 1,2.00,Curso sobre medicina forense.,My first tutorial,Know what is a tutorial
+0,AAA033,Dies ist ein Beispieltext,2.00,Curso sobre medicina forense.,My first tutorial,Know what is a tutorial
 1,AAB101,Dies ist ein Beispieltext,765.98,Curso sobre medicina forense.,My first tutorial,Know what is a tutorial
 2,AAC795,1,30.00,Curso sobre medicina forense.,My first tutorial,Know what is a tutorial
 3,AAD897,Tutorial 1,29.05,Curso sobre medicina forense.,1,Know what is a tutorial
+4,AAE897,Tutorial 1,29.05,Curso sobre medicina forense.,1,Know what is a tutorial
+5,AAF897,Esto es un texto muy muy largo de 75 palabras justo justo 75 75 caracteress,29.05,This is also a course that is published,1,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed eros et velit pretium nunc"
+6,AAG897,Esto es un texto muy muy largo de 75 palabras justo justo 75 75 caracteress,29.05,Curso sobre medicina forense.,1,Know what is a tutorial

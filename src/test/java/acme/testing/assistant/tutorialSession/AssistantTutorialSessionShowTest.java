@@ -34,7 +34,7 @@ public class AssistantTutorialSessionShowTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorialSession/show-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int tutorialRecordIndex, final String code, final int tutorialSessionRecordIndex, final String title, final String sessionType, final String startDate, final String endDate, final String abstractm) {
+	public void test100Positive(final int tutorialRecordIndex, final int tutorialSessionRecordIndex, final String title, final String sessionType, final String startDate, final String endDate, final String abstractm) {
 		// HINT: this test signs in as an assistant, lists his or her tutorials, selects
 		// HINT+ one of them and checks that it's as expected.
 

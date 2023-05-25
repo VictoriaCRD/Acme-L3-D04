@@ -20,7 +20,7 @@
 	<acme:list-column code="assistant.tutorial.list.label.title" path="title" width="5%"/>
 	<acme:list-column code="assistant.tutorial.list.label.notPublished" path="notPublished" width="5%"/>	
 	<acme:list-column code="assistant.tutorial.list.label.estimatedTime" path="estimatedTime" width="5%"/>
-</acme:list>
+	</acme:list>
 
 
 <jstl:if test="${_command == 'list-mine'}">

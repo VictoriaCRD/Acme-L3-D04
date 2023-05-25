@@ -27,7 +27,7 @@
 		<acme:message code="authenticated.tutorial.form.label.assistant"/>
 	</label>
 	<acme:input-textbox code="authenticated.tutorial.form.label.assistant.supervisor" path="assistant.supervisor"/>	
-	<acme:input-textbox code="authenticated.tutorial.form.label.assistant.fields" path="assistant.expertises"/>	
+	<acme:input-textbox code="authenticated.tutorial.form.label.assistant.fields" path="assistant.fields"/>	
 	<acme:input-textbox code="authenticated.tutorial.form.label.assistant.resume" path="assistant.resume"/>	
 	<acme:input-textbox code="authenticated.tutorial.form.label.assistant.link" path="assistant.link"/>	
 </acme:form>

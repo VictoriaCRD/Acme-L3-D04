@@ -34,15 +34,15 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorialSession/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test100Positive(final int tutorialRecordIndex, final String code, final int tutorialSessionRecordIndex, final String title, final String abstractm, final String sessionType, final String startDate, final String endDate) {
+	public void test100Positive(final int tutorialRecordIndex, final int tutorialSessionRecordIndex, final String title, final String abstractm, final String sessionType, final String startDate, final String endDate, final String link) {
 		// HINT: this test authenticates as an assistant, list his or her tutorials, navigates
 		// HINT+ to their duties, and checks that they have the expected data.
 
 		super.signIn("assistant1", "assistant1");
 
 		super.clickOnMenu("Asisstant", "My tutorials");
-		super.checkListingExists();
 		super.sortListing(0, "asc");
+		super.checkListingExists();
 
 		super.clickOnListingRecord(tutorialRecordIndex);
 		super.clickOnButton("Tutorial sessions");
@@ -53,10 +53,9 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 		super.fillInputBoxIn("sessionType", sessionType);
 		super.fillInputBoxIn("startDate", startDate);
 		super.fillInputBoxIn("endDate", endDate);
+		super.fillInputBoxIn("link", link);
 
 		super.clickOnSubmit("Create");
-
-		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 0, title);
 		super.checkColumnHasValue(tutorialSessionRecordIndex, 1, sessionType);
@@ -74,7 +73,7 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/assistant/tutorialSession/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	public void test200Negative(final int tutorialRecordIndex, final String code, final int tutorialSessionRecordIndex, final String title, final String abstractm, final String sessionType, final String startDate, final String endDate) {
+	public void test200Negative(final int tutorialRecordIndex, final int tutorialSessionRecordIndex, final String title, final String abstractm, final String sessionType, final String startDate, final String endDate, final String link) {
 		// HINT: this test attempts to create duties using wrong data.
 
 		super.signIn("assistant1", "assistant1");
@@ -92,6 +91,7 @@ public class AssistantTutorialSessionCreateTest extends TestHarness {
 		super.fillInputBoxIn("sessionType", sessionType);
 		super.fillInputBoxIn("startDate", startDate);
 		super.fillInputBoxIn("endDate", endDate);
+		super.fillInputBoxIn("link", link);
 		super.clickOnSubmit("Create");
 		super.checkErrorsExist();
 

@@ -38,13 +38,7 @@
 		    <acme:menu-suboption code="master.menu.any.courses" action="/any/course/list"/>		
 			<acme:menu-suboption code="master.menu.any.listPeeps" action="/any/peep/list"/>
 		</acme:menu-option>
-
-
-		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
-			<acme:menu-suboption code="master.menu.authenticated.tutorials" action="/authenticated/tutorial/list"/>
-			<acme:menu-suboption code="master.menu.authenticated.bulletins" action="/authenticated/bulletin/list"/>
-		</acme:menu-option>
-		
+	
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
