@@ -1,3 +1,12 @@
-tutorialRecordIndex,code,tutorialSessionRecordIndex,title,abstractm,sessionType,startDate,endDate
-0,ZA000,0,Example Session,This is the abstract,THEORETICAL,2024/06/12 13:30,2020/06/12 15:30
-0,ZA000,1,Example Session,This is the abstract,HANDS_ON,2020/06/12 13:30,2024/06/12 15:30
+tutorialRecordIndex,tutorialSessionRecordIndex,title,abstractm,sessionType,startDate,endDate,link
+0,0,Example Session,This is the abstract,THEORETICAL,2024/06/12 13:30,2020/06/12 15:30,null
+0,1,Example Session,This is the abstract,HANDS_ON,2024/06/12 13:30,2024/06/12 22:30,null
+0,1,Example Session,Lorem ipsum dolor sit amet,---,2024/06/12 13:30,2024/06/12 15:30,null
+0,1,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce leo molestie.",This is the abstract,THEORETICAL,2024/06/12 13:30,2024/06/12 15:30,null
+0,1,Example Session,This is the abstract,HANDS_ON,2020/06/12 13:30,2024/06/12 15:30,www.us.es
+0,1,Example Session,This is the abstract,HANDS_ON,2020/06/12 13:30,2024/06/12 14:00,null
+0,1,,This is the abstract,HANDS_ON,2020/06/12 13:30,2024/06/12 14:00,www.us.es
+0,1,Example Session,,HANDS_ON,2020/06/12 13:30,2024/06/12 14:00,null
+0,1,Example Session,This is the abstract,HANDS_ON,,2024/06/12 14:00,null
+0,1,Example Session,This is the abstract,HANDS_ON,2020/06/12 13:30,,www.us.es
+0,1,Example Session,This is the abstract,HANDS_ON,30/07/2022 10:00,30/07/2022 10:30,www.us.es

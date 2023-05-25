@@ -1,4 +1,4 @@
-code<%--
+<%--
 - form.jsp
 -
 - Copyright (C) 2012-2023 Rafael Corchuelo.

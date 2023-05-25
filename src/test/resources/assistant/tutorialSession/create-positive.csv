@@ -1,3 +1,7 @@
-tutorialRecordIndex,code,tutorialSessionRecordIndex,title,abstractm,sessionType,startDate,endDate
-0,ZA000,0,Axample Session,This is the abstract,THEORETICAL,2024/06/12 13:30,2024/06/12 15:30
-0,ZA000,1,Bxample Session,This is the abstract,HANDS_ON,2024/06/12 13:30,2024/06/12 15:30
+tutorialRecordIndex,tutorialSessionRecordIndex,title,abstractm,sessionType,startDate,endDate,link
+0,0,AAxample Session,This is the abstract,THEORETICAL,2024/06/12 13:30,2024/06/12 15:30,
+0,1,ABxample Session,This is the abstract,HANDS_ON,2024/06/12 13:30,2024/06/12 15:30,
+0,2,ACxample Session,This is the abstract,THEORETICAL,2024/06/12 13:30,2024/06/12 14:30,
+0,3,ADxample Session,This is the abstract,HANDS_ON,2024/06/12 13:30,2024/06/12 18:30,https://www.bodas.net/
+0,4,AExample Session,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed eros et velit pretium nun",HANDS_ON,2024/06/12 13:30,2024/06/12 18:29,https://www.bodas.net/
+0,5,AFxample Sessionsdjdshjdhsjdhsjdhsjdshdsjdhjdhjjsjsklaaa 75 palabras tienej,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed eros et velit pretium nun",THEORETICAL,2024/06/12 13:30,2024/06/12 18:29,https://www.bodas.net/

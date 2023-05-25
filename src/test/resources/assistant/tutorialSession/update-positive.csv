@@ -1,4 +1,6 @@
-tutorialRecordIndex,code,tutorialSessionRecordIndex,title,abstractm,sessionType,startDate,endDate
-0,ZA000,0,Axample Session,This is the abstract,THEORETICAL,2024/06/12 13:30,2024/06/12 15:30
-0,ZA000,0,Bxample Session,This is the abstract,HANDS_ON,2024/06/12 13:30,2024/06/12 15:30
-0,ZA000,0,Bxample Session,This is the abstract,HANDS_ON,2024/06/12 14:30,2024/06/12 15:30
+tutorialRecordIndex,tutorialSessionRecordIndex,title,abstractm,sessionType,startDate,endDate
+0,0,Axample Session,This is the abstract,THEORETICAL,2022/07/31 13:30,2022/07/31 15:30
+0,0,Bxample Session,This is the abstract,HANDS_ON,2024/06/12 13:30,2024/06/12 15:30
+0,0,Bxample Session,Lorem ipsum dolor sit amet,THEORETICAL,2024/06/12 13:30,2024/06/12 18:30,2024/06/12 15:30
+0,0,Lorem ipsum dolor sit amet,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed eros et velit pretium nun",HANDS_ON,2024/06/12 13:30,2024/06/12 14:30,2024/06/12 15:20
+0,0,Lorem ipsum dolor sit amet,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed eros et velit pretium nunc",THEORETICAL,2024/06/12 13:30,2024/06/12 17:30,2024/06/12 15:30

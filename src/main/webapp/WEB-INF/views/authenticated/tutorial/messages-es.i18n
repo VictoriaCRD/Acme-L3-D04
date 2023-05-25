@@ -11,6 +11,8 @@
 authenticated.tutorial.list.label.code = Código
 authenticated.tutorial.list.label.title = Título
 authenticated.tutorial.list.label.course.title = Título del curso
+authenticated.tutorial.list.label.assistant.fields = Campos del asistente
+authenticated.tutorial.list.label.assistant.supervisor = Supervisor
 
 authenticated.tutorial.form.label.code = Código:
 authenticated.tutorial.form.label.course = Curso: 
